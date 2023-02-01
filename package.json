@@ -1,0 +1,12 @@
+{
+    "name": "polify",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/arwebSE/polify.git",
+    "author": "ARWeb <contact@arweb.dev>",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "^5.2.3"
+    }
+}

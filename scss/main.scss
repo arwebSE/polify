@@ -1,0 +1,94 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+$bs-nav-pills-link-active-bg: #ff5771;
+
+$primary: #ff556f;
+$dark: #1d1d1d;
+
+//
+
+// BOOTSTRAP
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+///
+
+// FONTS
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@700&display=swap");
+@font-face {
+    font-family: "Satoshi";
+    src: url(../fonts/Satoshi-Variable.ttf);
+}
+@font-face {
+    font-family: "Gelion Light";
+    src: url(../fonts/Gelion-Light.ttf);
+}
+@font-face {
+    font-family: "Gelion Regular";
+    src: url(../fonts/Gelion-Regular.ttf);
+}
+@font-face {
+    font-family: "Gelion Medium";
+    src: url(../fonts/Gelion-Medium.ttf);
+}
+//
+
+///// CUSTOM STYLES
+///
+
+$gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
+
+.tint {
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+    color: black;
+    font-weight: bold;
+    font-family: "Satoshi", sans-serif;
+    padding: 0.5rem 1.3rem;
+    &.active {
+        background: $gradient;
+        border-radius: 11.1429px;
+        padding: 0.5rem 2.5rem;
+        margin-left: 20px;
+    }
+}
+
+.text-lg-start {
+    h1 {
+        font-family: "Poppins", sans-serif;
+    }
+    p {
+        color: $dark;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 19.5135px;
+        line-height: 132.5%;
+        span {
+            font-family: "Gelion Medium", sans-serif;
+        }
+    }
+    button {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        border-radius: 11.1429px;
+        color: #373737;
+        border-width: 2px;
+        border-color: #373737;
+        padding: 1rem 2rem !important;
+        margin: 1.5rem 0;
+
+        &.btn-primary {
+            background-color: $primary;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0px 0px 20px 0px #ff556e9c;
+        }
+    }
+}
