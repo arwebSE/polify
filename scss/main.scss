@@ -39,6 +39,21 @@ $dark: #1d1d1d;
 
 $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 
+/* width */
+::-webkit-scrollbar {
+    width: 0.7rem;
+    &-track {
+        background: #333;
+    }
+    &-thumb {
+        background: #888;
+        border-radius: 10px;
+        &:hover {
+            background: #555;
+        }
+    }
+}
+
 .tint {
     background: $gradient;
     background-clip: text;
@@ -90,5 +105,103 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
             border: none;
             box-shadow: 0px 0px 20px 0px #ff556e9c;
         }
+    }
+}
+
+.empower {
+    h2 {
+        font-family: "Gelion Regular", sans-serif;
+        color: #333;
+        font-weight: 900;
+        font-size: 2.2em;
+        line-height: 0.7;
+    }
+    h1 {
+        font-family: "Gelion Medium", sans-serif;
+        color: #313131;
+        font-weight: 900;
+        font-size: 4em;
+        line-height: 0.7;
+    }
+    p {
+        font-family: "Gelion Regular", sans-serif;
+        color: #565656;
+        font-weight: 400;
+        font-size: 1.1em;
+        line-height: 1;
+    }
+}
+
+.proof {
+    h3 {
+        color: #aa55ff;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.2em;
+    }
+    .graph {
+        width: 100%;
+    }
+    p {
+        font-family: "Gelion Regular", sans-serif;
+        font-size: 1.3em;
+    }
+}
+
+.bgsvg {
+    z-index: -100;
+}
+
+.benefits {
+    background-color: "transparent";
+    color: #fff;
+    background: url(../img/ellipse.svg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+    h1 {
+        font-family: "Gelion Regular", sans-serif;
+        color: #fff;
+        font-weight: 900;
+        font-size: 4em;
+        line-height: 0.7;
+    }
+
+    h3 {
+        color: #ff8cb5;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.2em;
+    }
+
+    .subtext {
+        color: #b4b4b4;
+        font-family: "Gelion Light", sans-serif;
+        font-size: 1.6em;
+        line-height: 1.5;
+    }
+}
+
+.services {
+    background-color: "transparent";
+    color: #fff;
+    background: url(../img/services.svg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    margin-top: -200px;
+    padding-top: 200px;
+
+    h3 {
+        color: #ffdbdb;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2em;
+    }
+
+    h1 {
+        font-family: "Gelion Regular", sans-serif;
+        font-weight: 900;
+        font-size: 3.5em;
+        line-height: 0.7;
     }
 }
