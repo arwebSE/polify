@@ -182,6 +182,21 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
+.concept {
+    .circle {
+        margin-top: -150px;
+    }
+    .subtext {
+        font-size: 1.3em;
+    }
+    h4 {
+        font-size: 2em;
+    }
+    .pull {
+        margin-left: -30px;
+    }
+}
+
 .services {
     background-color: "transparent";
     color: #fff;
@@ -203,5 +218,84 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
         font-weight: 900;
         font-size: 3.5em;
         line-height: 0.7;
+    }
+    h2 {
+        font-family: "Gelion Regular", sans-serif;
+        font-weight: 600;
+        font-size: 2.4em;
+        color: #ff7878;
+        line-height: 0.8;
+    }
+    p {
+        font-family: "Gelion regular", sans-serif;
+        font-size: 1.2em;
+        color: #ff8f8f;
+    }
+    .card {
+        background-color: #ffdbdb;
+        border: 0;
+        box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
+        height: 370px;
+    }
+}
+
+.try {
+    color: #ffdbdb;
+    h1 {
+        font-weight: 900;
+        font-size: 5.5em;
+    }
+    p {
+        color: rgba(255, 255, 255, 0.76);
+        font-family: "Gelion Light", sans-serif;
+        line-height: 1.25;
+        span {
+            font-family: "Gelion Medium", sans-serif;
+        }
+    }
+    button {
+        background-color: #ffcaca;
+        border: 0;
+        color: #ff7878;
+        font-size: 1.5em;
+        font-family: "Gelion Medium", sans-serif;
+        &:hover,
+        &:focus {
+            background-color: #fca3a3;
+            color: #fff;
+        }
+    }
+}
+
+.team {
+    h3 {
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.3em;
+    }
+    .card {
+        background-color: #1d1d1d;
+        box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.7);
+    }
+    h2 {
+        font-family: "Satoshi", sans-serif;
+        font-weight: 900;
+        font-size: 2.7em;
+    }
+    h4 {
+        font-family: "Gelion Light", sans-serif;
+    }
+    p {
+        color: #ddd;
+        font-family: "Gelion Light", sans-serif;
+        font-size: 0.9em;
+    }
+    .profile {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
     }
 }
