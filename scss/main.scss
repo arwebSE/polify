@@ -84,38 +84,40 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.text-lg-start {
-    h1 {
-        font-family: "Poppins", sans-serif;
-        font-weight: 700 !important;
-    }
-    p {
-        color: $dark;
-        font-family: "Gelion Light", sans-serif;
-        font-weight: 400;
-        font-size: 19.5135px;
-        line-height: 132.5%;
-        span {
-            font-family: "Gelion Medium", sans-serif;
+.partner {
+    .text-lg-start {
+        h1 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700 !important;
         }
-    }
-    button {
-        font-family: "Inter", sans-serif;
-        font-size: 14px;
-        font-weight: 800;
-        text-transform: uppercase;
-        border-radius: 11.1429px;
-        color: #373737;
-        border-width: 2px;
-        border-color: #373737;
-        padding: 1rem 2rem !important;
-        margin: 1.5rem 0;
+        p {
+            color: $dark;
+            font-family: "Gelion Light", sans-serif;
+            font-weight: 400;
+            font-size: 19.5135px;
+            line-height: 132.5%;
+            span {
+                font-family: "Gelion Medium", sans-serif;
+            }
+        }
+        button {
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 11.1429px;
+            color: #373737;
+            border-width: 2px;
+            border-color: #373737;
+            padding: 1rem 2rem !important;
+            margin: 1.5rem 0;
 
-        &.btn-primary {
-            background-color: $primary;
-            color: #ffffff;
-            border: none;
-            box-shadow: 0px 0px 20px 0px #ff556e9c;
+            &.btn-primary {
+                background-color: $primary;
+                color: #ffffff;
+                border: none;
+                box-shadow: 0px 0px 20px 0px #ff556e9c;
+            }
         }
     }
 }
@@ -451,6 +453,14 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 }
 
 @include media-breakpoint-up(xxxl) {
+    .partner {
+        margin: 12vh auto;
+    }
+
+    .proof {
+        margin: 5vh auto;
+    }
+
     #diag1 {
         height: 230px;
     }
