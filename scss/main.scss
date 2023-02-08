@@ -15,7 +15,7 @@ $dark: #1d1d1d;
 ///
 
 // FONTS
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@300;500;700&display=swap");
 @font-face {
     font-family: "Satoshi";
     src: url(../fonts/Satoshi-Variable.ttf);
@@ -76,6 +76,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 .text-lg-start {
     h1 {
         font-family: "Poppins", sans-serif;
+        font-weight: 700 !important;
     }
     p {
         color: $dark;
@@ -198,14 +199,19 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 }
 
 .services {
-    background-color: "transparent";
     color: #fff;
-    background: url(../img/services.svg) no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+    background-color: #ff7878;
     margin-top: -200px;
     padding-top: 200px;
+    padding-bottom: 350px;
+    position: relative;
+    z-index: 6;
 
+    .wrapper {
+        margin-top: -200px;
+        z-index: 10;
+        position: relative;
+    }
     h3 {
         color: #ffdbdb;
         font-family: "Gelion Light", sans-serif;
@@ -237,37 +243,41 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
         box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
         height: 370px;
     }
-}
 
-.try {
-    color: #ffdbdb;
-    h1 {
-        font-weight: 900;
-        font-size: 5.5em;
-    }
-    p {
-        color: rgba(255, 255, 255, 0.76);
-        font-family: "Gelion Light", sans-serif;
-        line-height: 1.25;
-        span {
-            font-family: "Gelion Medium", sans-serif;
+    .try {
+        color: #ffdbdb;
+        margin-top: 200px !important;
+        h1 {
+            font-weight: 900;
+            font-size: 5.5em;
         }
-    }
-    button {
-        background-color: #ffcaca;
-        border: 0;
-        color: #ff7878;
-        font-size: 1.5em;
-        font-family: "Gelion Medium", sans-serif;
-        &:hover,
-        &:focus {
-            background-color: #fca3a3;
-            color: #fff;
+        p {
+            color: rgba(255, 255, 255, 0.76);
+            font-family: "Gelion Light", sans-serif;
+            line-height: 1.25;
+            span {
+                font-family: "Gelion Medium", sans-serif;
+            }
+        }
+        button {
+            background-color: #ffcaca;
+            border: 0;
+            color: #ff7878;
+            font-size: 1.5em;
+            font-family: "Gelion Medium", sans-serif;
+            &:hover,
+            &:focus {
+                background-color: #fca3a3;
+                color: #fff;
+            }
         }
     }
 }
 
 .team {
+    position: relative;
+    margin-top: -70px;
+    z-index: 10;
     h3 {
         font-family: "Gelion Light", sans-serif;
         font-weight: 400;
@@ -298,4 +308,133 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
         border-radius: 50%;
         overflow: hidden;
     }
+}
+
+.contact {
+    position: relative;
+    .bgWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-image: linear-gradient(#fff, #ffe0e0);
+    }
+    .waves {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        img {
+            width: 70%;
+        }
+    }
+    .content {
+        position: relative;
+        z-index: 3;
+    }
+
+    form {
+        background-color: rgba(255, 255, 255, 0.678);
+        .form-control {
+            border: 0 !important;
+            border-bottom: 2px solid rgb(255 85 111 / 25%) !important;
+            border-radius: 0;
+            background-color: transparent;
+            &:focus {
+                box-shadow: none !important;
+                border-bottom: 2px solid #ff7878 !important;
+            }
+        }
+        h3 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500 !important;
+        }
+        label {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300 !important;
+        }
+        button {
+            font-size: 1.5em;
+            font-family: "Gelion Medium", sans-serif;
+            background-color: #ff5555;
+        }
+    }
+
+    footer {
+        display: flex;
+        position: relative;
+        flex: 1;
+        background-color: #ff5555;
+        box-shadow: inset 0px 10px 30px 0px rgba(0, 0, 0, 0.226);
+        color: white;
+        h4 {
+            font-family: "Gelion Regular", sans-serif;
+            font-weight: 600;
+            font-size: 2em;
+        }
+        .social {
+            color: white;
+            font-size: 1.5em;
+        }
+        .copyright {
+            position: relative;
+            display: inline;
+            z-index: 44;
+            color: black;
+            font-family: "Gelion Light", sans-serif;
+            font-size: 1.15em;
+            a {
+                color: black;
+                margin-left: 10px;
+            }
+        }
+        .slogan {
+            color: #120e0ea1;
+            font-family: "Satoshi", sans-serif;
+            font-weight: 600;
+            font-size: 1.5em;
+            line-height: 0.6;
+        }
+    }
+
+    /* white line in footer*/
+    .borderWrapper {
+        height: 70px;
+        margin-top: -70px;
+        position: relative;
+        div {
+            border-top: #fff 1px solid;
+        }
+    }
+}
+
+#diag {
+    background-color: white;
+    height: 200px;
+    transform: skewY(5deg);
+    margin-top: -100px;
+    position: relative;
+    z-index: 7;
+}
+
+#diag3 {
+    background-color: white;
+    height: 226px;
+    transform: skewY(7deg);
+    margin-bottom: -239px;
+    position: relative;
+    z-index: 4;
+}
+
+#diag2 {
+    background-color: #ff7878;
+    height: 320px;
+    transform: skewY(-7deg);
+    margin-top: -170px;
+    box-shadow: 0px -23px 20px -5px rgb(0 0 0 / 51%) !important;
+    position: relative;
+    z-index: 4;
 }
