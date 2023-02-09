@@ -370,7 +370,7 @@ export default function Home() {
                                         </div>
                                         <div className="flex-column p-5 pt-2">
                                             <p className="lh-1">
-                                                When developing a successful project, it's important to have a team of
+                                                When developing a successful project, it&apos;s important to have a team of
                                                 experts who can provide valuable input and insights, but also embody a
                                                 critical perspective that helps you always stay ahead.
                                             </p>
@@ -387,7 +387,7 @@ export default function Home() {
                                     <h1 className="display-1 fw-bold lh-1 mb-4">Try For A Week</h1>
                                     <p className="col-lg-10 fs-4 lh-2">
                                         We understand that it can be complicated to find the fitting agency or help for
-                                        your project, that's why Polify offers our clients a chance to
+                                        your project, that&apos;s why Polify offers our clients a chance to
                                         <span>try our concept for a week!</span> <br />
                                         <br />
                                         The offer includes several meetings and a befitting plan for the needs we have
@@ -442,7 +442,7 @@ export default function Home() {
                                         </div>
                                         <div className="px-4 pt-0">
                                             <p className="lh-2">
-                                                Works with Polify's Web3 marketing/advising, community management and
+                                                Works with Polify&apos;s Web3 marketing/advising, community management and
                                                 Web3 network.
                                             </p>
                                         </div>
@@ -473,7 +473,7 @@ export default function Home() {
                                         </div>
                                         <div className="px-4 pt-0">
                                             <p className="lh-2">
-                                                Works with Polify's community management, <br />
+                                                Works with Polify&apos;s community management, <br />
                                                 NFT marketing/advising and design.
                                             </p>
                                         </div>
@@ -504,7 +504,7 @@ export default function Home() {
                                         </div>
                                         <div className="px-4 pt-0">
                                             <p className="lh-2">
-                                                Works with Polify's social media advising/ marketing, influencer
+                                                Works with Polify&apos;s social media advising/ marketing, influencer
                                                 management and copywriting.
                                             </p>
                                         </div>
@@ -581,7 +581,7 @@ export default function Home() {
 
                                     <div className="form-floating mb-3">
                                         <textarea
-                                            type="text"
+                                            /* type="text" */
                                             className="form-control"
                                             id="message"
                                             placeholder="Leave a message here..."
@@ -603,12 +603,12 @@ export default function Home() {
                             <div className="pt-4 mt-4 mb-5">
                                 <div className="d-flex flex-row justify-content-between align-items-center">
                                     <div className="d-flex align-items-center">
-                                        <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                                       {/*  <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                                             <div className="d-flex flex-column">
                                                 <img src="./img/polify.svg" alt="polify logo" width="170px" />
                                                 <span className="slogan">Your Long Term Partner</span>
                                             </div>
-                                        </a>
+                                        </a> */}
                                     </div>
 
                                     <div className="text-center">

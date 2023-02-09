@@ -5,7 +5,7 @@
     "homepage": "https://arweb.github.io/polify",
     "scripts": {
         "prod": "next start",
-        "build": "next build",
+        "build": "next build && next export",
         "start": "next dev",
         "lint": "next lint",
         "predeploy": "yarn run build",
