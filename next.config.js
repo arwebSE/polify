@@ -2,7 +2,7 @@
 const path = require("path");
 
 const nextConfig = {
-    basePath: '/polify',
+    /* basePath: '/polify', */
     reactStrictMode: true,
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")],
