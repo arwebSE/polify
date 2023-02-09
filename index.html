@@ -6,18 +6,18 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:title" content="" />
-        <meta property="og:type" content="" />
-        <meta property="og:url" content="" />
-        <meta property="og:image" content="" />
+        <meta property="og:title" content="Polify" />
+        <meta property="og:description" content="Polify, Your Long Term Partner." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="./favicon-32x32.png" />
+        <meta name="msapplication-TileColor" content="#2d89ef" />
+        <meta name="theme-color" content="#ffffff" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
         <link rel="manifest" href="./site.webmanifest" />
         <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#2d89ef" />
-        <meta name="theme-color" content="#ffffff" />
 
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/boilerplate.css" />
@@ -25,29 +25,39 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
         <link rel="stylesheet" href="css/main.min.css" />
-
-        <meta name="theme-color" content="#fafafa" />
     </head>
 
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
-                <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" href="#">
-                    <img src="./img/logo.svg" alt="" class="bi me-2" width="40" height="32" />
-                </a>
-
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Benefits</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Concept</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">Contact</a></li>
-                </ul>
-            </header>
+        <div id="navbar" class="container py-5 mb-4">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="./img/logo.svg" alt="" class="bi me-2" height="50" /></a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navToggler"
+                        aria-controls="navToggler"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navToggler">
+                        <ul class="me-auto"></ul>
+                        <ul class="navbar-nav nav-pills">
+                            <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Benefits</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Concept</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link active">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
 
         <!-- BIG TRANSPARENT HERO -->
-
         <div id="partner" class="container col-xl-10 col-xxl-8 px-4 py-5">
             <div class="row align-items-center g-lg-5 py-5">
                 <div class="col-lg-7 text-center text-lg-start">
@@ -512,10 +522,15 @@
 
         <script src="js/vendor/modernizr-3.11.2.min.js"></script>
         <script src="js/plugins.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"
+        ></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
+        <!-- <script>
             window.ga = function () {
                 ga.q.push(arguments);
             };
@@ -526,6 +541,6 @@
             ga("set", "transport", "beacon");
             ga("send", "pageview");
         </script>
-        <script src="https://www.google-analytics.com/analytics.js" async></script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script> -->
     </body>
 </html>

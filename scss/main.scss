@@ -50,7 +50,7 @@ $grid-breakpoints: (
 
 $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 
-/* width */
+/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 0.7rem;
     &-track {
@@ -71,16 +71,21 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     -webkit-text-fill-color: transparent;
 }
 
-.nav-link {
-    color: black;
-    font-weight: bold;
-    font-family: "Satoshi", sans-serif;
-    padding: 0.5rem 1.3rem;
-    &.active {
-        background: $gradient;
-        border-radius: 11.1429px;
-        padding: 0.5rem 2.5rem;
-        margin-left: 20px;
+#navbar {
+    max-width: 90%;
+    .nav-link {
+        color: black;
+        font-weight: bold;
+        font-family: "Satoshi", sans-serif;
+        padding: 0.5rem 1.3rem;
+        font-size: 1.3em;
+        &.active {
+            background: $gradient;
+            border-radius: 11.1429px;
+            padding: 0.5rem 3rem;
+            margin-left: 2rem;
+            color: white;
+        }
     }
 }
 
