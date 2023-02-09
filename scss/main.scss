@@ -84,7 +84,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.partner {
+#partner {
     .text-lg-start {
         h1 {
             font-family: "Poppins", sans-serif;
@@ -122,7 +122,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.empower {
+#empower {
     h2 {
         font-family: "Gelion Regular", sans-serif;
         color: #333;
@@ -146,7 +146,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.proof {
+#proof {
     h3 {
         color: #aa55ff;
         font-family: "Gelion Light", sans-serif;
@@ -166,7 +166,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     z-index: -100;
 }
 
-.benefits {
+#benefits {
     background-color: "transparent";
     color: #fff;
     background: url(../img/ellipse.svg) no-repeat;
@@ -196,9 +196,15 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.concept {
+#concept {
+    margin-bottom: 200px;
     .circle {
-        margin-top: -150px;
+        margin-bottom: -200px;
+        /* width: 35rem; */
+        max-width: 600px;
+    }
+    .fakepic {
+        width: 30%;
     }
     .subtext {
         font-size: 1.3em;
@@ -206,12 +212,9 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     h4 {
         font-size: 2em;
     }
-    .pull {
-        margin-left: -30px;
-    }
 }
 
-.services {
+#services {
     color: #fff;
     background-color: #ff7878;
     margin-top: -200px;
@@ -287,7 +290,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.team {
+#team {
     position: relative;
     margin-top: -70px;
     z-index: 10;
@@ -323,7 +326,7 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
 }
 
-.bottom {
+#bottom {
     position: relative;
     .bgWrapper {
         position: absolute;
@@ -379,9 +382,10 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     footer {
         display: flex;
         position: relative;
+        margin-top: 15%;
         flex: 1;
         background-color: #ff5555;
-        box-shadow: inset 0px 10px 30px 0px rgba(0, 0, 0, 0.226);
+        /* box-shadow: inset 0px 10px 30px 0px rgba(0, 0, 0, 0.226); */
         color: white;
         h4 {
             font-family: "Gelion Regular", sans-serif;
@@ -452,15 +456,14 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     z-index: 7;
 }
 
+/* HD+ fixes */
 @include media-breakpoint-up(xxxl) {
-    .partner {
+    #partner {
         margin: 12vh auto;
     }
-
-    .proof {
+    #proof {
         margin: 5vh auto;
     }
-
     #diag1 {
         height: 230px;
     }
@@ -473,5 +476,24 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
     }
     footer {
         margin-top: 200px;
+    }
+}
+
+/* small display fixes */
+@include media-breakpoint-down(xl) {
+    #concept {
+        .circle {
+            width: 70%;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    #concept {
+        .circle {
+            width: 100%;
+            margin-bottom: auto;
+        }
+        height: 100%;
     }
 }
