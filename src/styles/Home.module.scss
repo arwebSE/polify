@@ -1,5 +1,3 @@
-// Custom.scss
-// Option A: Include all of Bootstrap
 
 // Include any default variable overrides here (though functions won't be available)
 $bs-nav-pills-link-active-bg: #ff5771;
@@ -7,23 +5,6 @@ $bs-nav-pills-link-active-bg: #ff5771;
 $primary: #ff556f;
 $dark: #1d1d1d;
 
-/* added HD+ res */
-$grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px,
-    xxxl: 1990px,
-);
-
-//
-
-// BOOTSTRAP
-@import "../node_modules/bootstrap/scss/bootstrap";
-
-///
 
 // FONTS
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@300;500;700&display=swap");
@@ -52,19 +33,6 @@ $gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
 $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
 /* SCROLLBAR */
-::-webkit-scrollbar {
-    width: 0.7rem;
-    &-track {
-        background: #333;
-    }
-    &-thumb {
-        background: #888;
-        border-radius: 10px;
-        &:hover {
-            background: #555;
-        }
-    }
-}
 
 .tint {
     background: $gradient;
@@ -186,7 +154,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 #benefits {
     background-color: "transparent";
     color: #fff;
-    background: url(../img/ellipse.svg) no-repeat;
+    background: url(../../public/img/ellipse.svg) no-repeat;
     background-size: cover;
     min-height: 100vh;
 
@@ -474,7 +442,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 /* HD+ fixes */
-@include media-breakpoint-up(xxxl) {
+/* @include media-breakpoint-up(xxxl) {
     #navbar {
         max-width: 80%;
     }
@@ -497,18 +465,18 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     footer {
         margin-top: 200px;
     }
-}
+} */
 
 /* small display fixes */
-@include media-breakpoint-down(xl) {
+/* @include media-breakpoint-down(xl) {
     #concept {
         .circle {
             width: 70%;
         }
     }
 }
-
-@include media-breakpoint-down(lg) {
+ */
+/* @include media-breakpoint-down(lg) {
     #concept {
         .circle {
             width: 100%;
@@ -517,3 +485,4 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         height: 100%;
     }
 }
+ */

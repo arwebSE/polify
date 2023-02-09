@@ -1,0 +1,534 @@
+:root {
+    --max-width: 1100px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+    &-track {
+        background: #333;
+    }
+    &-thumb {
+        background: #888;
+        border-radius: 10px;
+        &:hover {
+            background: #555;
+        }
+    }
+}
+
+
+// IMPORT Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Include any default variable overrides here (though functions won't be available)
+$bs-nav-pills-link-active-bg: #ff5771;
+
+$primary: #ff556f;
+$dark: #1d1d1d;
+
+/* added HD+ res */
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    xxxl: 1990px,
+);
+
+//
+
+///
+
+// FONTS
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@300;500;700&display=swap");
+@font-face {
+    font-family: "Satoshi";
+    src: url(../fonts/Satoshi-Variable.ttf);
+}
+@font-face {
+    font-family: "Gelion Light";
+    src: url(../fonts/Gelion-Light.ttf);
+}
+@font-face {
+    font-family: "Gelion Regular";
+    src: url(../fonts/Gelion-Regular.ttf);
+}
+@font-face {
+    font-family: "Gelion Medium";
+    src: url(../fonts/Gelion-Medium.ttf);
+}
+//
+
+///// CUSTOM STYLES
+///
+
+$gradient: linear-gradient(90deg, #ff8197 6.08%, #ff556f 99.66%);
+$gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
+
+/* SCROLLBAR */
+
+.tint {
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#navbar {
+    max-width: 90%;
+    .nav-link {
+        color: black;
+        font-weight: bold;
+        font-family: "Satoshi", sans-serif;
+        padding: 0.5rem 1.3rem;
+        font-size: 1.3em;
+        &.active {
+            background: $gradient;
+            border-radius: 11.1429px;
+            padding: 0.5rem 3rem;
+            margin-left: 2rem;
+            color: white;
+            &:hover {
+                opacity: 0.6;
+                transform: translateY(-2px);
+            }
+            transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out;
+        }
+    }
+}
+
+#partner {
+    .text-lg-start {
+        h1 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700 !important;
+        }
+        p {
+            color: $dark;
+            font-family: "Gelion Light", sans-serif;
+            font-weight: 400;
+            font-size: 19.5135px;
+            line-height: 132.5%;
+            span {
+                font-family: "Gelion Medium", sans-serif;
+            }
+        }
+        button {
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 11.1429px;
+            color: #373737;
+            border-width: 2px;
+            border-color: #373737;
+            padding: 1rem 2rem !important;
+            margin: 1.5rem 0;
+
+            &.btn-primary {
+                background-color: $primary;
+                color: #ffffff;
+                border: none;
+                box-shadow: 0px 0px 20px 0px #ff556e9c;
+            }
+            &:hover {
+                opacity: 0.6;
+                transform: translateY(-2px);
+            }
+            transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out;
+        }
+    }
+}
+
+#empower {
+    h2 {
+        font-family: "Gelion Regular", sans-serif;
+        color: #333;
+        font-weight: 900;
+        font-size: 2.2em;
+        line-height: 0.7;
+    }
+    h1 {
+        font-family: "Gelion Medium", sans-serif;
+        color: #313131;
+        font-weight: 900;
+        font-size: 4em;
+        line-height: 0.7;
+    }
+    p {
+        font-family: "Gelion Regular", sans-serif;
+        color: #565656;
+        font-weight: 400;
+        font-size: 1.1em;
+        line-height: 1;
+    }
+}
+
+#proof {
+    h3 {
+        color: #aa55ff;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.2em;
+    }
+    .graph {
+        width: 100%;
+    }
+    p {
+        font-family: "Gelion Light", sans-serif;
+        font-size: 1.65em;
+        line-height: 1.3;
+    }
+}
+
+.bgsvg {
+    z-index: -100;
+}
+
+#benefits {
+    background-color: "transparent";
+    color: #fff;
+    background: url(../../public/img/ellipse.svg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+    h1 {
+        font-family: "Gelion Regular", sans-serif;
+        color: #fff;
+        font-weight: 900;
+        font-size: 4em;
+        line-height: 0.7;
+    }
+
+    h3 {
+        color: #ff8cb5;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.2em;
+    }
+
+    .subtext {
+        color: #b4b4b4;
+        font-family: "Gelion Light", sans-serif;
+        font-size: 1.6em;
+        line-height: 1.5;
+    }
+}
+
+#concept {
+    margin-bottom: 200px;
+    .circle {
+        margin-bottom: -200px;
+        /* width: 35rem; */
+        max-width: 600px;
+    }
+    .fakepic {
+        width: 30%;
+    }
+    .subtext {
+        font-size: 1.3em;
+    }
+    h4 {
+        font-size: 2em;
+    }
+}
+
+#services {
+    color: #fff;
+    background-color: #ff7878;
+    margin-top: -200px;
+    padding-top: 200px;
+    padding-bottom: 350px;
+    position: relative;
+    z-index: 6;
+
+    .wrapper {
+        margin-top: -200px;
+        z-index: 10;
+        position: relative;
+    }
+    h3 {
+        color: #ffdbdb;
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2em;
+    }
+
+    h1 {
+        font-family: "Gelion Regular", sans-serif;
+        font-weight: 900;
+        font-size: 3.5em;
+        line-height: 0.7;
+    }
+    h2 {
+        font-family: "Gelion Regular", sans-serif;
+        font-weight: 600;
+        font-size: 2.4em;
+        color: #ff7878;
+        line-height: 0.8;
+    }
+    p {
+        font-family: "Gelion regular", sans-serif;
+        font-size: 1.2em;
+        color: #ff8f8f;
+    }
+    .card {
+        background-color: #ffdbdb;
+        border: 0;
+        box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
+        height: 370px;
+    }
+
+    .try {
+        color: #ffdbdb;
+        margin-top: 200px !important;
+        h1 {
+            font-weight: 900;
+            font-size: 5.5em;
+        }
+        p {
+            color: rgba(255, 255, 255, 0.76);
+            font-family: "Gelion Light", sans-serif;
+            line-height: 1.25;
+            span {
+                font-family: "Gelion Medium", sans-serif;
+            }
+        }
+        button {
+            background-color: #ffcaca;
+            border: 0;
+            color: #ff7878;
+            font-size: 1.5em;
+            font-family: "Gelion Medium", sans-serif;
+            &:hover,
+            &:focus {
+                background-color: #fca3a3;
+                color: #fff;
+            }
+        }
+    }
+}
+
+#team {
+    position: relative;
+    margin-top: -70px;
+    z-index: 10;
+    h3 {
+        font-family: "Gelion Light", sans-serif;
+        font-weight: 400;
+        font-size: 2.3em;
+    }
+    .card {
+        background-color: #1d1d1d;
+        box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.7);
+    }
+    h2 {
+        font-family: "Satoshi", sans-serif;
+        font-weight: 900;
+        font-size: 2.7em;
+    }
+    h4 {
+        font-family: "Gelion Light", sans-serif;
+    }
+    p {
+        color: #ddd;
+        font-family: "Gelion Light", sans-serif;
+        font-size: 0.9em;
+    }
+    .profile {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+#bottom {
+    position: relative;
+    .bgWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-image: linear-gradient(#fff, #ffe0e0);
+    }
+    .waves {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        img {
+            width: 70%;
+        }
+    }
+    .content {
+        position: relative;
+        z-index: 3;
+    }
+
+    form {
+        background-color: rgba(255, 255, 255, 0.678);
+        .form-control {
+            border: 0 !important;
+            border-bottom: 2px solid rgb(255 85 111 / 25%) !important;
+            border-radius: 0;
+            background-color: transparent;
+            &:focus {
+                box-shadow: none !important;
+                border-bottom: 2px solid #ff7878 !important;
+            }
+        }
+        h3 {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500 !important;
+        }
+        label {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300 !important;
+        }
+        button {
+            font-size: 1.5em;
+            font-family: "Gelion Medium", sans-serif;
+            background-color: #ff5555;
+        }
+    }
+
+    footer {
+        display: flex;
+        position: relative;
+        margin-top: 15%;
+        flex: 1;
+        background-color: #ff5555;
+        /* box-shadow: inset 0px 10px 30px 0px rgba(0, 0, 0, 0.226); */
+        color: white;
+        h4 {
+            font-family: "Gelion Regular", sans-serif;
+            font-weight: 600;
+            font-size: 2em;
+        }
+        .social {
+            color: white;
+            font-size: 1.5em;
+        }
+        .copyright {
+            position: relative;
+            display: inline;
+            z-index: 44;
+            color: black;
+            font-family: "Gelion Light", sans-serif;
+            font-size: 1.15em;
+            a {
+                color: black;
+                margin-left: 10px;
+            }
+        }
+        .slogan {
+            color: #120e0ea1;
+            font-family: "Satoshi", sans-serif;
+            font-weight: 600;
+            font-size: 1.5em;
+            line-height: 0.6;
+        }
+    }
+
+    /* white line in footer*/
+    .borderWrapper {
+        height: 70px;
+        margin-top: -70px;
+        position: relative;
+        div {
+            border-top: #fff 1px solid;
+        }
+    }
+}
+
+#diag1 {
+    background-color: white;
+    height: 226px;
+    transform: skewY(7deg);
+    margin-bottom: -239px;
+    position: relative;
+    z-index: 4;
+}
+
+#diag2 {
+    background-color: #ff7878;
+    height: 320px;
+    transform: skewY(-7deg);
+    margin-top: -170px;
+    box-shadow: 0px -23px 20px -5px rgb(0 0 0 / 51%) !important;
+    position: relative;
+    z-index: 4;
+}
+
+#diag3 {
+    background-color: white;
+    height: 200px;
+    transform: skewY(5deg);
+    margin-top: -100px;
+    position: relative;
+    z-index: 7;
+}
+
+/* HD+ fixes */
+@include media-breakpoint-up(xxxl) {
+    #navbar {
+        max-width: 80%;
+    }
+    #partner {
+        margin: 12vh auto;
+    }
+    #proof {
+        margin: 5vh auto;
+    }
+    #diag1 {
+        height: 230px;
+    }
+    #diag2 {
+        height: 380px;
+    }
+    #diag3 {
+        height: 230px;
+        margin-top: -120px;
+    }
+    footer {
+        margin-top: 200px;
+    }
+}
+
+/* small display fixes */
+@include media-breakpoint-down(xl) {
+    #concept {
+        .circle {
+            width: 70%;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    #concept {
+        .circle {
+            width: 100%;
+            margin-bottom: auto;
+        }
+        height: 100%;
+    }
+}
