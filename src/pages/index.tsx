@@ -6,14 +6,6 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { GraphQLClient, gql } from "graphql-request";
 
-import imgConcept from "../../public/img/concept.svg";
-import imgMarketing from "../../public/img/marketing.svg";
-import imgCommunity from "../../public/img/community.svg";
-import imgAdvising from "../../public/img/advising.svg";
-import imgAdam from "../../public/img/adam.png";
-import imgLudvig from "../../public/img/ludvig.png";
-import imgDayem from "../../public/img/dayem.png";
-import imgLinkedin from "../../public/img/linkedin.svg";
 import imgWaves from "../../public/img/waves.svg";
 
 /* import BlogPost from "@/components/BlogPost"; */
@@ -24,6 +16,8 @@ import Proof from "@/sections/Proof";
 import Benefits from "@/sections/Benefits";
 import Concept from "@/sections/Concept";
 import Services from "@/sections/Services";
+import Try from "@/sections/Try";
+import Team from "@/sections/Team";
 
 /* import styles from "@/styles/Home.module.scss"; */
 const inter = Inter({ subsets: ["latin"] });
@@ -42,21 +36,29 @@ const query = gql`
                 url
             }
         }
+        authors {
+            name
+            title
+            biography
+            picture {
+                url
+            }
+        }
     }
 `;
 
 export async function getStaticProps() {
-    const { sections } = await cms.request(query);
-    /* console.log("GQL data:", sections); */
+    const { sections, authors } = await cms.request(query);
+    console.log("GQL data:", authors);
 
     return {
-        props: { sections },
+        props: { sections, authors },
         revalidate: 10,
     };
 }
 
-export default function Home({ sections }: any) {
-    console.log("Posts:", sections);
+export default function Home({ sections, authors }: any) {
+    /* console.log("Posts:", sections); */
 
     const sPartner = sections.filter((section: { slug: string }) => {
         return section.slug == "partner";
@@ -80,6 +82,14 @@ export default function Home({ sections }: any) {
 
     const sServices = sections.filter((section: { slug: string }) => {
         return section.slug == "services";
+    })[0];
+
+    const sTry = sections.filter((section: { slug: string }) => {
+        return section.slug == "try";
+    })[0];
+
+    const sTeam = sections.filter((section: { slug: string }) => {
+        return section.slug == "team";
     })[0];
 
     return (
@@ -177,135 +187,15 @@ export default function Home({ sections }: any) {
 
                 <div id="pinkWrapper">
                     <div className="wrapper">
-                        
                         <Services data={sServices} />
 
-                        <section id="try" className="container col-xl-10 col-xxl-8 px-4 py-5 my-5">
-                            <div className="row align-items-center g-lg-5 py-5">
-                                <div className="col-lg-8">
-                                    <h3>Special Offer</h3>
-                                    <h1 className="display-1 fw-bold lh-1 mb-4">Try For A Week</h1>
-                                    <p className="col-lg-10 fs-4 lh-2">
-                                        We understand that it can be complicated to find the fitting agency or help for
-                                        your project, that&apos;s why Polify offers our clients a chance to
-                                        <span>try our concept for a week!</span> <br />
-                                        <br />
-                                        The offer includes several meetings and a befitting plan for the needs we have
-                                        identified together and solutions that your team are satisfied with. We will
-                                        leave it to you to implement our strategic plan.
-                                        <br />
-                                        <br />
-                                        We are confident that Polify will always deliver on your expectations, that is
-                                        why we guarantee <span>half your money back</span> if you are not satisfied.
-                                    </p>
-                                    <div className="d-md-flex mt-4">
-                                        <button
-                                            type="button"
-                                            className="btn btn-light btn-lg px-4 py-3 me-md-4 fw-bold"
-                                        >
-                                            Try Now!
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="col-md-10 mx-auto col-lg-4"></div>
-                            </div>
-                        </section>
+                        <Try data={sTry} />
                     </div>
                 </div>
 
                 <div id="diag3"></div>
 
-                <section id="team">
-                    <div className="px-4 pb-5 mb-5 text-center">
-                        <div className="pb-5">
-                            <h3>Team</h3>
-                            <h1 className="display-4 fw-bold mb-5">Meet Our Core Team</h1>
-                        </div>
-                        <div className="container-xxl px-4 py-5 mt-5">
-                            <div className="row">
-                                <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                                    <div className="card card-cover rounded-4 align-items-center text-center">
-                                        <div className="h-100 pt-5">
-                                            <Image src={imgAdam} alt="adam razzak" height={140} className="profile" />
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2 className="lh-1 text-white">Adam Razzak</h2>
-                                        </div>
-                                        <div className="pt-1">
-                                            <h4 className="lh-1 text-white">CEO</h4>
-                                        </div>
-                                        <div className="px-4 pt-0">
-                                            <p className="lh-2">
-                                                Works with Polify&apos;s Web3 marketing/advising, community management
-                                                and Web3 network.
-                                            </p>
-                                        </div>
-                                        <div className="pb-4">
-                                            <a href="#">
-                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                                    <div className="card card-cover rounded-4 align-items-center text-center">
-                                        <div className="h-100 pt-5">
-                                            <Image
-                                                src={imgLudvig}
-                                                alt="ludvig möller"
-                                                height={140}
-                                                className="profile"
-                                            />
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2 className="lh-1 text-white">Ludvig Möller</h2>
-                                        </div>
-                                        <div className="pt-1">
-                                            <h4 className="lh-1 text-white">CTO</h4>
-                                        </div>
-                                        <div className="px-4 pt-0">
-                                            <p className="lh-2">
-                                                Works with Polify&apos;s community management, <br />
-                                                NFT marketing/advising and design.
-                                            </p>
-                                        </div>
-                                        <div className="pb-4">
-                                            <a href="#">
-                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                                    <div className="card card-cover rounded-4 align-items-center text-center">
-                                        <div className="h-100 pt-5">
-                                            <Image src={imgDayem} alt="dayem qazi" height={140} className="profile" />
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2 className="lh-1 text-white">Dayem Qazi</h2>
-                                        </div>
-                                        <div className="pt-1">
-                                            <h4 className="lh-1 text-white">CMO</h4>
-                                        </div>
-                                        <div className="px-4 pt-0">
-                                            <p className="lh-2">
-                                                Works with Polify&apos;s social media advising/ marketing, influencer
-                                                management and copywriting.
-                                            </p>
-                                        </div>
-                                        <div className="pb-4">
-                                            <a href="#">
-                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <Team data={sTeam} authors={authors} />
 
                 <br />
                 <br />
