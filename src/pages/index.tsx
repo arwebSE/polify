@@ -86,7 +86,7 @@ export default function Home({ posts }: any) {
                 <div id="navbar" className="container py-5 mb-4">
                     <nav className="navbar navbar-expand-lg">
                         <div className="container-fluid">
-                            <Link className="navbar-brand" href="/">
+                            <Link className="navbar-brand" href="#">
                                 <Image src="/img/logo.svg" className="bi me-2" alt="logo" width={50} height={50} />
                             </Link>
                             <button
