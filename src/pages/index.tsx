@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 import { GraphQLClient, gql } from "graphql-request";
 
 import imgWaves from "../../public/img/waves.svg";
@@ -11,6 +9,8 @@ import imgWaves from "../../public/img/waves.svg";
 /* import BlogPost from "@/components/BlogPost"; */
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 import Top from "@/sections/Top";
 import Proof from "@/sections/Proof";
 import Benefits from "@/sections/Benefits";
@@ -18,6 +18,7 @@ import Concept from "@/sections/Concept";
 import Services from "@/sections/Services";
 import Try from "@/sections/Try";
 import Team from "@/sections/Team";
+import Contact from "@/sections/Contact";
 
 /* import styles from "@/styles/Home.module.scss"; */
 const inter = Inter({ subsets: ["latin"] });
@@ -43,14 +44,14 @@ const query = gql`
             picture {
                 url
             }
+            links
         }
     }
 `;
 
 export async function getStaticProps() {
     const { sections, authors } = await cms.request(query);
-    console.log("GQL data:", authors);
-
+    /* console.log("GQL data:", sections); */
     return {
         props: { sections, authors },
         revalidate: 10,
@@ -90,6 +91,14 @@ export default function Home({ sections, authors }: any) {
 
     const sTeam = sections.filter((section: { slug: string }) => {
         return section.slug == "team";
+    })[0];
+
+    const sContact = sections.filter((section: { slug: string }) => {
+        return section.slug == "contact";
+    })[0];
+
+    const cFooter = sections.filter((section: { slug: string }) => {
+        return section.slug == "footer";
     })[0];
 
     return (
@@ -202,149 +211,21 @@ export default function Home({ sections, authors }: any) {
                 <br />
                 <br />
 
-                <section id="bottom">
+                <div id="bottom">
                     <div className="bgWrapper"></div>
 
-                    <div id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-4 py-5 content">
-                        <div className="row py-5 mb-5 justify-content-between">
-                            <div className="col-lg-6 text-lg-start py-3 my-5 my-lg-1">
-                                <h2 className="display-5 fw-bold lh-1 mb-5">
-                                    Ready To Take The <br />
-                                    Next Step?
-                                </h2>
-                                <p className="col-lg-10 fs-4">
-                                    We believe that we have found the most effective concept, through Polify you will
-                                    receive marketing that not only is cost efficient but also gives you a more stable
-                                    presence in the market with more loyal customers. <br />
-                                    <br />
-                                    Do not hesitate to reach out to us, we have solutions for projects of all sizes.
-                                    Take advantage of our new offer and give the Polify concept a try.
-                                </p>
-                            </div>
+                    <Contact data={sContact} />
 
-                            <div className="col-lg-5 col-md-12">
-                                <form className="p-4 p-md-5 rounded-4 shadow-lg">
-                                    <h3 className="fw-bold lh-1 mb-3">Tell Us About Yourself.</h3>
+                    <Footer data={cFooter} />
 
-                                    <div className="form-floating mb-3">
-                                        <input
-                                            type="name"
-                                            className="form-control"
-                                            id="fullname"
-                                            placeholder="John Doe"
-                                        />
-                                        <label htmlFor="fullname">Your Name*</label>
-                                    </div>
-
-                                    <div className="form-floating mb-3">
-                                        <input
-                                            type="email"
-                                            className="form-control"
-                                            id="email"
-                                            placeholder="name@example.com"
-                                        />
-                                        <label htmlFor="email">Email*</label>
-                                    </div>
-
-                                    <div className="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="projects"
-                                            placeholder="example.com/my-project"
-                                        />
-                                        <label htmlFor="projects">Your Project Links*</label>
-                                    </div>
-
-                                    <div className="form-floating mb-3">
-                                        <textarea
-                                            /* type="text" */
-                                            className="form-control"
-                                            id="message"
-                                            placeholder="Leave a message here..."
-                                            /* style="height: 100px" */
-                                        ></textarea>
-                                        <label htmlFor="message">Your Message</label>
-                                    </div>
-
-                                    <button className="w-100 btn btn-lg btn-primary text-white mt-4" type="submit">
-                                        Submit
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <footer>
-                        <div className="container content col-xl-10 col-xxl-7">
-                            <div className="pt-4 mt-4 mb-5">
-                                <div className="d-flex flex-row justify-content-between align-items-center">
-                                    <div className="d-flex align-items-center">
-                                        {/*  <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                                            <div className="d-flex flex-column">
-                                                <img src="./img/polify.svg" alt="polify logo" width="170px" />
-                                                <span className="slogan">Your Long Term Partner</span>
-                                            </div>
-                                        </a> */}
-                                    </div>
-
-                                    <div className="text-center">
-                                        <div className="row p-2">
-                                            <h4>Follow Us</h4>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col">
-                                                <a className="social" href="#">
-                                                    <FontAwesomeIcon icon={faLinkedin} size="2xl" />
-                                                </a>
-                                            </div>
-                                            <div className="col">
-                                                <a className="social" href="#">
-                                                    <FontAwesomeIcon icon={faEnvelope} size="2xl" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="d-flex flex-row">
-                                    <span className="mt-4 copyright">
-                                        © POLIFY 2023. <a href="#">Terms & Privacy</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
                     <div className="borderWrapper container col-xl-10 col-xxl-7 px-3">
                         <div></div>
                     </div>
                     <div className="waves">
                         <Image src={imgWaves} alt="waves" style={{ width: "70%", height: "auto" }} />
                     </div>
-                </section>
+                </div>
 
-                {/*   <div className={styles.description}>
-                    <p>
-                        Get started by editing&nbsp;
-                        <code className={styles.code}>src/pages/index.tsx</code>
-                    </p>
-                    <div>
-                        <a
-                            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            By{" "}
-                            <Image
-                                src="/vercel.svg"
-                                alt="Vercel Logo"
-                                className={styles.vercelLogo}
-                                width={100}
-                                height={24}
-                                priority
-                            />
-                        </a>
-                    </div>
-                </div> */}
             </main>
         </>
     );

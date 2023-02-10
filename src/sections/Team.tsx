@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-import imgLinkedin from "../../public/img/linkedin.svg";
+import Link from "next/link";
 
 export default function Team({ data, authors }: any) {
     return (
@@ -16,7 +15,13 @@ export default function Team({ data, authors }: any) {
                         <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                             <div className="card card-cover rounded-4 align-items-center text-center">
                                 <div className="h-100 pt-5">
-                                    <Image src={authors[0].picture.url} alt={authors[0].name} height={140} width={140} className="profile" />
+                                    <Image
+                                        src={authors[0].picture.url}
+                                        alt={authors[0].name}
+                                        height={140}
+                                        width={140}
+                                        className="profile"
+                                    />
                                 </div>
                                 <div className="pt-3">
                                     <h2 className="lh-1 text-white">{authors[0].name}</h2>
@@ -28,9 +33,9 @@ export default function Team({ data, authors }: any) {
                                     <p className="lh-2">{authors[0].biography}</p>
                                 </div>
                                 <div className="pb-4">
-                                    <a href="#">
-                                        <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                    </a>
+                                    <Link href={authors[0].links[0]}>
+                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +43,13 @@ export default function Team({ data, authors }: any) {
                         <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                             <div className="card card-cover rounded-4 align-items-center text-center">
                                 <div className="h-100 pt-5">
-                                    <Image src={authors[1].picture.url} alt={authors[1].name} height={140} width={140} className="profile" />
+                                    <Image
+                                        src={authors[1].picture.url}
+                                        alt={authors[1].name}
+                                        height={140}
+                                        width={140}
+                                        className="profile"
+                                    />
                                 </div>
                                 <div className="pt-3">
                                     <h2 className="lh-1 text-white">{authors[1].name}</h2>
@@ -50,9 +61,9 @@ export default function Team({ data, authors }: any) {
                                     <p className="lh-2">{authors[1].biography}</p>
                                 </div>
                                 <div className="pb-4">
-                                    <a href="#">
-                                        <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                    </a>
+                                    <Link href={authors[1].links[0]}>
+                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +71,13 @@ export default function Team({ data, authors }: any) {
                         <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                             <div className="card card-cover rounded-4 align-items-center text-center">
                                 <div className="h-100 pt-5">
-                                    <Image src={authors[2].picture.url} alt={authors[2].name} height={140} width={140} className="profile" />
+                                    <Image
+                                        src={authors[2].picture.url}
+                                        alt={authors[2].name}
+                                        height={140}
+                                        width={140}
+                                        className="profile"
+                                    />
                                 </div>
                                 <div className="pt-3">
                                     <h2 className="lh-1 text-white">{authors[2].name}</h2>
@@ -72,9 +89,9 @@ export default function Team({ data, authors }: any) {
                                     <p className="lh-2">{authors[2].biography}</p>
                                 </div>
                                 <div className="pb-4">
-                                    <a href="#">
-                                        <Image src={imgLinkedin} alt="linkedin logo" width={30} />
-                                    </a>
+                                    <Link href={authors[2].links[0]}>
+                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
