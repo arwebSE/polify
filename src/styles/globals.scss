@@ -175,6 +175,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #proof {
+    margin-bottom: 300px;
     h3 {
         color: #aa55ff;
         font-family: "Gelion Light", sans-serif;
@@ -195,13 +196,16 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     z-index: -100;
 }
 
-#benefits {
+#darkWrapper {
     background-color: "transparent";
     color: #fff;
-    background: url(../../public/img/ellipse.svg) no-repeat;
+    background: url(/img/ellipse.svg) no-repeat;
     background-size: cover;
     min-height: 100vh;
+    padding-top: 300px;
+}
 
+#benefits {
     h1 {
         font-family: "Gelion Regular", sans-serif;
         color: #fff;
@@ -289,7 +293,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         height: 370px;
     }
 
-    .try {
+    #try {
         color: #ffdbdb;
         margin-top: 200px !important;
         h1 {

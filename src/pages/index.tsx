@@ -1,56 +1,72 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
 import { Inter } from "@next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-
-import Button from "react-bootstrap/Button";
 import { GraphQLClient, gql } from "graphql-request";
+
+import imgConcept from "../../public/img/concept.svg";
+import imgGraph from "../../public/img/graph.jpg";
+import imgMarketing from "../../public/img/marketing.svg";
+import imgCommunity from "../../public/img/community.svg";
+import imgAdvising from "../../public/img/advising.svg";
+import imgAdam from "../../public/img/adam.png";
+import imgLudvig from "../../public/img/ludvig.png";
+import imgDayem from "../../public/img/dayem.png";
+import imgLinkedin from "../../public/img/linkedin.svg";
+import imgWaves from "../../public/img/waves.svg";
+
 import BlogPost from "@/components/BlogPost";
 
-/* import styles from "@/styles/Home.module.scss"; */
+import Navbar from "@/sections/Navbar";
+import Top from "@/sections/Top";
+import Proof from "@/sections/Proof";
 
+/* import styles from "@/styles/Home.module.scss"; */
 const inter = Inter({ subsets: ["latin"] });
 
 const cms = new GraphQLClient(process.env.GQL_API || "");
-
 const query = gql`
     query {
-        posts {
-            id
-            title
-            date
+        sections {
+            fields
             slug
-            coverImage {
+            subtitle
+            title
+            asset {
                 url
-            }
-            author {
-                name
-                picture {
-                    url
-                }
-            }
-            content {
-                html
             }
         }
     }
 `;
 
 export async function getStaticProps() {
-    const { posts } = await cms.request(query);
+    const { sections } = await cms.request(query);
+    /* console.log("GQL data:", sections); */
 
     return {
-        props: { posts },
+        props: { sections },
         revalidate: 10,
     };
 }
 
-export default function Home({ posts }: any) {
+export default function Home({ sections }: any) {
+    /* console.log("Posts:", sections); */
+
+    const sPartner = sections.filter((section) => {
+        return section.slug == "partner";
+    })[0];
+
+    const sEmpower = sections.filter((section) => {
+        return section.slug == "empower";
+    })[0];
+
+    const sProof = sections.filter((section) => {
+        return section.slug == "proof";
+    })[0];
+
     return (
         <>
             <Head>
@@ -83,131 +99,13 @@ export default function Home({ posts }: any) {
                 {/* <link rel="stylesheet" href="css/main.min.css" /> */}
             </Head>
             <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
-                <div id="navbar" className="container py-5 mb-4">
-                    <nav className="navbar navbar-expand-lg">
-                        <div className="container-fluid">
-                            <Link className="navbar-brand" href="#">
-                                <Image src="/img/logo.svg" className="bi me-2" alt="logo" width={50} height={50} />
-                            </Link>
-                            <button
-                                className="navbar-toggler"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navToggler"
-                                aria-controls="navToggler"
-                                aria-expanded="false"
-                                aria-label="Toggle navigation"
-                            >
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navToggler">
-                                <ul className="me-auto"></ul>
-                                <ul className="navbar-nav nav-pills">
-                                    <li className="nav-item">
-                                        <a href="#benefits" className="nav-link">
-                                            Benefits
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#concept" className="nav-link">
-                                            Concept
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#services" className="nav-link">
-                                            Services
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#team" className="nav-link">
-                                            Team
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#contact" className="nav-link active">
-                                            Contact
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
+                <Navbar />
 
-                <div id="partner" className="container col-xl-10 col-xxl-8 px-4 py-5">
-                    <div className="row align-items-center g-lg-5 py-5">
-                        <div className="col-lg-7 text-center text-lg-start">
-                            <h1 className="display-1 fw-bold lh-1 mb-0">Your Long-Term</h1>
-                            <h1 className="display-1 fw-bold lh-1 mb-3 tint">Partner</h1>
-                            <p className="col-lg-10 fs-4">
-                                All start-ups dream of continuing to exist in the market and dominate their areas and
-                                Polify is there to support its partners in realizing <span>this dream.</span>
-                            </p>
-                            <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                                <Button variant="primary" size="lg" className="px-4 me-md-4 fw-bold">
-                                    Try a week
-                                </Button>
-                                <Button variant="outline" size="lg" className="px-4" href="#contact">
-                                    Contact us
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="col-md-10 mx-auto col-lg-5"></div>
-                    </div>
-                </div>
+                <Top partner={sPartner} empower={sEmpower} />
 
-                <div id="empower" className="container px-5">
-                    <div className="row p-5 pb-3 pe-lg-0 align-items-center rounded-5 border shadow mb-5">
-                        <div className="col-lg-4 p-3 p-lg-4 pt-lg-3">
-                            <h2 className="display-7 fw-bold lh-1">Polify empowers businesses worldwide.</h2>
-                        </div>
-                        <div className="col-lg-1"></div>
-                        <div className="col-lg-2">
-                            <h1 className="display-7 fw-bold">400+</h1>
-                            <p className="lead">Connections within our web3 network.</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <h1 className="display-7 fw-bold">7,5+</h1>
-                            <p className="lead">Combined years of experience in Web3.</p>
-                        </div>
-                        <div className="col-lg-2">
-                            <h1 className="display-7 fw-bold">15+</h1>
-                            <p className="lead">Project that have worked with Polify.</p>
-                        </div>
-                    </div>
-                </div>
+                <Proof data={sProof} />
 
-                <br />
-                <br />
-
-                <section id="proof" className="pb-5">
-                    <div className="container col-xl-10 col-xxl-8 px-4 py-5">
-                        <div className="row align-items-center g-lg-5 py-2">
-                            <div className="col-lg-7 text-center text-lg-start">
-                                <h3>Social Proof</h3>
-                                <h1 className="display-5 fw-bold lh-1 mb-0">Projects Working With Us</h1>
-                            </div>
-                        </div>
-                        <div className="row align-items-center g-lg-5">
-                            <div className="col-lg-7 text-center text-lg-start p-5 pb-3 ps-lg-0">
-                                <img
-                                    src="./img/graph.jpg"
-                                    alt="graph of community growth"
-                                    className="graph shadow-lg rounded-5"
-                                />
-                            </div>
-                            <div className="col-md-10 col-lg-4">
-                                <p>
-                                    These are the results we achieved by using the Polify concept with Community
-                                    marketing, where we not only increased the number of players and community members
-                                    but also succeeded in maintaining the activity.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="news" className="pb-5">
+                {/* <section id="news" className="pb-5">
                     <div className="container col-xl-10 col-xxl-8 px-4 py-5">
                         <div className="row align-items-center g-lg-5 py-2">
                             <div className="col-lg-7 text-center text-lg-start">
@@ -217,74 +115,65 @@ export default function Home({ posts }: any) {
                         </div>
 
                         <div className="row mb-2">
-                            {posts.map((post: { id: any; title: any; author: any; coverImage: any; datePublished: any; slug: any; content: any; }) => (
-                                <BlogPost
-                                    key={post.id}
-                                    title={post.title}
-                                    author={post.author}
-                                    coverImage={post.coverImage}
-                                    datePublished={post.datePublished}
-                                    slug={post.slug}
-                                    content={post.content}
-                                />
-                            ))}
+                            {posts.map(
+                                (post: {
+                                    id: any;
+                                    title: any;
+                                    author: any;
+                                    coverImage: any;
+                                    datePublished: any;
+                                    slug: any;
+                                    content: any;
+                                }) => (
+                                    <BlogPost
+                                        key={post.id}
+                                        title={post.title}
+                                        author={post.author}
+                                        coverImage={post.coverImage}
+                                        datePublished={post.datePublished}
+                                        slug={post.slug}
+                                        content={post.content}
+                                    />
+                                )
+                            )}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <div id="darkWrapper">
 
-                <section id="benefits">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-
-                    <div className="container col-xl-10 col-xxl-8 px-4 py-5">
-                        <div className="row align-items-center g-lg-5 py-2">
-                            <div className="col-lg-10 text-center text-lg-start">
-                                <h3>Benefits</h3>
-                                <h1 className="lh-1">Benefits From Working With Us</h1>
+                    <section id="benefits">
+                        <div className="container col-xl-10 col-xxl-8 px-4 py-5">
+                            <div className="row align-items-center g-lg-5 py-2">
+                                <div className="col-lg-10 text-center text-lg-start">
+                                    <h3>Benefits</h3>
+                                    <h1 className="lh-1">Benefits From Working With Us</h1>
+                                </div>
+                            </div>
+                            <div className="row align-items-center g-lg-5 py-2">
+                                <div className="col-lg-6 text-center text-lg-start">
+                                    <p className="subtext">
+                                        Polify’s effective marketing is based on strong, driven, and engaging communities
+                                        that give the audience a stronger feeling of belief in the project and experience
+                                        what you have to offer both short and long-term.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row align-items-center g-lg-5 py-2">
+                                <div className="col-lg-6 text-center text-lg-start">
+                                    <ul className="subtext">
+                                        <li>Cost-effective</li>
+                                        <li>Always have someone to bounce ideas off</li>
+                                        <li>A wide network of contacts.</li>
+                                        <li>
+                                            A team that is accustomed to working under pressure and is comfortable
+                                            problem-solvers.
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <div className="row align-items-center g-lg-5 py-2">
-                            <div className="col-lg-6 text-center text-lg-start">
-                                <p className="subtext">
-                                    Polify’s effective marketing is based on strong, driven, and engaging communities
-                                    that give the audience a stronger feeling of belief in the project and experience
-                                    what you have to offer both short and long-term.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="row align-items-center g-lg-5 py-2">
-                            <div className="col-lg-6 text-center text-lg-start">
-                                <ul className="subtext">
-                                    <li>Cost-effective</li>
-                                    <li>Always have someone to bounce ideas off</li>
-                                    <li>A wide network of contacts.</li>
-                                    <li>
-                                        A team that is accustomed to working under pressure and is comfortable
-                                        problem-solvers.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
 
                     <br />
                     <br />
@@ -293,7 +182,7 @@ export default function Home({ posts }: any) {
                     <br />
                     <br />
 
-                    <div id="concept" className="container-xxl px-4 py-5">
+                    <section id="concept" className="container-xxl px-4 py-5">
                         <div className="row align-items-center py-5">
                             <div className="col-lg-8 text-center text-lg-start">
                                 <h3>Concept</h3>
@@ -314,11 +203,7 @@ export default function Home({ posts }: any) {
                             </div>
 
                             <div className="text-center align-items-center col-md-auto order-sm-first order-lg-2">
-                                <img
-                                    src="./img/concept.svg"
-                                    alt="circle that represents the process"
-                                    className="circle"
-                                />
+                                <Image src={imgConcept} alt="circle that represents the process" className="circle" />
                             </div>
 
                             <div className="col-lg-3 text-lg-start ps-lg-0 order-lg-3">
@@ -359,7 +244,7 @@ export default function Home({ posts }: any) {
                             </div>
                             <div className="col-lg-4"></div>
                         </div>
-                    </div>
+                    </section>
 
                     <br />
                     <br />
@@ -371,7 +256,7 @@ export default function Home({ posts }: any) {
                     <br />
                     <br />
                     <br />
-                </section>
+                </div>
 
                 <div id="diag1"></div>
                 <div id="diag2"></div>
@@ -392,7 +277,7 @@ export default function Home({ posts }: any) {
                                     <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                                         <div className="row">
                                             <div className="h-100 pt-5">
-                                                <img src="./img/marketing.svg" alt="image" width="100" height="100" />
+                                                <Image src={imgMarketing} alt="megaphone" height={100} />
                                             </div>
                                         </div>
                                         <div className="pt-3">
@@ -412,7 +297,7 @@ export default function Home({ posts }: any) {
                                     <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                                         <div className="row">
                                             <div className="h-100 pt-5">
-                                                <img src="./img/community.svg" alt="image" width="100" height="100" />
+                                                <Image src={imgCommunity} alt="community" height={100} />
                                             </div>
                                         </div>
                                         <div className="pt-3">
@@ -431,7 +316,7 @@ export default function Home({ posts }: any) {
                                     <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                                         <div className="row">
                                             <div className="h-100 pt-5">
-                                                <img src="./img/advising.svg" alt="image" width="100" height="100" />
+                                                <Image src={imgAdvising} alt="arrow" height={100} />
                                             </div>
                                         </div>
                                         <div className="pt-3">
@@ -449,7 +334,7 @@ export default function Home({ posts }: any) {
                             </div>
                         </div>
 
-                        <div className="container col-xl-10 col-xxl-8 px-4 py-5 try my-5">
+                        <div id="try" className="container col-xl-10 col-xxl-8 px-4 py-5 my-5">
                             <div className="row align-items-center g-lg-5 py-5">
                                 <div className="col-lg-8">
                                     <h3>Special Offer</h3>
@@ -495,13 +380,7 @@ export default function Home({ posts }: any) {
                                 <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                                     <div className="card card-cover rounded-4 align-items-center text-center">
                                         <div className="h-100 pt-5">
-                                            <img
-                                                src="./img/adam.png"
-                                                alt="image"
-                                                width="140"
-                                                height="140"
-                                                className="profile"
-                                            />
+                                            <Image src={imgAdam} alt="adam razzak" height={140} className="profile" />
                                         </div>
                                         <div className="pt-3">
                                             <h2 className="lh-1 text-white">Adam Razzak</h2>
@@ -517,7 +396,7 @@ export default function Home({ posts }: any) {
                                         </div>
                                         <div className="pb-4">
                                             <a href="#">
-                                                <img src="./img/linkedin.svg" alt="linkedin logo" width="30px" />
+                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
                                             </a>
                                         </div>
                                     </div>
@@ -526,11 +405,10 @@ export default function Home({ posts }: any) {
                                 <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                                     <div className="card card-cover rounded-4 align-items-center text-center">
                                         <div className="h-100 pt-5">
-                                            <img
-                                                src="./img/ludvig.png"
-                                                alt="image"
-                                                width="140"
-                                                height="140"
+                                            <Image
+                                                src={imgLudvig}
+                                                alt="ludvig möller"
+                                                height={140}
                                                 className="profile"
                                             />
                                         </div>
@@ -548,7 +426,7 @@ export default function Home({ posts }: any) {
                                         </div>
                                         <div className="pb-4">
                                             <a href="#">
-                                                <img src="./img/linkedin.svg" alt="linkedin logo" width="30px" />
+                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
                                             </a>
                                         </div>
                                     </div>
@@ -557,13 +435,7 @@ export default function Home({ posts }: any) {
                                 <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
                                     <div className="card card-cover rounded-4 align-items-center text-center">
                                         <div className="h-100 pt-5">
-                                            <img
-                                                src="./img/dayem.png"
-                                                alt="image"
-                                                width="140"
-                                                height="140"
-                                                className="profile"
-                                            />
+                                            <Image src={imgDayem} alt="dayem qazi" height={140} className="profile" />
                                         </div>
                                         <div className="pt-3">
                                             <h2 className="lh-1 text-white">Dayem Qazi</h2>
@@ -579,7 +451,7 @@ export default function Home({ posts }: any) {
                                         </div>
                                         <div className="pb-4">
                                             <a href="#">
-                                                <img src="./img/linkedin.svg" alt="linkedin logo" width="30px" />
+                                                <Image src={imgLinkedin} alt="linkedin logo" width={30} />
                                             </a>
                                         </div>
                                     </div>
@@ -710,7 +582,7 @@ export default function Home({ posts }: any) {
                         <div></div>
                     </div>
                     <div className="waves">
-                        <img alt="waves" src="img/waves.svg" />
+                        <Image src={imgWaves} alt="waves" style={{ width: "70%", height: "auto" }} />
                     </div>
                 </section>
 

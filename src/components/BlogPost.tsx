@@ -12,7 +12,9 @@ const BlogPost = ({ title, author, coverImage, datePublished, slug, content }: a
                     <strong className="d-inline-block mb-2 text-success">Design</strong>
                     <h3 className="mb-0">{title}</h3>
                     <div className="mb-1 text-muted">Nov 11</div>
-                    <p className="mb-auto">{content.html}</p>
+             
+                        <div dangerouslySetInnerHTML={{ __html: content.html }} />
+                 
                     <Link className="stretched-link" href={"/posts/" + slug}>
                         Continue Reading
                     </Link>
@@ -22,7 +24,7 @@ const BlogPost = ({ title, author, coverImage, datePublished, slug, content }: a
                     </div>
                 </div>
                 <div className="col-auto d-none d-lg-block">
-                    <Image  src={coverImage?.url} alt="cover photo" width={200} height={250} />
+                    <Image src={coverImage?.url} alt="cover photo" width={200} height={250} />
                 </div>
             </div>
         </div>
