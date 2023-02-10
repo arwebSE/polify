@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import styles from "@/styles/BlogPost.module.css";
 
@@ -21,7 +22,7 @@ const BlogPost = ({ title, author, coverImage, datePublished, slug, content }: a
                     </div>
                 </div>
                 <div className="col-auto d-none d-lg-block">
-                    <img src={coverImage?.url} alt="cover photo" width={200} height={250} />
+                    <Image  src={coverImage?.url} alt="cover photo" width={200} height={250} />
                 </div>
             </div>
         </div>

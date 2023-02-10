@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+
 import { Inter } from "@next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,7 +16,7 @@ import BlogPost from "@/components/BlogPost";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const cms = new GraphQLClient(process.env.GQL_API);
+const cms = new GraphQLClient(process.env.GQL_API || "");
 
 const query = gql`
     query {
@@ -48,7 +50,7 @@ export async function getStaticProps() {
     };
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts }: any) {
     return (
         <>
             <Head>
@@ -80,13 +82,13 @@ export default function Home({ posts }) {
 
                 {/* <link rel="stylesheet" href="css/main.min.css" /> */}
             </Head>
-            <main data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true">
+            <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
                 <div id="navbar" className="container py-5 mb-4">
                     <nav className="navbar navbar-expand-lg">
                         <div className="container-fluid">
-                            <a className="navbar-brand" href="#">
-                                <img src="./img/logo.svg" alt="" className="bi me-2" height="50" />
-                            </a>
+                            <Link className="navbar-brand" href="/">
+                                <Image src="/img/logo.svg" className="bi me-2" alt="logo" width={50} height={50} />
+                            </Link>
                             <button
                                 className="navbar-toggler"
                                 type="button"
@@ -102,7 +104,7 @@ export default function Home({ posts }) {
                                 <ul className="me-auto"></ul>
                                 <ul className="navbar-nav nav-pills">
                                     <li className="nav-item">
-                                        <a href="#benefits" className="nav-link" aria-current="page">
+                                        <a href="#benefits" className="nav-link">
                                             Benefits
                                         </a>
                                     </li>
@@ -215,8 +217,7 @@ export default function Home({ posts }) {
                         </div>
 
                         <div className="row mb-2">
-                            
-                            {posts.map((post) => (
+                            {posts.map((post: { id: any; title: any; author: any; coverImage: any; datePublished: any; slug: any; content: any; }) => (
                                 <BlogPost
                                     key={post.id}
                                     title={post.title}
