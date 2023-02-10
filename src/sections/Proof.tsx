@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Proof({ data }) {
+export default function Proof({ data }: any) {
     return (
         <section id="proof" className="pb-5">
             <div className="container col-xl-10 col-xxl-8 px-4 py-5">

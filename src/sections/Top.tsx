@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-export default function Top({ partner, empower }) {
+export default function Top({ partner, empower }: any) {
     return (
         <section id="top">
             <div id="partner" className="container col-xl-10 col-xxl-8 px-4 py-5">
