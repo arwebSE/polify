@@ -55,15 +55,15 @@ export async function getStaticProps() {
 export default function Home({ sections }: any) {
     /* console.log("Posts:", sections); */
 
-    const sPartner = sections.filter((section) => {
+    const sPartner = sections.filter((section: { slug: string; }) => {
         return section.slug == "partner";
     })[0];
 
-    const sEmpower = sections.filter((section) => {
+    const sEmpower = sections.filter((section: { slug: string; }) => {
         return section.slug == "empower";
     })[0];
 
-    const sProof = sections.filter((section) => {
+    const sProof = sections.filter((section: { slug: string; }) => {
         return section.slug == "proof";
     })[0];
 
