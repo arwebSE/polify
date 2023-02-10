@@ -18,7 +18,7 @@ import imgDayem from "../../public/img/dayem.png";
 import imgLinkedin from "../../public/img/linkedin.svg";
 import imgWaves from "../../public/img/waves.svg";
 
-import BlogPost from "@/components/BlogPost";
+/* import BlogPost from "@/components/BlogPost"; */
 
 import Navbar from "@/sections/Navbar";
 import Top from "@/sections/Top";
