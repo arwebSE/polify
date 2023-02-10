@@ -215,6 +215,7 @@ export default function Home({ posts }) {
                         </div>
 
                         <div className="row mb-2">
+                            
                             {posts.map((post) => (
                                 <BlogPost
                                     key={post.id}
@@ -223,6 +224,7 @@ export default function Home({ posts }) {
                                     coverImage={post.coverImage}
                                     datePublished={post.datePublished}
                                     slug={post.slug}
+                                    content={post.content}
                                 />
                             ))}
                         </div>
