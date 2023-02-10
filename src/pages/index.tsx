@@ -23,6 +23,7 @@ import Top from "@/sections/Top";
 import Proof from "@/sections/Proof";
 import Benefits from "@/sections/Benefits";
 import Concept from "@/sections/Concept";
+import Services from "@/sections/Services";
 
 /* import styles from "@/styles/Home.module.scss"; */
 const inter = Inter({ subsets: ["latin"] });
@@ -36,7 +37,8 @@ const query = gql`
             subtitle
             description
             fields
-            asset {
+            values
+            assets {
                 url
             }
         }
@@ -56,24 +58,28 @@ export async function getStaticProps() {
 export default function Home({ sections }: any) {
     console.log("Posts:", sections);
 
-    const sPartner = sections.filter((section: { slug: string; }) => {
+    const sPartner = sections.filter((section: { slug: string }) => {
         return section.slug == "partner";
     })[0];
 
-    const sEmpower = sections.filter((section: { slug: string; }) => {
+    const sEmpower = sections.filter((section: { slug: string }) => {
         return section.slug == "empower";
     })[0];
 
-    const sProof = sections.filter((section: { slug: string; }) => {
+    const sProof = sections.filter((section: { slug: string }) => {
         return section.slug == "proof";
     })[0];
 
-    const sBenefits = sections.filter((section: { slug: string; }) => {
+    const sBenefits = sections.filter((section: { slug: string }) => {
         return section.slug == "benefits";
     })[0];
 
-    const sConcept = sections.filter((section: { slug: string; }) => {
+    const sConcept = sections.filter((section: { slug: string }) => {
         return section.slug == "concept";
+    })[0];
+
+    const sServices = sections.filter((section: { slug: string }) => {
+        return section.slug == "services";
     })[0];
 
     return (
@@ -150,7 +156,6 @@ export default function Home({ sections }: any) {
                 </section> */}
 
                 <div id="darkWrapper">
-
                     <Benefits data={sBenefits} />
 
                     <Concept data={sConcept} />
@@ -170,80 +175,12 @@ export default function Home({ sections }: any) {
                 <div id="diag1"></div>
                 <div id="diag2"></div>
 
-                <section id="services">
+                <div id="pinkWrapper">
                     <div className="wrapper">
-                        <div className="px-4 pt-5 my-5 text-center">
-                            <h3>Services</h3>
-                            <h1 className="display-5 fw-bold">Our Services & Features.</h1>
-                            <div className="col-lg-6 mx-auto">
-                                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
-                            </div>
-                        </div>
+                        
+                        <Services data={sServices} />
 
-                        <div className="container-xxl px-4 py-5">
-                            <div className="row">
-                                <div className="col-lg-4 p-4 py-lg-0">
-                                    <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
-                                        <div className="row">
-                                            <div className="h-100 pt-5">
-                                                <Image src={imgMarketing} alt="megaphone" height={100} />
-                                            </div>
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2 className="lh-1">Marketing</h2>
-                                        </div>
-                                        <div className="flex-column p-5 pt-2">
-                                            <p className="lh-1">
-                                                Polify believes in marketing that aligns with the values and vision of
-                                                each project, our work is based on bringing you closer to your ideal
-                                                customers.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 p-4 py-lg-0">
-                                    <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
-                                        <div className="row">
-                                            <div className="h-100 pt-5">
-                                                <Image src={imgCommunity} alt="community" height={100} />
-                                            </div>
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2>Community Management</h2>
-                                        </div>
-                                        <div className="flex-column p-5 pt-2">
-                                            <p className="lh-1">
-                                                We believe in using community management as a more efficient and
-                                                cost-effective way to drive business growth
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-4 p-4 py-lg-0">
-                                    <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
-                                        <div className="row">
-                                            <div className="h-100 pt-5">
-                                                <Image src={imgAdvising} alt="arrow" height={100} />
-                                            </div>
-                                        </div>
-                                        <div className="pt-3">
-                                            <h2 className="lh-1">Advising</h2>
-                                        </div>
-                                        <div className="flex-column p-5 pt-2">
-                                            <p className="lh-1">
-                                                When developing a successful project, it&apos;s important to have a team
-                                                of experts who can provide valuable input and insights, but also embody
-                                                a critical perspective that helps you always stay ahead.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="try" className="container col-xl-10 col-xxl-8 px-4 py-5 my-5">
+                        <section id="try" className="container col-xl-10 col-xxl-8 px-4 py-5 my-5">
                             <div className="row align-items-center g-lg-5 py-5">
                                 <div className="col-lg-8">
                                     <h3>Special Offer</h3>
@@ -272,9 +209,9 @@ export default function Home({ sections }: any) {
                                 </div>
                                 <div className="col-md-10 mx-auto col-lg-4"></div>
                             </div>
-                        </div>
+                        </section>
                     </div>
-                </section>
+                </div>
 
                 <div id="diag3"></div>
 

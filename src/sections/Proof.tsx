@@ -14,7 +14,7 @@ export default function Proof({ data }: any) {
                     <div className="col-lg-7 text-center text-lg-start p-5 pb-3 ps-lg-0">
                         {/* eslint-disable @next/next/no-img-element */}
                         <img
-                            src={data.asset.url}
+                            src={data.assets[0].url}
                             alt="graph of community growth"
                             className="graph shadow-lg rounded-5"
                         />
