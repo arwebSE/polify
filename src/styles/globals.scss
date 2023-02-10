@@ -50,9 +50,6 @@ $grid-breakpoints: (
 );
 
 //
-
-///
-
 // FONTS
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Poppins:wght@300;500;700&display=swap");
 @font-face {
@@ -126,7 +123,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
                 font-family: "Gelion Medium", sans-serif;
             }
         }
-        button {
+        button, a {
             font-family: "Inter", sans-serif;
             font-size: 14px;
             font-weight: 800;

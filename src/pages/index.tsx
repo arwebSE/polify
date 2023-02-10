@@ -1,12 +1,54 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+import Button from "react-bootstrap/Button";
+import { GraphQLClient, gql } from "graphql-request";
+import BlogPost from "@/components/BlogPost";
 
 /* import styles from "@/styles/Home.module.scss"; */
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const cms = new GraphQLClient(process.env.GQL_API);
+
+const query = gql`
+    query {
+        posts {
+            id
+            title
+            date
+            slug
+            coverImage {
+                url
+            }
+            author {
+                name
+                picture {
+                    url
+                }
+            }
+            content {
+                html
+            }
+        }
+    }
+`;
+
+export async function getStaticProps() {
+    const { posts } = await cms.request(query);
+
+    return {
+        props: { posts },
+        revalidate: 10,
+    };
+}
+
+export default function Home({ posts }) {
     return (
         <>
             <Head>
@@ -31,14 +73,14 @@ export default function Home() {
                 {/* <link rel="stylesheet" href="css/normalize.css" />
                 <link rel="stylesheet" href="css/boilerplate.css" /> */}
 
-                <link
+                {/* <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-                />
+                /> */}
 
                 {/* <link rel="stylesheet" href="css/main.min.css" /> */}
             </Head>
-            <main>
+            <main data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true">
                 <div id="navbar" className="container py-5 mb-4">
                     <nav className="navbar navbar-expand-lg">
                         <div className="container-fluid">
@@ -60,27 +102,27 @@ export default function Home() {
                                 <ul className="me-auto"></ul>
                                 <ul className="navbar-nav nav-pills">
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link" aria-current="page">
+                                        <a href="#benefits" className="nav-link" aria-current="page">
                                             Benefits
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link">
+                                        <a href="#concept" className="nav-link">
                                             Concept
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link">
+                                        <a href="#services" className="nav-link">
                                             Services
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link">
+                                        <a href="#team" className="nav-link">
                                             Team
                                         </a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="#" className="nav-link active">
+                                        <a href="#contact" className="nav-link active">
                                             Contact
                                         </a>
                                     </li>
@@ -100,12 +142,12 @@ export default function Home() {
                                 Polify is there to support its partners in realizing <span>this dream.</span>
                             </p>
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                                <button type="button" className="btn btn-primary btn-lg px-4 me-md-4 fw-bold">
+                                <Button variant="primary" size="lg" className="px-4 me-md-4 fw-bold">
                                     Try a week
-                                </button>
-                                <button type="button" className="btn btn-outline btn-lg px-4">
+                                </Button>
+                                <Button variant="outline" size="lg" className="px-4" href="#contact">
                                     Contact us
-                                </button>
+                                </Button>
                             </div>
                         </div>
                         <div className="col-md-10 mx-auto col-lg-5"></div>
@@ -159,6 +201,30 @@ export default function Home() {
                                     but also succeeded in maintaining the activity.
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="news" className="pb-5">
+                    <div className="container col-xl-10 col-xxl-8 px-4 py-5">
+                        <div className="row align-items-center g-lg-5 py-2">
+                            <div className="col-lg-7 text-center text-lg-start">
+                                <h3>News</h3>
+                                <h1 className="display-5 fw-bold lh-1 mb-0">Whats New With Us</h1>
+                            </div>
+                        </div>
+
+                        <div className="row mb-2">
+                            {posts.map((post) => (
+                                <BlogPost
+                                    key={post.id}
+                                    title={post.title}
+                                    author={post.author}
+                                    coverImage={post.coverImage}
+                                    datePublished={post.datePublished}
+                                    slug={post.slug}
+                                />
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -370,9 +436,9 @@ export default function Home() {
                                         </div>
                                         <div className="flex-column p-5 pt-2">
                                             <p className="lh-1">
-                                                When developing a successful project, it&apos;s important to have a team of
-                                                experts who can provide valuable input and insights, but also embody a
-                                                critical perspective that helps you always stay ahead.
+                                                When developing a successful project, it&apos;s important to have a team
+                                                of experts who can provide valuable input and insights, but also embody
+                                                a critical perspective that helps you always stay ahead.
                                             </p>
                                         </div>
                                     </div>
@@ -442,8 +508,8 @@ export default function Home() {
                                         </div>
                                         <div className="px-4 pt-0">
                                             <p className="lh-2">
-                                                Works with Polify&apos;s Web3 marketing/advising, community management and
-                                                Web3 network.
+                                                Works with Polify&apos;s Web3 marketing/advising, community management
+                                                and Web3 network.
                                             </p>
                                         </div>
                                         <div className="pb-4">
@@ -603,7 +669,7 @@ export default function Home() {
                             <div className="pt-4 mt-4 mb-5">
                                 <div className="d-flex flex-row justify-content-between align-items-center">
                                     <div className="d-flex align-items-center">
-                                       {/*  <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                                        {/*  <a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                                             <div className="d-flex flex-column">
                                                 <img src="./img/polify.svg" alt="polify logo" width="170px" />
                                                 <span className="slogan">Your Long Term Partner</span>
@@ -618,12 +684,12 @@ export default function Home() {
                                         <div className="row">
                                             <div className="col">
                                                 <a className="social" href="#">
-                                                    <i className="fa-brands fa-linkedin-in fa-2xl"></i>
+                                                    <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                                                 </a>
                                             </div>
                                             <div className="col">
                                                 <a className="social" href="#">
-                                                    <i className="fa-solid fa-envelope fa-2xl"></i>
+                                                    <FontAwesomeIcon icon={faEnvelope} size="2xl" />
                                                 </a>
                                             </div>
                                         </div>
