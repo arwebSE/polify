@@ -4,7 +4,7 @@ import { Inter } from "@next/font/google";
 
 import { GraphQLClient, gql } from "graphql-request";
 
-import imgWaves from "../../public/img/waves.svg";
+import imgWaves from "../../public/waves.svg";
 
 /* import BlogPost from "@/components/BlogPost"; */
 
@@ -178,17 +178,6 @@ export default function Home({ sections, authors }: any) {
                     <Benefits data={sBenefits} />
 
                     <Concept data={sConcept} />
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                 </div>
 
                 <div id="diag1"></div>
