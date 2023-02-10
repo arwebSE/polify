@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { Inter } from "@next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +7,6 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { GraphQLClient, gql } from "graphql-request";
 
 import imgConcept from "../../public/img/concept.svg";
-import imgGraph from "../../public/img/graph.jpg";
 import imgMarketing from "../../public/img/marketing.svg";
 import imgCommunity from "../../public/img/community.svg";
 import imgAdvising from "../../public/img/advising.svg";
@@ -20,9 +18,10 @@ import imgWaves from "../../public/img/waves.svg";
 
 /* import BlogPost from "@/components/BlogPost"; */
 
-import Navbar from "@/sections/Navbar";
+import Navbar from "@/components/Navbar";
 import Top from "@/sections/Top";
 import Proof from "@/sections/Proof";
+import Benefits from "@/sections/Benefits";
 
 /* import styles from "@/styles/Home.module.scss"; */
 const inter = Inter({ subsets: ["latin"] });
@@ -31,10 +30,11 @@ const cms = new GraphQLClient(process.env.GQL_API || "");
 const query = gql`
     query {
         sections {
-            fields
             slug
-            subtitle
             title
+            subtitle
+            description
+            fields
             asset {
                 url
             }
@@ -65,6 +65,10 @@ export default function Home({ sections }: any) {
 
     const sProof = sections.filter((section: { slug: string; }) => {
         return section.slug == "proof";
+    })[0];
+
+    const sBenefits = sections.filter((section: { slug: string; }) => {
+        return section.slug == "benefits";
     })[0];
 
     return (
@@ -142,38 +146,7 @@ export default function Home({ sections }: any) {
 
                 <div id="darkWrapper">
 
-                    <section id="benefits">
-                        <div className="container col-xl-10 col-xxl-8 px-4 py-5">
-                            <div className="row align-items-center g-lg-5 py-2">
-                                <div className="col-lg-10 text-center text-lg-start">
-                                    <h3>Benefits</h3>
-                                    <h1 className="lh-1">Benefits From Working With Us</h1>
-                                </div>
-                            </div>
-                            <div className="row align-items-center g-lg-5 py-2">
-                                <div className="col-lg-6 text-center text-lg-start">
-                                    <p className="subtext">
-                                        Polify’s effective marketing is based on strong, driven, and engaging communities
-                                        that give the audience a stronger feeling of belief in the project and experience
-                                        what you have to offer both short and long-term.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="row align-items-center g-lg-5 py-2">
-                                <div className="col-lg-6 text-center text-lg-start">
-                                    <ul className="subtext">
-                                        <li>Cost-effective</li>
-                                        <li>Always have someone to bounce ideas off</li>
-                                        <li>A wide network of contacts.</li>
-                                        <li>
-                                            A team that is accustomed to working under pressure and is comfortable
-                                            problem-solvers.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <Benefits data={sBenefits} />
 
                     <br />
                     <br />
