@@ -203,9 +203,6 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     background-size: cover;
     min-height: 100vh;
     padding-top: 300px;
-}
-
-#benefits {
     h1 {
         font-family: "Gelion Regular", sans-serif;
         color: #fff;
@@ -227,6 +224,10 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         font-size: 1.6em;
         line-height: 1.5;
     }
+}
+
+#benefits {
+    margin-bottom: 200px;
 }
 
 #concept {
