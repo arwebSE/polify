@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function PageHead( { title } : any) {
+export default function PageHead() {
     return (
         <>
             <meta charSet="utf-8" />
-            <title>Polify | { title }</title>
+            <title>Polify</title>
             <meta name="description" content="" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 

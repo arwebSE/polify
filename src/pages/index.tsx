@@ -1,9 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 
 import { GraphQLClient, gql } from "graphql-request";
-
-import imgWaves from "../../public/waves.svg";
 
 import PageHead from "@/components/PageHead";
 import Navbar from "@/components/Navbar";
@@ -16,7 +13,6 @@ import Concept from "@/sections/Concept";
 import Services from "@/sections/Services";
 import Try from "@/sections/Try";
 import Team from "@/sections/Team";
-import Contact from "@/sections/Contact";
 
 /* import styles from "@/styles/Home.module.scss"; */
 
@@ -65,7 +61,7 @@ export default function Home({ sections, authors }: any) {
     return (
         <>
             <Head>
-                <PageHead title="Home" />
+                <PageHead />
             </Head>
             <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
                 <Navbar />
@@ -73,42 +69,7 @@ export default function Home({ sections, authors }: any) {
                 <Top partner={getSection("partner")} empower={getSection("empower")} />
 
                 <Proof data={getSection("proof")} />
-
-                {/* <section id="news" className="pb-5">
-                    <div className="container col-xl-10 col-xxl-8 px-4 py-5">
-                        <div className="row align-items-center g-lg-5 py-2">
-                            <div className="col-lg-7 text-center text-lg-start">
-                                <h3>News</h3>
-                                <h1 className="display-5 fw-bold lh-1 mb-0">Whats New With Us</h1>
-                            </div>
-                        </div>
-
-                        <div className="row mb-2">
-                            {posts.map(
-                                (post: {
-                                    id: any;
-                                    title: any;
-                                    author: any;
-                                    coverImage: any;
-                                    datePublished: any;
-                                    slug: any;
-                                    content: any;
-                                }) => (
-                                    <BlogPost
-                                        key={post.id}
-                                        title={post.title}
-                                        author={post.author}
-                                        coverImage={post.coverImage}
-                                        datePublished={post.datePublished}
-                                        slug={post.slug}
-                                        content={post.content}
-                                    />
-                                )
-                            )}
-                        </div>
-                    </div>
-                </section> */}
-
+                
                 <div id="darkWrapper">
                     <Benefits data={getSection("benefits")} />
 
@@ -135,20 +96,7 @@ export default function Home({ sections, authors }: any) {
                 <br />
                 <br />
 
-                <div id="bottom">
-                    <div className="bgWrapper"></div>
-
-                    <Contact data={getSection("contact")} />
-
-                    <Footer data={getSection("footer")} />
-
-                    <div className="borderWrapper container col-xl-10 col-xxl-7 px-3">
-                        <div></div>
-                    </div>
-                    <div className="waves">
-                        <Image src={imgWaves} alt="waves" style={{ width: "70%", height: "auto" }} />
-                    </div>
-                </div>
+                <Footer footer={getSection("footer")} contact={getSection("contact")} />
             </main>
         </>
     );

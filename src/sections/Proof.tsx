@@ -21,9 +21,7 @@ export default function Proof({ data }: any) {
                         {/* eslint-enable @next/next/no-img-element */}
                     </div>
                     <div className="col-md-10 col-lg-4">
-                        <p>
-                            <div dangerouslySetInnerHTML={{ __html: data.fields[0] }} />
-                        </p>
+                        <p dangerouslySetInnerHTML={{ __html: data.fields[0] }} />
                     </div>
                 </div>
             </div>

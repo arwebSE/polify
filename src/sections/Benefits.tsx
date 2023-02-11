@@ -12,9 +12,7 @@ export default function Benefits({ data }: any) {
                 </div>
                 <div className="row align-items-center g-lg-5 py-2">
                     <div className="col-lg-6 text-center text-lg-start">
-                        <p className="subtext">
-                            <div dangerouslySetInnerHTML={{ __html: data.description }} />
-                        </p>
+                        <p className="subtext" dangerouslySetInnerHTML={{ __html: data.description }} />
                     </div>
                 </div>
                 <div className="row align-items-center g-lg-5 py-2">

@@ -9,9 +9,8 @@ export default function Top({ partner, empower }: any) {
                     <div className="col-lg-7 text-center text-lg-start">
                         <h1 className="display-1 fw-bold lh-1 mb-0">{partner.title}</h1>
                         <h1 className="display-1 fw-bold lh-1 mb-3 tint">{partner.subtitle}</h1>
-                        <p className="col-lg-10 fs-4">
-                            <div dangerouslySetInnerHTML={{ __html: partner.fields[0] }} />
-                        </p>
+                        <p className="col-lg-10 fs-4" dangerouslySetInnerHTML={{ __html: partner.fields[0] }} />
+
                         <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                             <Button variant="primary" size="lg" className="px-4 me-md-4 fw-bold">
                                 Try a week

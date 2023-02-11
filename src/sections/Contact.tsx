@@ -6,12 +6,8 @@ export default function Contact({ data }: any) {
         <section id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-4 py-5 content">
             <div className="row py-5 mb-5 justify-content-between">
                 <div className="col-lg-6 text-lg-start py-3 my-5 my-lg-1">
-                    <h2 className="display-5 fw-bold lh-1 mb-5">
-                        <div dangerouslySetInnerHTML={{ __html: data.title }} />
-                    </h2>
-                    <p className="col-lg-10 fs-4">
-                        <div dangerouslySetInnerHTML={{ __html: data.description }} />
-                    </p>
+                    <h2 className="display-5 fw-bold lh-1 mb-5" dangerouslySetInnerHTML={{ __html: data.title }} />
+                    <p className="col-lg-10 fs-4" dangerouslySetInnerHTML={{ __html: data.description }} />
                 </div>
 
                 <div className="col-lg-5 col-md-12">
@@ -54,7 +50,15 @@ export default function Contact({ data }: any) {
                             <label htmlFor={data.values[3]}>{data.fields[3]}</label>
                         </div>
 
-                        <Button variant="primary" size="lg" type="submit" className="w-100 mt-4" style={{border: "none"}}>Submit</Button>
+                        <Button
+                            variant="primary"
+                            size="lg"
+                            type="submit"
+                            className="w-100 mt-4"
+                            style={{ border: "none" }}
+                        >
+                            Submit
+                        </Button>
                     </form>
                 </div>
             </div>

@@ -18,9 +18,9 @@ const Navigation = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link href="#benefits">Benefits</Nav.Link>
-                        <Nav.Link href="#concept">Concept</Nav.Link>
                         <Nav.Link href="#services">Services</Nav.Link>
                         <Nav.Link href="#team">Team</Nav.Link>
+                        <Nav.Link href="/blog">Blog</Nav.Link>
                         <Nav.Link href="#contact" className="active">
                             Contact
                         </Nav.Link>

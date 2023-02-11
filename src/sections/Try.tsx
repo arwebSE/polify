@@ -7,9 +7,8 @@ export default function Try({ data }: any) {
                 <div className="col-lg-8">
                     <h3>{data.subtitle}</h3>
                     <h1 className="display-1 fw-bold lh-1 mb-4">{data.title}</h1>
-                    <p className="col-lg-10 fs-4 lh-2">
-                        <div dangerouslySetInnerHTML={{ __html: data.description }} />
-                    </p>
+                    <p className="col-lg-10 fs-4 lh-2" dangerouslySetInnerHTML={{ __html: data.description }} />
+
                     <div className="d-md-flex mt-4">
                         <button type="button" className="btn btn-light btn-lg px-4 py-3 me-md-4 fw-bold">
                             Try Now!

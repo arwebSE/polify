@@ -4,17 +4,28 @@ import Image from "next/image";
 
 import styles from "@/styles/BlogPost.module.css";
 
-const BlogPost = ({ title, author, coverImage, datePublished, slug, content }: any) => {
+const BlogPost = ({ title, author, coverImage, date, slug, content, tags }: any) => {
     return (
         <div className="col-md-6">
             <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div className="col p-4 d-flex flex-column position-static">
-                    <strong className="d-inline-block mb-2 text-success">Design</strong>
+                    {tags && (
+                        <div>
+                            {tags.map((tag: string) => (
+                                <span key={tag}>
+                                <span  className="badge text-bg-primary">
+                                    {tag}
+                                    </span>
+                                    {" "}
+                                </span>
+                            ))}
+                        </div>
+                    )}
                     <h3 className="mb-0">{title}</h3>
-                    <div className="mb-1 text-muted">Nov 11</div>
-             
-                        <div dangerouslySetInnerHTML={{ __html: content.html }} />
-                 
+                    <div className="mb-1 text-muted">{date}</div>
+
+                    <div dangerouslySetInnerHTML={{ __html: content.html }} />
+
                     <Link className="stretched-link" href={"/posts/" + slug}>
                         Continue Reading
                     </Link>
