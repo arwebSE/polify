@@ -21,7 +21,7 @@ const Navigation = () => {
                         <Nav.Link href="#services">Services</Nav.Link>
                         <Nav.Link href="#team">Team</Nav.Link>
                         <Nav.Link href="/blog">Blog</Nav.Link>
-                        <Nav.Link href="#contact" className="active">
+                        <Nav.Link href="#contact" className="tinted">
                             Contact
                         </Nav.Link>
                     </Navbar.Collapse>
