@@ -61,45 +61,9 @@ export async function getStaticProps() {
 export default function Home({ sections, authors }: any) {
     /* console.log("Posts:", sections); */
 
-    const sPartner = sections.filter((section: { slug: string }) => {
-        return section.slug == "partner";
-    })[0];
-
-    const sEmpower = sections.filter((section: { slug: string }) => {
-        return section.slug == "empower";
-    })[0];
-
-    const sProof = sections.filter((section: { slug: string }) => {
-        return section.slug == "proof";
-    })[0];
-
-    const sBenefits = sections.filter((section: { slug: string }) => {
-        return section.slug == "benefits";
-    })[0];
-
-    const sConcept = sections.filter((section: { slug: string }) => {
-        return section.slug == "concept";
-    })[0];
-
-    const sServices = sections.filter((section: { slug: string }) => {
-        return section.slug == "services";
-    })[0];
-
-    const sTry = sections.filter((section: { slug: string }) => {
-        return section.slug == "try";
-    })[0];
-
-    const sTeam = sections.filter((section: { slug: string }) => {
-        return section.slug == "team";
-    })[0];
-
-    const sContact = sections.filter((section: { slug: string }) => {
-        return section.slug == "contact";
-    })[0];
-
-    const cFooter = sections.filter((section: { slug: string }) => {
-        return section.slug == "footer";
-    })[0];
+    const getSection = (slug: string) => {
+        return sections.filter((section: { slug: string }) => section.slug === slug)[0];
+    };
 
     return (
         <>
@@ -135,9 +99,9 @@ export default function Home({ sections, authors }: any) {
             <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
                 <Navbar />
 
-                <Top partner={sPartner} empower={sEmpower} />
+                <Top partner={getSection("partner")} empower={getSection("empower")} />
 
-                <Proof data={sProof} />
+                <Proof data={getSection("proof")} />
 
                 {/* <section id="news" className="pb-5">
                     <div className="container col-xl-10 col-xxl-8 px-4 py-5">
@@ -175,9 +139,9 @@ export default function Home({ sections, authors }: any) {
                 </section> */}
 
                 <div id="darkWrapper">
-                    <Benefits data={sBenefits} />
+                    <Benefits data={getSection("benefits")} />
 
-                    <Concept data={sConcept} />
+                    <Concept data={getSection("concept")} />
                 </div>
 
                 <div id="diag1"></div>
@@ -185,15 +149,15 @@ export default function Home({ sections, authors }: any) {
 
                 <div id="pinkWrapper">
                     <div className="wrapper">
-                        <Services data={sServices} />
+                        <Services data={getSection("services")} />
 
-                        <Try data={sTry} />
+                        <Try data={getSection("try")} />
                     </div>
                 </div>
 
                 <div id="diag3"></div>
 
-                <Team data={sTeam} authors={authors} />
+                <Team data={getSection("team")} authors={authors} />
 
                 <br />
                 <br />
@@ -203,9 +167,9 @@ export default function Home({ sections, authors }: any) {
                 <div id="bottom">
                     <div className="bgWrapper"></div>
 
-                    <Contact data={sContact} />
+                    <Contact data={getSection("contact")} />
 
-                    <Footer data={cFooter} />
+                    <Footer data={getSection("footer")} />
 
                     <div className="borderWrapper container col-xl-10 col-xxl-7 px-3">
                         <div></div>
@@ -214,7 +178,6 @@ export default function Home({ sections, authors }: any) {
                         <Image src={imgWaves} alt="waves" style={{ width: "70%", height: "auto" }} />
                     </div>
                 </div>
-
             </main>
         </>
     );
