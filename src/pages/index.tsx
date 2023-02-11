@@ -1,13 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 
 import { GraphQLClient, gql } from "graphql-request";
 
 import imgWaves from "../../public/waves.svg";
 
-/* import BlogPost from "@/components/BlogPost"; */
-
+import PageHead from "@/components/PageHead";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -21,7 +19,6 @@ import Team from "@/sections/Team";
 import Contact from "@/sections/Contact";
 
 /* import styles from "@/styles/Home.module.scss"; */
-const inter = Inter({ subsets: ["latin"] });
 
 const cms = new GraphQLClient(process.env.GQL_API || "");
 const query = gql`
@@ -68,33 +65,7 @@ export default function Home({ sections, authors }: any) {
     return (
         <>
             <Head>
-                <meta charSet="utf-8" />
-                <title>Polify</title>
-                <meta name="description" content="" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-                <meta property="og:title" content="Polify" />
-                <meta property="og:description" content="Polify, Your Long Term Partner." />
-                <meta property="og:type" content="website" />
-                <meta property="og:image" content="./favicon-32x32.png" />
-                <meta name="msapplication-TileColor" content="#2d89ef" />
-                <meta name="theme-color" content="#ffffff" />
-
-                <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
-                <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
-                <link rel="manifest" href="./site.webmanifest" />
-                <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5" />
-
-                {/* <link rel="stylesheet" href="css/normalize.css" />
-                <link rel="stylesheet" href="css/boilerplate.css" /> */}
-
-                {/* <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-                /> */}
-
-                {/* <link rel="stylesheet" href="css/main.min.css" /> */}
+                <PageHead title="Home" />
             </Head>
             <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
                 <Navbar />
