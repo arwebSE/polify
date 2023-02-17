@@ -2,13 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 export default function Concept({ data }: any) {
-    const cards = data.fields.map((field: any, index: React.Key) => {
+    const cards = data.fields.map((field: any, index: number) => {
         return (
             <div className="col-lg-4 p-4 py-lg-0" key={index}>
                 <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                     <div className="row">
                         <div className="h-100 pt-5">
-                            <Image src={data.assets[index].url} alt="megaphone" height={80} width={80} />
+                            <Image src={data.assets[index].url} alt="concept icon" height={80} width={80} />
                         </div>
                     </div>
                     <div className="pt-3">
