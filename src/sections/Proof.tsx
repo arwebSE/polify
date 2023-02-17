@@ -19,7 +19,7 @@ export default function Proof({ data }: any) {
                         <img
                             src={data.assets[0].url}
                             alt="graph of community growth"
-                            className="graph shadow rounded-5"
+                            className="graph rounded-5"
                         />
                         {/* eslint-enable @next/next/no-img-element */}
                         <p className="text-muted text-center">{data.fields[0]}</p>
