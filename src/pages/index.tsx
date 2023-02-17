@@ -23,6 +23,7 @@ const query = gql`
             slug
             title
             subtitle
+            header
             description
             fields
             values
@@ -67,11 +68,10 @@ export default function Home({ sections, authors }: any) {
             <Navbar />
 
             <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
-                
                 <Top partner={getSection("partner")} empower={getSection("empower")} />
 
                 <Proof data={getSection("proof")} />
-                
+
                 <div id="darkWrapper">
                     <Benefits data={getSection("benefits")} />
 
