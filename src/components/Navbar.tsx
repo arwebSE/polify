@@ -18,7 +18,7 @@ const Navigation = () => {
                 const currentScrollY = window.scrollY;
                 console.log("currentScrollY:", currentScrollY);
 
-                if (prevScrollY.current < currentScrollY && show) {
+                /* if (prevScrollY.current < currentScrollY && show) {
                     // if scrolling down and navbar is visible, hide it
                     if (currentScrollY > 200) {
                         setShow(false);
@@ -26,7 +26,7 @@ const Navigation = () => {
                 } else if (prevScrollY.current > currentScrollY && !show) {
                     // if scrolling up and navbar is hidden, show it
                     setShow(true);
-                }
+                } */
 
                 prevScrollY.current = currentScrollY;
 
