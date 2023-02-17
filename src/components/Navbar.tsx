@@ -16,8 +16,8 @@ const Navigation = () => {
         const controlNavbar = () => {
             if (typeof window !== "undefined") {
                 const currentScrollY = window.scrollY;
-                console.log("currentScrollY:", currentScrollY);
 
+                // TO AUTO HIDE NAVBAR
                 /* if (prevScrollY.current < currentScrollY && show) {
                     // if scrolling down and navbar is visible, hide it
                     if (currentScrollY > 200) {
@@ -26,9 +26,9 @@ const Navigation = () => {
                 } else if (prevScrollY.current > currentScrollY && !show) {
                     // if scrolling up and navbar is hidden, show it
                     setShow(true);
-                } */
-
+                } 
                 prevScrollY.current = currentScrollY;
+                */
 
                 // change the background color when scrolling down
                 if (currentScrollY > 50) {

@@ -103,13 +103,13 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     }
 
     &.bg {
-        background-color: rgba(255, 255, 255, 0.664);
-        backdrop-filter: blur(10px) brightness(98%) opacity(0);
-        -webkit-backdrop-filter: blur(10px) brightness(98%) opacity(0);
+        background-color: rgba(255, 255, 255, 0.897);
+        backdrop-filter: blur(15px) brightness(98%) opacity(0);
+        -webkit-backdrop-filter: blur(15px) brightness(98%) opacity(0);
 
         &.show {
-            backdrop-filter: blur(10px) brightness(98%) opacity(1);
-            -webkit-backdrop-filter: blur(10px) brightness(98%) opacity(1);
+            backdrop-filter: blur(15px) brightness(98%) opacity(1);
+            -webkit-backdrop-filter: blur(15px) brightness(98%) opacity(1);
         }
     }
 
