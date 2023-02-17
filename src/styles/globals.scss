@@ -532,9 +532,6 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
 /* HD+ fixes */
 @include media-breakpoint-up(xxxl) {
-    #navbar {
-        max-width: 80%;
-    }
     #partner {
         margin: 12vh auto;
     }
