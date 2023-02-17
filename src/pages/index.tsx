@@ -63,9 +63,11 @@ export default function Home({ sections, authors }: any) {
             <Head>
                 <PageHead />
             </Head>
-            <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
-                <Navbar />
 
+            <Navbar />
+
+            <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true">
+                
                 <Top partner={getSection("partner")} empower={getSection("empower")} />
 
                 <Proof data={getSection("proof")} />

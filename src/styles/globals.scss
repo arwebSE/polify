@@ -28,7 +28,6 @@ body {
     }
 }
 
-
 // IMPORT Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -84,8 +83,36 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     -webkit-text-fill-color: transparent;
 }
 
-#navbar {
+/* .spacer {
+    display: block;
+    height: 70px;
+    width: 100%;
+}
+ */
+#navWrapper {
     max-width: 90%;
+}
+
+#navbar {
+    transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;
+    top: 0;
+    z-index: 1000;
+
+    &.hidden {
+        transform: translateY(-100%);
+    }
+
+    &.bg {
+        background-color: transparent;
+        backdrop-filter: blur(10px) brightness(98%) opacity(0);
+        -webkit-backdrop-filter: blur(10px) brightness(98%) opacity(0);
+
+        &.show {
+            backdrop-filter: blur(10px) brightness(98%) opacity(1);
+            -webkit-backdrop-filter: blur(10px) brightness(98%) opacity(1);
+        }
+    }
+
     .nav-link {
         color: black;
         font-weight: bold;
@@ -108,6 +135,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #partner {
+    margin-top: 100px;
     .text-lg-start {
         h1 {
             font-family: "Poppins", sans-serif;
@@ -123,7 +151,8 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
                 font-family: "Gelion Medium", sans-serif;
             }
         }
-        button, a {
+        button,
+        a {
             font-family: "Inter", sans-serif;
             font-size: 14px;
             font-weight: 800;
@@ -251,7 +280,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
 #pinkWrapper {
     color: #fff;
-    background-color: #ff7878;
+    background-color: #FF6464;
     margin-top: -200px;
     padding-top: 200px;
     padding-bottom: 350px;
@@ -279,19 +308,30 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         font-family: "Gelion Regular", sans-serif;
         font-weight: 600;
         font-size: 2.4em;
-        color: #ff7878;
         line-height: 0.8;
     }
     p {
         font-family: "Gelion regular", sans-serif;
         font-size: 1.2em;
-        color: #ff8f8f;
     }
     .card {
-        background-color: #ffdbdb;
-        border: 0;
+        cursor: pointer;
+        background-color: #FFACAC52;
+        color: white;
+        border: #ffdbdb 3px solid;
         box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
         height: 370px;
+        transition: background-color 0.2s ease-in-out, color 0.1s ease-in-out, box-shadow 0.2s ease-in-out,
+            filter 0.2s ease-in-out;
+        &:hover {
+            background-color: #ffdbdb;
+            color: #FF6464;
+            box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.5);
+            img {
+                filter: brightness(0) saturate(100%) invert(92%) sepia(15%) saturate(5664%) hue-rotate(297deg)
+                    brightness(92%) contrast(123%);
+            }
+        }
     }
 
     #try {
@@ -472,7 +512,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #diag2 {
-    background-color: #ff7878;
+    background-color: #FF6464;
     height: 320px;
     transform: skewY(-7deg);
     margin-top: -170px;

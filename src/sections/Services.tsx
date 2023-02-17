@@ -18,7 +18,7 @@ export default function Concept({ data }: any) {
                         <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                             <div className="row">
                                 <div className="h-100 pt-5">
-                                    <Image src={data.assets[0].url} alt="megaphone" height={100} width={100} />
+                                    <Image src={data.assets[0].url} alt="megaphone" height={80} width={80} />
                                 </div>
                             </div>
                             <div className="pt-3">
@@ -34,7 +34,7 @@ export default function Concept({ data }: any) {
                         <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                             <div className="row">
                                 <div className="h-100 pt-5">
-                                    <Image src={data.assets[1].url} alt="community" height={100} width={100} />
+                                    <Image src={data.assets[1].url} alt="community" height={80} width={80} />
                                 </div>
                             </div>
                             <div className="pt-3">
@@ -50,7 +50,7 @@ export default function Concept({ data }: any) {
                         <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
                             <div className="row">
                                 <div className="h-100 pt-5">
-                                    <Image src={data.assets[2].url} alt="arrow" height={100} width={100} />
+                                    <Image src={data.assets[2].url} alt="arrow" height={80} width={80} />
                                 </div>
                             </div>
                             <div className="pt-3">
