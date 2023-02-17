@@ -467,14 +467,34 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
     form {
         background-color: rgba(255, 255, 255, 0.678);
+        .form-floating {
+            position: relative !important;
+            &::before {
+                content: "";
+                position: absolute !important;
+                left: 0;
+                right: 0;
+                margin: auto;
+                bottom: 0;
+                height: 1px;
+                width: 90%; /* or 100px */
+                border-bottom: 2px solid rgb(255 85 111 / 25%);
+            }
+            &:focus {
+                &::before {
+                    border-bottom: 2px solid #ff7878 !important;
+                }
+            }
+        }
+        .form-control:focus + .form-floating::before {
+            border-bottom: 2px solid #ff7878 !important;
+        }
         .form-control {
             border: 0 !important;
-            border-bottom: 2px solid rgb(255 85 111 / 25%) !important;
             border-radius: 0;
             background-color: transparent;
             &:focus {
                 box-shadow: none !important;
-                border-bottom: 2px solid #ff7878 !important;
             }
         }
         h3 {
