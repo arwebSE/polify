@@ -21,7 +21,7 @@ export default function Benefits({ data }: any) {
                         <div>
                             {data.fields.map((field: any, index: React.Key | null | undefined) => {
                                 return (
-                                    <div key={index} className="row align-items-center" style={{padding: 5, marginBottom: 10}}>
+                                    <div key={index} className="row align-items-center" style={{padding: 5, marginBottom: 15}}>
                                         <Image
                                             src={data.assets[0].url}
                                             alt="small P"
