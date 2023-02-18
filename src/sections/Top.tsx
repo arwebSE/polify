@@ -69,7 +69,7 @@ export default function Top({ partner, empower, logos }: any) {
                 </div>
             </div>
 
-            <div id="empower" className="container-lg">
+            <div id="empower" className="container-lg mt-5">
                 <div className="row px-2">
                     <div className="d-flex flex-row align-items-center justify-content-between p-5 rounded-5 border shadow mb-4">
                         <div className="col-lg-6">
