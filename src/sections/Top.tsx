@@ -14,7 +14,7 @@ export default function Top({ partner, empower, logos }: any) {
             if (!node) return;
 
             const controls = animate(from, to, {
-                duration: 10,
+                duration: 5,
                 onUpdate(value) {
                     if (to % 1 === 0) {
                         node.textContent = value.toFixed(0);

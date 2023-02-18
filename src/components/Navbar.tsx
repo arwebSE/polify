@@ -7,10 +7,19 @@ import Navbar from "react-bootstrap/Navbar";
 
 import imgLogo from "../../public/logo.svg";
 
+const navLinks = [
+    { href: "#benefits", text: "Benefits" },
+    { href: "#concept", text: "Concept" },
+    { href: "#services", text: "Services" },
+    { href: "#team", text: "Team" },
+    /* { href: "/blog", text: "Blog" }, */
+    { href: "#contact", text: "Contact", className: "tinted" },
+];
+
 const Navigation = () => {
     const [show, setShow] = useState(true);
     const [showBg, setShowBg] = useState(false);
-    const prevScrollY = useRef(0);
+    //const prevScrollY = useRef(0);
 
     useEffect(() => {
         const controlNavbar = () => {
@@ -57,13 +66,11 @@ const Navigation = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Nav.Link href="#benefits">Benefits</Nav.Link>
-                    <Nav.Link href="#services">Services</Nav.Link>
-                    <Nav.Link href="#team">Team</Nav.Link>
-                    <Nav.Link href="/blog">Blog</Nav.Link>
-                    <Nav.Link href="#contact" className="tinted">
-                        Contact
-                    </Nav.Link>
+                    {navLinks.map((link, index) => (
+                        <Nav.Link key={index} href={link.href} className={link.className}>
+                            {link.text}
+                        </Nav.Link>
+                    ))}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
