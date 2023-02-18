@@ -51,7 +51,7 @@ $container-max-widths: (
     md: 720px,
     lg: 960px,
     xl: 1140px,
-    xxl: 1500px,
+    xxl: 1400px,
 );
 
 
@@ -196,17 +196,12 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     }
     .imgContainer {
         width: 100%;
-
-        > div {
-            position: unset !important;
-        }
-
         .image {
             object-fit: contain;
-            width: 150% !important;
+            width: 120% !important;
             position: relative !important;
             height: unset !important;
-            margin-left: -200px;
+            /* margin-left: -200px; */
         }
     }
 }

@@ -36,7 +36,7 @@ export default function Top({ partner, empower, logos }: any) {
         <section id="top">
             <div id="partner" className="container-xxl">
                 <div className="row align-items-center">
-                    <div className="col-lg-7 text-center text-lg-start pt-5">
+                    <div className="col-lg-6 text-center text-lg-start pt-5">
                         <h1
                             className="display-1 fw-bold lh-1 mb-0"
                             dangerouslySetInnerHTML={{ __html: partner.header }}
@@ -52,39 +52,44 @@ export default function Top({ partner, empower, logos }: any) {
                             </Button>
                         </div>
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-6">
                         {/* <Image src={partner.assets[0].url} alt="illustration of people working together" height={500} width={1000} style={{position: "absolute"}} /> */}
-                        <div className="imgContainer">
+                        <div className="imgContainer" style={{ position: "relative" }}>
                             {/* <Image src={imgsvg} alt="illustration of people working together" width={800} style={{position: "absolute", top:-315, left: -180}} /> */}
                             <Image
                                 src={imgsvg}
                                 alt="illustration of people working together"
-                                layout="fill"
+                                fill={true}
                                 className="image"
+                                priority={true}
+                                sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
                             />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="empower" className="container-lg px-5">
-                <div className="row px-5 align-items-center">
-                    <div className="row p-5 pb-3 pe-lg-0 align-items-center rounded-5 border shadow mb-4">
-                        <div className="col-lg-4 p-3 p-lg-4 pt-lg-3">
-                            <h2 className="display-7 fw-bold lh-1">{empower.header}</h2>
+            <div id="empower" className="container-lg">
+                <div className="row px-2">
+                    <div className="d-flex flex-row align-items-center justify-content-between p-5 rounded-5 border shadow mb-4">
+                        <div className="col-lg-6">
+                            <h2 className="fw-bold lh-1 m-0 " dangerouslySetInnerHTML={{ __html: empower.header }} />
                         </div>
-                        <div className="col-lg-1"></div>
-                        {empower.values.map((value: string, index: number) => {
-                            const val = Number(value);
-                            return (
-                                <div className="col-lg-2" key={index}>
-                                    <h1 className="display-7 fw-bold">
-                                        <Counter from={0} to={val} />+
-                                    </h1>
-                                    <p className="lead">{empower.fields[index]}</p>
-                                </div>
-                            );
-                        })}
+                        <div className="col-lg-6">
+                            <div className="row">
+                                {empower.values.map((value: string, index: number) => {
+                                    const val = Number(value);
+                                    return (
+                                        <div className="col-lg-4" key={index}>
+                                            <h1 className="fw-bold m-0">
+                                                <Counter from={0} to={val} />+
+                                            </h1>
+                                            <p className="lead m-0">{empower.fields[index]}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
