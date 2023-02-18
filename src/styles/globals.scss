@@ -28,9 +28,6 @@ body {
     }
 }
 
-// IMPORT Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap";
-
 // Include any default variable overrides here (though functions won't be available)
 $bs-nav-pills-link-active-bg: #ff5771;
 
@@ -47,6 +44,20 @@ $grid-breakpoints: (
     xxl: 1400px,
     xxxl: 1990px,
 );
+
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1500px,
+);
+
+
+// IMPORT Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 
 //
 // FONTS
@@ -89,14 +100,15 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     width: 100%;
 }
  */
-#navWrapper {
-    max-width: 90%;
-}
 
 #navbar {
     transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;
     top: 0;
     z-index: 1000;
+
+    .container-fluid {
+        max-width: 90%; // defines width of navbar
+    }
 
     &.hidden {
         transform: translateY(-100%);
@@ -135,7 +147,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #partner {
-    margin-top: 100px;
+    margin-top: 45px;
     strong {
         background: $gradient;
         background-clip: text;
@@ -180,6 +192,21 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
                 transform: translateY(-2px);
             }
             transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out;
+        }
+    }
+    .imgContainer {
+        width: 100%;
+
+        > div {
+            position: unset !important;
+        }
+
+        .image {
+            object-fit: contain;
+            width: 150% !important;
+            position: relative !important;
+            height: unset !important;
+            margin-left: -200px;
         }
     }
 }

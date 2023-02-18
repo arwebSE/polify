@@ -51,7 +51,7 @@ const Navigation = () => {
 
     return (
         <Navbar id="navbar" expand="lg" className={`${!show ? "hidden" : "show"} ${showBg ? "bg" : ""}`} fixed="top">
-            <Container>
+            <Container fluid>
                 <Navbar.Brand href="#">
                     <Image src={imgLogo} className="bi me-2" alt="logo" width={50} />
                 </Navbar.Brand>
