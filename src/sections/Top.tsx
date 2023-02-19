@@ -34,13 +34,15 @@ export default function Top({ partner, empower, logos }: any) {
 
     const animVars: Variants = {
         offscreen: {
-            x: 1500,
+            x: 500,
+            opacity: 0,
         },
         onscreen: {
             x: 0,
+            opacity: 1,
             transition: {
                 type: "spring",
-                bounce: 0.3,
+                bounce: 0.4,
                 duration: 0.8,
             },
         },
@@ -51,20 +53,29 @@ export default function Top({ partner, empower, logos }: any) {
             <div id="partner" className="container-xxl">
                 <div className="row align-items-center">
                     <div className="col-lg-6 text-center text-lg-start pt-5">
-                        <h1
-                            className="display-1 fw-bold lh-1 mb-0"
-                            dangerouslySetInnerHTML={{ __html: partner.header }}
-                        ></h1>
-                        <p className="col-lg-10 fs-4 pt-3" dangerouslySetInnerHTML={{ __html: partner.description }} />
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <h1
+                                className="display-1 fw-bold lh-1 mb-0"
+                                dangerouslySetInnerHTML={{ __html: partner.header }}
+                            ></h1>
+                            <p
+                                className="col-lg-10 fs-4 pt-3"
+                                dangerouslySetInnerHTML={{ __html: partner.description }}
+                            />
 
-                        <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                            <Button variant="primary" size="lg" className="px-4 me-md-4 fw-bold">
-                                Try a week
-                            </Button>
-                            <Button variant="outline" size="lg" className="px-4" href="#contact">
-                                Contact us
-                            </Button>
-                        </div>
+                            <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                    <Button variant="primary" size="lg" className="aButton px-4 me-md-4 fw-bold" href="#try">
+                                        Try a week
+                                    </Button>
+                                </motion.div>
+                                <motion.div whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.95 }}>
+                                    <Button variant="outline" size="lg" className="aButton px-4" href="#contact">
+                                        Contact us
+                                    </Button>
+                                </motion.div>
+                            </div>
+                        </motion.div>
                     </div>
 
                     <div className="col-lg-6">

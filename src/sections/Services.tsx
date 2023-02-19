@@ -1,11 +1,20 @@
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Concept({ data }: any) {
     const cards = data.fields.map((field: any, index: number) => {
         return (
             <div className="col-lg-4 p-4 py-lg-0" key={index}>
-                <div className="card card-cover overflow-hidden rounded-4 align-items-center text-center">
+                <motion.div
+                    className="card card-cover overflow-hidden rounded-4 align-items-center text-center"
+                    whileHover={{ scale: 1.05, rotate: 2 }}
+                    whileTap={{
+                        scale: 0.95,
+                        rotate: -2,
+                        borderRadius: "100%",
+                    }}
+                >
                     <div className="row">
                         <div className="h-100 pt-5">
                             <Image src={data.assets[index].url} alt="concept icon" height={80} width={80} />
@@ -17,7 +26,7 @@ export default function Concept({ data }: any) {
                     <div className="flex-column p-5 pt-2">
                         <p className="lh-1">{data.values[index]}</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
         );
     });
