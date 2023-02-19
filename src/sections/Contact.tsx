@@ -53,6 +53,42 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
         },
     };
 
+    const handleSubmit = async (e) => {
+        // Stop the form from submitting and refreshing the page.
+        e.preventDefault();
+
+        // Get data from the form.
+        const data = {
+            first: e.target.name.value,
+            last: e.target.email.value,
+        };
+
+        // Send the data to the server in JSON format.
+        const JSONdata = JSON.stringify(data);
+
+        // API endpoint where we send form data.
+        const endpoint = "/api/form";
+
+        // Form the request for sending data to the server.
+        const options = {
+            // The method is POST because we are sending data.
+            method: "POST",
+            // Tell the server we're sending JSON.
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // Body of the request is the JSON data we created above.
+            body: JSONdata,
+        };
+
+        // Send the form data to our forms API on Vercel and get a response.
+        const response = await fetch(endpoint, options);
+
+        // Get the response data from server as JSON.
+        // If server returns the name submitted, that means the form works.
+        const result = await response.json();
+        alert(`Handling: ${result.data}`);
+    };
 
     return (
         <section id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-4 py-5 content">
@@ -76,7 +112,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                         whileInView="onscreen"
                         viewport={{ once: false, amount: "some" }}
                     >
-                        <form className="p-4 p-md-5 rounded-4 shadow-lg">
+                        <form className="p-4 p-md-5 rounded-4 shadow-lg" onSubmit={handleSubmit}>
                             <h3 className="fw-bold lh-1 mb-3">{subtitle}</h3>
 
                             {renderInput("name", values[0], "John Doe", fields[0])}

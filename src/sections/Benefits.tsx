@@ -34,7 +34,7 @@ export default function Benefits({ data }: any) {
                     viewport={{ once: false, amount: "some" }}
                 >
                     <div className="row align-items-center g-lg-5 py-2">
-                        <div className="col-lg-10 text-center text-lg-start">
+                        <div className="col-lg-12 text-center text-lg-start">
                             <h3>{data.subtitle}</h3>
                             <h1 className="lh-1" dangerouslySetInnerHTML={{ __html: data.header }}></h1>
                         </div>

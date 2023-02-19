@@ -26,7 +26,7 @@ export default function Concept({ data }: any) {
             whileInView="onscreen"
             viewport={{ once: false, amount: "some" }}
         >
-            <section id="concept" className="container-xxl px-4 py-5">
+            <section id="concept" className="container-xxl py-5">
                 <div className="row align-items-center py-5">
                     <div className="col-lg-8 text-center text-lg-start">
                         <h3>{data.subtitle}</h3>

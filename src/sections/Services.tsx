@@ -23,7 +23,7 @@ export default function Concept({ data }: any) {
         return (
             <div className="col-lg-4 p-4 py-lg-0" key={index}>
                 <motion.div
-                    className="card card-cover overflow-hidden rounded-4 align-items-center text-center"
+                    className="card card-cover overflow-hidden rounded-4 align-items-center text-center px-4"
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     whileTap={{
                         scale: 0.95,
@@ -55,7 +55,7 @@ export default function Concept({ data }: any) {
             viewport={{ once: false, amount: "some" }}
         >
             <section id="services">
-                <div className="px-4 pt-5 my-5 text-center">
+                <div className="pt-5 my-5 text-center">
                     <h3>{data.subtitle}</h3>
                     <h1 className="display-5 fw-bold">{data.title}</h1>
                     <div className="col-lg-6 mx-auto">
@@ -63,7 +63,7 @@ export default function Concept({ data }: any) {
                     </div>
                 </div>
 
-                <div className="container-xxl px-4 py-5">
+                <div className="container-xxl py-5">
                     <div className="row">{cards}</div>
                 </div>
             </section>

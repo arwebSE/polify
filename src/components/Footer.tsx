@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -35,16 +36,32 @@ const Footer = ({ footer, contact }: any) => {
                                     <h4>{footer.fields[0]}</h4>
                                 </div>
                                 <div className="row">
-                                    <div className="col">
+                                    <motion.div
+                                        className="col"
+                                        whileHover={{ scale: 1.05, rotate: 2 }}
+                                        whileTap={{
+                                            scale: 0.95,
+                                            rotate: -2,
+                                            borderRadius: "100%",
+                                        }}
+                                    >
                                         <Link href={footer.values[0]} className="social">
                                             <FontAwesomeIcon icon={faLinkedin} size="2xl" />
                                         </Link>
-                                    </div>
-                                    <div className="col">
+                                    </motion.div>
+                                    <motion.div
+                                        className="col"
+                                        whileHover={{ scale: 1.05, rotate: 2 }}
+                                        whileTap={{
+                                            scale: 0.95,
+                                            rotate: -2,
+                                            borderRadius: "100%",
+                                        }}
+                                    >
                                         <Link href={footer.values[1]} className="social">
                                             <FontAwesomeIcon icon={faEnvelope} size="2xl" />
                                         </Link>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>
