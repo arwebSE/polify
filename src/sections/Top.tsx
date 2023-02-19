@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import Image from "next/image";
-import { animate } from "framer-motion";
+import { animate, motion, Variants } from "framer-motion";
 
 import imgsvg from "../../public/01.svg";
 
@@ -32,6 +32,20 @@ export default function Top({ partner, empower, logos }: any) {
         return <span ref={nodeRef} />;
     }
 
+    const animVars: Variants = {
+        offscreen: {
+            x: 1500,
+        },
+        onscreen: {
+            x: 0,
+            transition: {
+                type: "spring",
+                bounce: 0.3,
+                duration: 0.8,
+            },
+        },
+    };
+
     return (
         <section id="top">
             <div id="partner" className="container-xxl">
@@ -52,19 +66,24 @@ export default function Top({ partner, empower, logos }: any) {
                             </Button>
                         </div>
                     </div>
+
                     <div className="col-lg-6">
-                        {/* <Image src={partner.assets[0].url} alt="illustration of people working together" height={500} width={1000} style={{position: "absolute"}} /> */}
-                        <div className="imgContainer" style={{ position: "relative" }}>
-                            {/* <Image src={imgsvg} alt="illustration of people working together" width={800} style={{position: "absolute", top:-315, left: -180}} /> */}
-                            <Image
-                                src={imgsvg}
-                                alt="illustration of people working together"
-                                fill={true}
-                                className="image"
-                                priority={true}
-                                sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
-                            />
-                        </div>
+                        <motion.div initial="offscreen" whileInView="onscreen">
+                            <motion.div variants={animVars}>
+                                {/* <Image src={partner.assets[0].url} alt="illustration of people working together" height={500} width={1000} style={{position: "absolute"}} /> */}
+                                <div className="imgContainer" style={{ position: "relative" }}>
+                                    {/* <Image src={imgsvg} alt="illustration of people working together" width={800} style={{position: "absolute", top:-315, left: -180}} /> */}
+                                    <Image
+                                        src={imgsvg}
+                                        alt="illustration of people working together"
+                                        fill={true}
+                                        className="image"
+                                        priority={true}
+                                        sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
+                                    />
+                                </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
