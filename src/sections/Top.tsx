@@ -34,7 +34,7 @@ export default function Top({ partner, empower, logos }: any) {
 
     const animVars: Variants = {
         offscreen: {
-            x: 500,
+            x: 100,
             opacity: 0,
         },
         onscreen: {
@@ -42,8 +42,8 @@ export default function Top({ partner, empower, logos }: any) {
             opacity: 1,
             transition: {
                 type: "spring",
-                bounce: 0.4,
-                duration: 0.8,
+                bounce: 0.1,
+                duration: 1,
             },
         },
     };

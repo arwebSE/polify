@@ -62,7 +62,7 @@ const Navigation = () => {
         <Navbar id="navbar" expand="lg" className={`${!show ? "hidden" : "show"} ${showBg ? "bg" : ""}`} fixed="top">
             <Container fluid>
                 <Navbar.Brand href="#">
-                    <Image src={imgLogo} className="bi me-2" alt="logo" width={50} />
+                    <Image src={imgLogo} className="bi me-2" alt="logo" width={50} priority />
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
