@@ -1,103 +1,118 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
 
-export default function Team({ data, authors }: any) {
+type Author = {
+    name: string;
+    title: string;
+    biography: string;
+    picture: { url: string };
+    links: string[];
+};
+
+type TeamProps = {
+    data: { title: string; subtitle: string; assets: { url: string }[] };
+    authors: Author[];
+};
+
+type CardProps = {
+    author: Author;
+    dataAssetUrl: string;
+};
+
+const Card: React.FC<CardProps> = ({ author, dataAssetUrl }) => (
+    <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
+        <motion.div
+            className="card card-cover rounded-4 align-items-center text-center"
+            whileHover={{ scale: 1.05, rotate: 2 }}
+            whileTap={{
+                scale: 0.95,
+                rotate: -2,
+                borderRadius: "100%",
+            }}
+        >
+            <div className="h-100 pt-5">
+                <Image src={author.picture.url} alt={author.name} height={140} width={140} className="profile" />
+            </div>
+            <div className="pt-3">
+                <h2 className="lh-1 text-white">{author.name}</h2>
+            </div>
+            <div className="pt-1">
+                <h4 className="lh-1 text-white">{author.title}</h4>
+            </div>
+            <div className="px-4 pt-0">
+                <p className="lh-2">{author.biography}</p>
+            </div>
+            <div className="pb-4">
+                <Link href={author.links[0]}>
+                    <Image src={dataAssetUrl} alt="linkedin logo" width={30} height={30} />
+                </Link>
+            </div>
+        </motion.div>
+    </div>
+);
+
+const Team: React.FC<TeamProps> = ({ data, authors }) => {
+    const anim1: Variants = {
+        offscreen: {
+            y: 20,
+            opacity: 0,
+        },
+        onscreen: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                bounce: 0.1,
+                duration: 1.5,
+            },
+        },
+    };
+
+    const anim2: Variants = {
+        offscreen: {
+            opacity: 0,
+        },
+        onscreen: {
+            opacity: 1,
+            transition: {
+                duration: 1.5,
+            },
+        },
+    };
+
     return (
         <section id="team">
             <div className="px-4 pb-5 mb-5 text-center">
-                <div className="pb-5">
-                    <h3>{data.subtitle}</h3>
-                    <h1 className="display-4 fw-bold mb-5">{data.title}</h1>
-                </div>
-                <div className="container-xxl px-4 py-5 mt-5">
-                    <div className="row">
-                        <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                            <div className="card card-cover rounded-4 align-items-center text-center">
-                                <div className="h-100 pt-5">
-                                    <Image
-                                        src={authors[0].picture.url}
-                                        alt={authors[0].name}
-                                        height={140}
-                                        width={140}
-                                        className="profile"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h2 className="lh-1 text-white">{authors[0].name}</h2>
-                                </div>
-                                <div className="pt-1">
-                                    <h4 className="lh-1 text-white">{authors[0].title}</h4>
-                                </div>
-                                <div className="px-4 pt-0">
-                                    <p className="lh-2">{authors[0].biography}</p>
-                                </div>
-                                <div className="pb-4">
-                                    <Link href={authors[0].links[0]}>
-                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                            <div className="card card-cover rounded-4 align-items-center text-center">
-                                <div className="h-100 pt-5">
-                                    <Image
-                                        src={authors[1].picture.url}
-                                        alt={authors[1].name}
-                                        height={140}
-                                        width={140}
-                                        className="profile"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h2 className="lh-1 text-white">{authors[1].name}</h2>
-                                </div>
-                                <div className="pt-1">
-                                    <h4 className="lh-1 text-white">{authors[1].title}</h4>
-                                </div>
-                                <div className="px-4 pt-0">
-                                    <p className="lh-2">{authors[1].biography}</p>
-                                </div>
-                                <div className="pb-4">
-                                    <Link href={authors[1].links[0]}>
-                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-                            <div className="card card-cover rounded-4 align-items-center text-center">
-                                <div className="h-100 pt-5">
-                                    <Image
-                                        src={authors[2].picture.url}
-                                        alt={authors[2].name}
-                                        height={140}
-                                        width={140}
-                                        className="profile"
-                                    />
-                                </div>
-                                <div className="pt-3">
-                                    <h2 className="lh-1 text-white">{authors[2].name}</h2>
-                                </div>
-                                <div className="pt-1">
-                                    <h4 className="lh-1 text-white">{authors[2].title}</h4>
-                                </div>
-                                <div className="px-4 pt-0">
-                                    <p className="lh-2">{authors[2].biography}</p>
-                                </div>
-                                <div className="pb-4">
-                                    <Link href={authors[2].links[0]}>
-                                        <Image src={data.assets[0].url} alt="linkedin logo" width={30} height={30} />
-                                    </Link>
-                                </div>
-                            </div>
+                <motion.div
+                    variants={anim2}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: false, amount: "some" }}
+                >
+                    <div className="pb-5">
+                        <h3>{data.subtitle}</h3>
+                        <h1 className="display-4 fw-bold mb-5">{data.title}</h1>
+                    </div>
+                </motion.div>
+                <motion.div
+                    variants={anim1}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: false, amount: "some" }}
+                >
+                    <div className="container-xxl px-4 py-5 mt-5">
+                        <div className="row">
+                            {authors.map((author, i) => (
+                                <Card key={i} author={author} dataAssetUrl={data.assets[0].url} />
+                            ))}
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
-}
+};
+
+export default Team;

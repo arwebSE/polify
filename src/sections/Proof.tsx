@@ -4,7 +4,7 @@ import { motion, Variants } from "framer-motion";
 export default function Proof({ data }: any) {
     const anim1: Variants = {
         offscreen: {
-            y: 50,
+            y: 20,
             opacity: 0,
         },
         onscreen: {
@@ -13,7 +13,7 @@ export default function Proof({ data }: any) {
             transition: {
                 type: "spring",
                 bounce: 0.1,
-                duration: 2,
+                duration: 1.5,
             },
         },
     };
@@ -21,7 +21,7 @@ export default function Proof({ data }: any) {
     return (
         <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: "some" }}>
             <section id="proof" className="pb-5">
-                <div className="container col-xl-10 col-xxl-8 px-4 py-5">
+                <div className="container-xxl py-5">
                     <div className="row align-items-center g-lg-5 py-2">
                         <div className="col-lg-7 text-center text-lg-start">
                             <h3>{data.subtitle}</h3>

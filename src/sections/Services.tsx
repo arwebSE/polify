@@ -1,8 +1,24 @@
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Concept({ data }: any) {
+    const anim1: Variants = {
+        offscreen: {
+            y: 20,
+            opacity: 0,
+        },
+        onscreen: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                bounce: 0.1,
+                duration: 1.5,
+            },
+        },
+    };
+
     const cards = data.fields.map((field: any, index: number) => {
         return (
             <div className="col-lg-4 p-4 py-lg-0" key={index}>
@@ -32,18 +48,25 @@ export default function Concept({ data }: any) {
     });
 
     return (
-        <section id="services">
-            <div className="px-4 pt-5 my-5 text-center">
-                <h3>{data.subtitle}</h3>
-                <h1 className="display-5 fw-bold">{data.title}</h1>
-                <div className="col-lg-6 mx-auto">
-                    <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+        <motion.div
+            variants={anim1}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: false, amount: "some" }}
+        >
+            <section id="services">
+                <div className="px-4 pt-5 my-5 text-center">
+                    <h3>{data.subtitle}</h3>
+                    <h1 className="display-5 fw-bold">{data.title}</h1>
+                    <div className="col-lg-6 mx-auto">
+                        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+                    </div>
                 </div>
-            </div>
 
-            <div className="container-xxl px-4 py-5">
-                <div className="row">{cards}</div>
-            </div>
-        </section>
+                <div className="container-xxl px-4 py-5">
+                    <div className="row">{cards}</div>
+                </div>
+            </section>
+        </motion.div>
     );
 }
