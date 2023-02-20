@@ -53,7 +53,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
         },
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         // Stop the form from submitting and refreshing the page.
         e.preventDefault();
 
