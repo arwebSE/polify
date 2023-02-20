@@ -115,14 +115,21 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         background-color: rgba(255, 255, 255, 0.897);
         /* backdrop-filter: blur(15px) brightness(98%) opacity(0);
         -webkit-backdrop-filter: blur(15px) brightness(98%) opacity(0);
- */
+        */
+
+        // box shadow below navbar
+        box-shadow: rgb(0 0 0 / 5%) 0px 2px 7px 0px;
+        
+        
         &.show {
             /* backdrop-filter: blur(15px) brightness(98%) opacity(1);
             -webkit-backdrop-filter: blur(15px) brightness(98%) opacity(1); */
             -webkit-backdrop-filter: saturate(180%) blur(20px);
             backdrop-filter: saturate(180%) blur(20px);
             background: rgba(255, 255, 255, 0.9);
-            &::after {
+
+            // border below navbar
+            /* &::after {
                 margin-left: 0;
                 left: 0;
                 width: 100%;
@@ -133,7 +140,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
                 height: 1px;
                 z-index: 1;
                 background: rgba(0, 0, 0, 0.10);
-            }
+            } */
         }
     }
 
@@ -544,6 +551,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
             font-size: 1.5em;
             font-family: "Gelion Medium", sans-serif;
             background-color: #ff5555;
+            color: white;
         }
     }
 

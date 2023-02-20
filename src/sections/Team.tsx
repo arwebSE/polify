@@ -23,15 +23,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ author, dataAssetUrl }) => (
     <div className="col-lg-4 p-2 p-xl-4 py-lg-0 my-5 my-lg-1">
-        <motion.div
-            className="card card-cover rounded-4 align-items-center text-center"
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            whileTap={{
-                scale: 0.95,
-                rotate: -2,
-                borderRadius: "100%",
-            }}
-        >
+        <div className="card card-cover rounded-4 align-items-center text-center">
             <div className="h-100 pt-5">
                 <Image src={author.picture.url} alt={author.name} height={140} width={140} className="profile" />
             </div>
@@ -45,11 +37,19 @@ const Card: React.FC<CardProps> = ({ author, dataAssetUrl }) => (
                 <p className="lh-2">{author.biography}</p>
             </div>
             <div className="pb-4">
-                <Link href={author.links[0]}>
-                    <Image src={dataAssetUrl} alt="linkedin logo" width={30} height={30} />
-                </Link>
+                <motion.div
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{
+                        scale: 0.95,
+                        borderRadius: "100%",
+                    }}
+                >
+                    <Link href={author.links[0]}>
+                        <Image src={dataAssetUrl} alt="linkedin logo" width={30} height={30} />
+                    </Link>
+                </motion.div>
             </div>
-        </motion.div>
+        </div>
     </div>
 );
 
