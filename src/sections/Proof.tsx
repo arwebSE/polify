@@ -19,7 +19,7 @@ export default function Proof({ data }: any) {
     };
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: "some" }}>
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.5 }}>
             <section id="proof" className="pb-5">
                 <div className="container-xxl py-5">
                     <div className="row align-items-center g-lg-5 py-2">

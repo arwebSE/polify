@@ -16,7 +16,7 @@ const verifyRecaptcha = async (token: string) => {
     const verificationUrl = `${process.env.NEXT_PUBLIC_CAPTCHA_ENDPOINT}?secret=${secretKey}&response=${token}`;
 
     console.log("reCAPTCHA verification URL: ", verificationUrl);
-    
+
     try {
         const response = await fetch(verificationUrl, {
             method: "POST",
@@ -33,7 +33,7 @@ const verifyRecaptcha = async (token: string) => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { name, email, message, token } = req.body;
+    const { name, email, links, message, token } = req.body;
 
     if (!name || !email || !message) {
         console.error("Please fill out all required fields.");
@@ -48,7 +48,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 from: process.env.EMAIL_SENDER,
                 to: process.env.EMAIL_RECEIVER,
                 subject: `PolifyContact from: ${name}`,
-                html: `<div>${message}</div><p>Sent from: ${email}</p>`,
+                html: `<div>Sent From: ${name} (${email})</div><br><br>
+                <div>Links: ${links}</div><br><br>
+                <div>Message: ${message}</div><br><br>`,
             };
 
             await transporter.sendMail(mailData);

@@ -28,8 +28,14 @@ body {
     }
 }
 
+:target {
+    scroll-margin-top: 100px;
+}
+
 // HIDE RECAPTCHA
-.grecaptcha-badge { visibility: hidden; }
+.grecaptcha-badge {
+    visibility: hidden;
+}
 
 // Include any default variable overrides here (though functions won't be available)
 $bs-nav-pills-link-active-bg: #ff5771;
@@ -101,11 +107,10 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
  */
 
-.fixed-top.alert{
+.fixed-top.alert {
     top: 71px;
     z-index: 99999;
 }
-
 
 #navbar {
     transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;
@@ -128,8 +133,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
         // box shadow below navbar
         box-shadow: rgb(0 0 0 / 5%) 0px 2px 7px 0px;
-        
-        
+
         &.show {
             /* backdrop-filter: blur(15px) brightness(98%) opacity(1);
             -webkit-backdrop-filter: blur(15px) brightness(98%) opacity(1); */
@@ -323,6 +327,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
 #benefits {
     margin-bottom: 200px;
+    padding-top: 70px;
     .subtext {
         color: rgba(255, 255, 255, 0.79);
         line-height: 1.2;
@@ -352,6 +357,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
 #concept {
     margin-bottom: 200px;
+    padding-top: 500px;
     .circle {
         margin-bottom: -200px;
         /* width: 35rem; */
