@@ -28,6 +28,9 @@ body {
     }
 }
 
+// HIDE RECAPTCHA
+.grecaptcha-badge { visibility: hidden; }
+
 // Include any default variable overrides here (though functions won't be available)
 $bs-nav-pills-link-active-bg: #ff5771;
 
@@ -97,6 +100,12 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     width: 100%;
 }
  */
+
+.fixed-top.alert{
+    top: 71px;
+    z-index: 99999;
+}
+
 
 #navbar {
     transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;

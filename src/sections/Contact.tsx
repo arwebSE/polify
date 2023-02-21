@@ -1,6 +1,9 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Alert, Button } from "react-bootstrap";
 import { motion, Variants } from "framer-motion";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
+
 interface ContactProps {
     data: {
         title: string;
@@ -11,15 +14,82 @@ interface ContactProps {
     };
 }
 
+interface FormData {
+    [key: string]: string;
+}
+
+interface InputField {
+    type: "text" | "email" | "textarea";
+    id: string;
+    placeholder: string;
+    label: string;
+    name: string;
+}
+
+interface responseTypes {
+    message: string;
+    status: number;
+}
+
 const Contact: React.FC<ContactProps> = ({ data }) => {
     const { title, description, subtitle, values, fields } = data;
+    const [formData, setFormData] = useState<FormData>({});
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const [isBtnDisabled, setBtnDisabled] = useState(false);
+    const [response, setResponse] = useState<responseTypes | null>(null);
+    const [showAlert, setShowAlert] = useState(false);
 
-    const renderInput = (type: string, id: string, placeholder: string, label: string) => (
-        <div className="form-floating mb-3">
-            <input type={type} className="form-control" id={id} placeholder={placeholder} />
-            <label htmlFor={id}>{label}</label>
-        </div>
-    );
+    const inputFields: InputField[] = [
+        { type: "text", id: values[0], placeholder: "John Doe", label: fields[0], name: "name" },
+        { type: "email", id: values[1], placeholder: "name@example.com", label: fields[1], name: "email" },
+        { type: "text", id: values[2], placeholder: "example.com/my-project", label: fields[2], name: "links" },
+        { type: "textarea", id: values[3], placeholder: "Leave a message here...", label: fields[3], name: "message" },
+    ];
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log("Sending message...");
+
+        setBtnDisabled(true);
+
+        if (!executeRecaptcha) {
+            console.log("Recaptcha not loaded");
+            return;
+        }
+
+        try {
+            const token = await executeRecaptcha();
+            if (!token) {
+                setResponse({ message: "Failed to Send!", status: 400 });
+                return;
+            }
+
+            const result = await axios.post("/api/form", {
+                token,
+                ...formData,
+            });
+            console.log("Got response...", result);
+
+            if (result) {
+                setResponse({
+                    message: result.data.message,
+                    status: result.data.status,
+                });
+                setShowAlert(true);
+            }
+            setBtnDisabled(false);
+        } catch (error: any) {
+            console.log(error);
+            setResponse({ message: error.response.data.error, status: error.response.status });
+            setShowAlert(true);
+            setBtnDisabled(false);
+        }
+    };
 
     const anim1: Variants = {
         offscreen: {
@@ -53,43 +123,6 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
         },
     };
 
-    const handleSubmit = async (e: any) => {
-        // Stop the form from submitting and refreshing the page.
-        e.preventDefault();
-
-        // Get data from the form.
-        const data = {
-            first: e.target.name.value,
-            last: e.target.email.value,
-        };
-
-        // Send the data to the server in JSON format.
-        const JSONdata = JSON.stringify(data);
-
-        // API endpoint where we send form data.
-        const endpoint = "/api/form";
-
-        // Form the request for sending data to the server.
-        const options = {
-            // The method is POST because we are sending data.
-            method: "POST",
-            // Tell the server we're sending JSON.
-            headers: {
-                "Content-Type": "application/json",
-            },
-            // Body of the request is the JSON data we created above.
-            body: JSONdata,
-        };
-
-        // Send the form data to our forms API on Vercel and get a response.
-        const response = await fetch(endpoint, options);
-
-        // Get the response data from server as JSON.
-        // If server returns the name submitted, that means the form works.
-        const result = await response.json();
-        alert(`Handling: ${result.data}`);
-    };
-
     return (
         <section id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-4 py-5 content">
             <div className="row py-5 mb-5 justify-content-between">
@@ -115,20 +148,58 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                         <form className="p-4 p-md-5 rounded-4 shadow-lg" onSubmit={handleSubmit}>
                             <h3 className="fw-bold lh-1 mb-3">{subtitle}</h3>
 
-                            {renderInput("name", values[0], "John Doe", fields[0])}
-                            {renderInput("email", values[1], "name@example.com", fields[1])}
-                            {renderInput("text", values[2], "example.com/my-project", fields[2])}
+                            {showAlert && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -50 }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            type: "spring",
+                                            bounce: 0.3,
+                                            duration: 0.4,
+                                        },
+                                    }}
+                                >
+                                    {/* say variant success if response status is 200, and variant danger if response status is 400 */}
 
-                            <div className="form-floating mb-3">
-                                <textarea
-                                    /* type="text" */
-                                    className="form-control"
-                                    id={values[3]}
-                                    placeholder="Leave a message here..."
-                                    /* style="height: 100px" */
-                                ></textarea>
-                                <label htmlFor={values[3]}>{fields[3]}</label>
-                            </div>
+                                    <Alert
+                                        onClose={() => setShowAlert(false)}
+                                        dismissible
+                                        variant={response?.status === 200 ? "success" : "danger"}
+                                    >
+                                        {/* if error, show error message, else show success message */}
+                                        <Alert.Heading>
+                                            {response?.status === 200 ? "Success!" : "Error!"}
+                                        </Alert.Heading>
+                                        <p>{response?.message}</p>
+                                    </Alert>
+                                </motion.div>
+                            )}
+
+                            {inputFields.map((field) => (
+                                <div className="form-floating mb-3" key={field.id}>
+                                    {field.type === "textarea" ? (
+                                        <textarea
+                                            className="form-control"
+                                            id={field.id}
+                                            name={field.name}
+                                            placeholder={field.placeholder}
+                                            onChange={handleInputChange}
+                                        ></textarea>
+                                    ) : (
+                                        <input
+                                            type={field.type}
+                                            className="form-control"
+                                            id={field.id}
+                                            name={field.name}
+                                            placeholder={field.placeholder}
+                                            onChange={handleInputChange}
+                                        />
+                                    )}
+                                    <label htmlFor={field.id}>{field.label}</label>
+                                </div>
+                            ))}
 
                             <Button
                                 variant="primary"
@@ -136,9 +207,15 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                                 type="submit"
                                 className="w-100 mt-4"
                                 style={{ border: "none" }}
+                                disabled={isBtnDisabled}
                             >
                                 Submit
                             </Button>
+                            <p className="text-muted" style={{ fontSize: 10, marginTop: 5 }}>
+                                This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy"> Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms"> Terms of Service</a> apply.
+                            </p>
                         </form>
                     </motion.div>
                 </div>

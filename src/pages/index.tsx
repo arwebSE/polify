@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import { GraphQLClient, gql } from "graphql-request";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 import PageHead from "@/components/PageHead";
 import Navbar from "@/components/Navbar";
@@ -60,19 +61,22 @@ export default function Home({ sections, authors }: any) {
     };
 
     return (
-        <>
+        <GoogleReCaptchaProvider
+            reCaptchaKey={process.env.NEXT_PUBLIC_CAPTCHA || ""}
+            scriptProps={{
+                async: false, // optional, default to false,
+                defer: true, // optional, default to false
+                appendTo: "body", // optional, default to "head", can be "head" or "body",
+                nonce: undefined,
+            }}
+        >
             <Head>
                 <PageHead />
             </Head>
 
             <Navbar />
 
-            <main
-                data-bs-spy="scroll"
-                data-bs-target="#navbar"
-                data-bs-smooth-scroll="true"
-                data-bs-offset="500"
-            >
+            <main data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" data-bs-offset="500">
                 <Top partner={getSection("partner")} empower={getSection("empower")} logos={getSection("logos")} />
 
                 <Proof data={getSection("proof")} />
@@ -105,6 +109,6 @@ export default function Home({ sections, authors }: any) {
 
                 <Footer footer={getSection("footer")} contact={getSection("contact")} />
             </main>
-        </>
+        </GoogleReCaptchaProvider>
     );
 }
