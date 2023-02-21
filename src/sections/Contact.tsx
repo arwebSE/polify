@@ -78,7 +78,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
             if (result) {
                 setResponse({
                     message: result.data.message,
-                    status: result.data.status,
+                    status: result.status,
                 });
                 setShowAlert(true);
             }
@@ -205,7 +205,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                                 variant="primary"
                                 size="lg"
                                 type="submit"
-                                className="w-100 mt-4"
+                                className="w-100 mt-4 submitBtn"
                                 style={{ border: "none" }}
                                 disabled={isBtnDisabled}
                             >
