@@ -89,7 +89,7 @@ const Team: React.FC<TeamProps> = ({ data, authors }) => {
                     variants={anim2}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: "some" }}
+                    viewport={{ once: false, amount: 0.5 }}
                 >
                     <div className="pb-5">
                         <h3>{data.subtitle}</h3>
@@ -100,7 +100,7 @@ const Team: React.FC<TeamProps> = ({ data, authors }) => {
                     variants={anim1}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: "some" }}
+                    viewport={{ once: false, amount: 0.5 }}
                 >
                     <div className="container-xxl px-4 py-5 mt-5">
                         <div className="row">

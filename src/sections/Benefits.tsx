@@ -31,7 +31,7 @@ export default function Benefits({ data }: any) {
                     variants={anim1}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: "some" }}
+                    viewport={{ once: false, amount: 0.8 }}
                 >
                     <div className="row align-items-center g-lg-5 py-2">
                         <div className="col-lg-12 text-center text-lg-start">
@@ -54,9 +54,9 @@ export default function Benefits({ data }: any) {
                                     variants={anim2}
                                     initial="initial"
                                     whileInView="animate"
-                                    viewport={{ once: true, amount: "all" }}
+                                    viewport={{ once: true, amount: 0.95 }}
                                     key={index}
-                                    transition={{ delay: (index + 1) * 0.5, type: "spring", bounce: 0.1, duration: 1.2 }}
+                                    transition={{ delay: (index + 1) * 0.5, type: "spring", bounce: 0.1, duration: 1 }}
                                 >
                                     <div className="row align-items-center" style={{ padding: 5, marginBottom: 15 }}>
                                         <Image

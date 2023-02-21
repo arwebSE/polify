@@ -24,7 +24,7 @@ export default function Concept({ data }: any) {
             variants={anim1}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: false, amount: "some" }}
+            viewport={{ once: false, amount: 0.6 }}
         >
             <section id="concept" className="container-xxl py-5">
                 <div className="row align-items-center py-5">

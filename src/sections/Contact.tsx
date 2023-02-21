@@ -49,9 +49,11 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
     const resetFormData = () => {
         setFormData({});
         const inputs = document.getElementsByTagName("input");
+        // reset input fields
         Array.from(inputs).forEach((input) => {
             input.value = "";
         });
+        // reset textarea fields
         inputFields.forEach((field) => {
             const textarea = document.getElementById(field.id) as HTMLTextAreaElement | null;
             if (textarea) {
@@ -149,7 +151,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                         variants={anim1}
                         initial="offscreen"
                         whileInView="onscreen"
-                        viewport={{ once: false, amount: "some" }}
+                        viewport={{ once: false, amount: 0.5 }}
                     >
                         <h2 className="display-5 fw-bold lh-1 mb-5" dangerouslySetInnerHTML={{ __html: title }} />
                         <p className="col-lg-10 fs-4" dangerouslySetInnerHTML={{ __html: description }} />
@@ -161,7 +163,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                         variants={anim2}
                         initial="offscreen"
                         whileInView="onscreen"
-                        viewport={{ once: false, amount: "some" }}
+                        viewport={{ once: false, amount: 0.5 }}
                     >
                         <form className="p-4 p-md-5 rounded-4 shadow-lg" onSubmit={handleSubmit}>
                             <h3 className="fw-bold lh-1 mb-3">{subtitle}</h3>
