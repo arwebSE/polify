@@ -46,6 +46,20 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
         { type: "textarea", id: values[3], placeholder: "Leave a message here...", label: fields[3], name: "message" },
     ];
 
+    const resetFormData = () => {
+        setFormData({});
+        const inputs = document.getElementsByTagName("input");
+        Array.from(inputs).forEach((input) => {
+            input.value = "";
+        });
+        inputFields.forEach((field) => {
+            const textarea = document.getElementById(field.id) as HTMLTextAreaElement | null;
+            if (textarea) {
+                textarea.value = "";
+            }
+        });
+    };
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -81,6 +95,10 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                     status: result.status,
                 });
                 setShowAlert(true);
+                // reset form data
+                //setFormData({});
+
+                resetFormData();
             }
             setBtnDisabled(false);
         } catch (error: any) {
