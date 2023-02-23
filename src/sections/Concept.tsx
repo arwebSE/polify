@@ -30,7 +30,7 @@ export default function Concept({ data }: any) {
                 <div className="row align-items-center py-5">
                     <div className="col-lg-8 text-center text-lg-start">
                         <h3>{data.subtitle}</h3>
-                        <h1 className="lh-1">{data.title}</h1>
+                        <h1 className="lh-1">{data.header}</h1>
                     </div>
                 </div>
 
