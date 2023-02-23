@@ -101,16 +101,16 @@ export default function Top({ partner, empower, logos }: any) {
 
             <div id="empower" className="container-lg mt-5">
                 <div className="row px-2">
-                    <div className="d-flex flex-row align-items-center justify-content-between p-5 rounded-5 border shadow mb-4">
-                        <div className="col-lg-6">
+                    <div className="d-md-flex flex-row align-items-center justify-content-between p-4 p-lg-5 rounded-5 border shadow mb-4">
+                        <div className="col-md-6 col-12">
                             <h2 className="fw-bold lh-1 m-0 " dangerouslySetInnerHTML={{ __html: empower.header }} />
                         </div>
-                        <div className="col-lg-6">
-                            <div className="row">
+                        <div className="col-md-6 col-12">
+                            <div className="row mt-5">
                                 {empower.values.map((value: string, index: number) => {
                                     const val = Number(value);
                                     return (
-                                        <div className="col-lg-4" key={index}>
+                                        <div className="col-md-4 col-6" key={index}>
                                             <h1 className="fw-bold m-0">
                                                 <Counter from={0} to={val} />+
                                             </h1>
