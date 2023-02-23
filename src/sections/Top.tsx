@@ -65,11 +65,16 @@ export default function Top({ partner, empower, logos }: any) {
 
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                    <Button variant="primary" size="lg" className="aButton px-4 me-md-4 fw-bold" href="#try">
+                                    <Button
+                                        variant="primary"
+                                        size="lg"
+                                        className="aButton px-4 me-md-4 fw-bold"
+                                        href="#try"
+                                    >
                                         Try a week
                                     </Button>
                                 </motion.div>
-                                <motion.div whileHover={{ scale: 1.05 }}  whileTap={{ scale: 0.95 }}>
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                     <Button variant="outline" size="lg" className="aButton px-4" href="#contact">
                                         Contact us
                                     </Button>
@@ -81,11 +86,9 @@ export default function Top({ partner, empower, logos }: any) {
                     <div className="col-lg-6">
                         <motion.div initial="offscreen" whileInView="onscreen">
                             <motion.div variants={animVars}>
-                                {/* <Image src={partner.assets[0].url} alt="illustration of people working together" height={500} width={1000} style={{position: "absolute"}} /> */}
                                 <div className="imgContainer" style={{ position: "relative" }}>
-                                    {/* <Image src={imgsvg} alt="illustration of people working together" width={800} style={{position: "absolute", top:-315, left: -180}} /> */}
                                     <Image
-                                        src={imgsvg}
+                                        src={partner.assets[0].url}
                                         alt="illustration of people working together"
                                         fill={true}
                                         className="image"
