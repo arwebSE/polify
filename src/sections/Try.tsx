@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import { Button } from "react-bootstrap";
 
 export default function Try({ data }: any) {
     const anim1: Variants = {
@@ -19,12 +20,7 @@ export default function Try({ data }: any) {
     };
 
     return (
-        <motion.div
-            variants={anim1}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: false, amount: 0.5 }}
-        >
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.5 }}>
             <section id="try" className="container col-xl-10 col-xxl-8 px-4 py-5 my-5">
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-8">
@@ -33,9 +29,9 @@ export default function Try({ data }: any) {
                         <p className="col-lg-10 fs-4 lh-2" dangerouslySetInnerHTML={{ __html: data.description }} />
 
                         <div className="d-md-flex mt-4">
-                            <button type="button" className="btn btn-light btn-lg px-4 py-3 me-md-4 fw-bold">
+                            <Button variant="light" size="lg" className="px-4 py-3 me-md-4 fw-bold" href={data.values[0]}>
                                 Try Now!
-                            </button>
+                            </Button>
                         </div>
                     </div>
                     <div className="col-md-10 mx-auto col-lg-4"></div>
