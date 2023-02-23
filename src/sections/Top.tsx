@@ -3,8 +3,6 @@ import { Button } from "react-bootstrap";
 import Image from "next/image";
 import { animate, motion, Variants } from "framer-motion";
 
-import imgsvg from "../../public/01.svg";
-
 export default function Top({ partner, empower, logos }: any) {
     function Counter({ from, to }: { from: number; to: number }) {
         const nodeRef = useRef<HTMLSpanElement>(null);
