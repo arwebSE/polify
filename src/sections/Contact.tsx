@@ -6,7 +6,7 @@ import axios from "axios";
 
 interface ContactProps {
     data: {
-        title: string;
+        header: string;
         description: string;
         subtitle: string;
         values: string[];
@@ -32,7 +32,7 @@ interface responseTypes {
 }
 
 const Contact: React.FC<ContactProps> = ({ data }) => {
-    const { title, description, subtitle, values, fields } = data;
+    const { header, description, subtitle, values, fields } = data;
     const [formData, setFormData] = useState<FormData>({});
     const { executeRecaptcha } = useGoogleReCaptcha();
     const [isBtnDisabled, setBtnDisabled] = useState(false);
@@ -153,7 +153,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.5 }}
                     >
-                        <h2 className="display-5 fw-bold lh-1 mb-5" dangerouslySetInnerHTML={{ __html: title }} />
+                        <h2 className="display-5 fw-bold lh-1 mb-5" dangerouslySetInnerHTML={{ __html: header }} />
                         <p className="col-lg-10 fs-4" dangerouslySetInnerHTML={{ __html: description }} />
                     </motion.div>
                 </div>

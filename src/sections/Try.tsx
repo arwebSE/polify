@@ -29,7 +29,7 @@ export default function Try({ data }: any) {
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-8">
                         <h3>{data.subtitle}</h3>
-                        <h1 className="display-1 fw-bold lh-1 mb-4">{data.title}</h1>
+                        <h1 className="display-1 fw-bold lh-1 mb-4">{data.header}</h1>
                         <p className="col-lg-10 fs-4 lh-2" dangerouslySetInnerHTML={{ __html: data.description }} />
 
                         <div className="d-md-flex mt-4">

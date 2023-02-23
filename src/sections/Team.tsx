@@ -12,7 +12,7 @@ type Author = {
 };
 
 type TeamProps = {
-    data: { title: string; subtitle: string; assets: { url: string }[] };
+    data: { header: string; subtitle: string; assets: { url: string }[] };
     authors: Author[];
 };
 
@@ -93,7 +93,7 @@ const Team: React.FC<TeamProps> = ({ data, authors }) => {
                 >
                     <div className="pb-5">
                         <h3>{data.subtitle}</h3>
-                        <h1 className="display-4 fw-bold mb-5">{data.title}</h1>
+                        <h1 className="display-4 fw-bold mb-5">{data.header}</h1>
                     </div>
                 </motion.div>
                 <motion.div

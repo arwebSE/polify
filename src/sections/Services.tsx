@@ -56,7 +56,7 @@ export default function Concept({ data }: any) {
             <section id="services">
                 <div className="pt-5 my-5 text-center">
                     <h3>{data.subtitle}</h3>
-                    <h1 className="display-5 fw-bold">{data.title}</h1>
+                    <h1 className="display-5 fw-bold">{data.header}</h1>
                     <div className="col-lg-6 mx-auto">
                         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
                     </div>
