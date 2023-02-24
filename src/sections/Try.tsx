@@ -21,7 +21,7 @@ export default function Try({ data }: any) {
     };
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.5 }}>
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.4 }}>
             <section id="try" className="container px-4 py-5 my-5">
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-7">

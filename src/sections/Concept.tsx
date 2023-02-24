@@ -20,7 +20,7 @@ export default function Concept({ data }: any) {
     };
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.6 }}>
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: "some" }}>
             <section id="concept" className="container-xxl py-5" style={{ position: "relative" }}>
                 <div className="row align-items-center py-5">
                     <div className="col-lg-8 text-center text-lg-start">
@@ -44,13 +44,6 @@ export default function Concept({ data }: any) {
                         style={{ padding: 0 }}
                     >
                         <div className="imgContainer circle" style={{ position: "relative" }}>
-                            {/*  <Image
-                                src={data.assets[0].url}
-                                alt="circle that represents the process"
-                                className="circle"
-                                height={450}
-                                width={450}
-                            /> */}
                             <Image
                                 src={data.assets[0].url}
                                 alt="circle that represents the process"
@@ -84,7 +77,7 @@ export default function Concept({ data }: any) {
                     </div>
                 </div>
 
-                <div className="row align-items-center pb-2 justify-content-md-center mt-4">
+                <div className="row align-items-center pb-2 justify-content-md-center mt-5">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4 text-lg-center">
                         {/* FEEDBACK */}

@@ -5,10 +5,10 @@ export default function PageHead() {
         <>
             <meta charSet="utf-8" />
             <title>Polify</title>
-            <meta name="description" content="" />
+            <meta name="description" content="Polify, Your Long Term Partner." />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            <meta property="og:title" content="Polify" />
+            <meta property="og:title" content="Polify" key="title" />
             <meta property="og:description" content="Polify, Your Long Term Partner." />
             <meta property="og:type" content="website" />
             <meta property="og:image" content="./favicon-32x32.png" />

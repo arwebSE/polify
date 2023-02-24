@@ -240,6 +240,8 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         }
     }
     .imgContainer {
+        margin-top: 65px;
+        margin-bottom: -60px;
         .image {
             width: 120% !important;
             /* margin-left: -200px; */
@@ -276,7 +278,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #proof {
-    margin-bottom: 300px;
+    /* margin-bottom: 300px; */
     h3 {
         color: #aa55ff;
         font-family: "Gelion Light", sans-serif;
@@ -308,8 +310,8 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     background: url(/ellipse.svg) no-repeat;
     background-size: cover;
     min-height: 100vh;
-    padding-top: 300px;
-    padding-bottom: 300px;
+    padding-top: 150px;
+    padding-bottom: 180px;
     h1 {
         font-family: "Gelion Regular", sans-serif;
         color: #fff;
@@ -341,7 +343,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #benefits {
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
     padding-top: 70px;
     .subtext {
         color: rgba(255, 255, 255, 0.79);
@@ -371,11 +373,9 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #concept {
-    margin-bottom: 200px;
-    padding-top: 500px;
     .circle {
         margin-bottom: -300px;
-        /* width: 35rem; */
+        width: 25rem;
         max-width: 600px;
     }
     .fakepic {
@@ -394,7 +394,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     background-color: #ff6464;
     margin-top: -200px;
     padding-top: 200px;
-    padding-bottom: 350px;
+    padding-bottom: 150px;
     position: relative;
     z-index: 6;
     .wrapper {
@@ -447,7 +447,7 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 
     #try {
         color: #ffdbdb;
-        margin-top: 200px !important;
+        margin-top: 50px !important;
         h1 {
             font-weight: 900;
             font-size: 5.5em;

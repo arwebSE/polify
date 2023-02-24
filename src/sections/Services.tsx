@@ -51,7 +51,7 @@ export default function Concept({ data }: any) {
             variants={anim1}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: false, amount: 0.6 }}
+            viewport={{ once: false, amount: 0.4 }}
         >
             <section id="services">
                 <div className="pt-5 my-5 text-center">

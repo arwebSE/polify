@@ -31,7 +31,7 @@ export default function Benefits({ data }: any) {
                     variants={anim1}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.8 }}
+                    viewport={{ once: false, amount: 0.4 }}
                 >
                     <div className="row align-items-center g-lg-5 py-2">
                         <div className="col-lg-7 text-center text-lg-start">
