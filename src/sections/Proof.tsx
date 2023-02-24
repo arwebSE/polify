@@ -32,7 +32,7 @@ export default function Proof({ data }: any) {
                         </div>
                     </div>
                     <div className="row align-items-center g-lg-5">
-                        <div className="col-md-10 col-lg-6">
+                        <div className="col-md-10 col-lg-6" style={{ paddingRight: 75 }}>
                             <p dangerouslySetInnerHTML={{ __html: data.description }} />
                         </div>
                         <div className="col-lg-6 text-center text-lg-start p-5 pb-3 ps-lg-0">

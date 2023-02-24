@@ -325,6 +325,13 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         font-size: 2.2em;
     }
 
+    h4 {
+        color: #f8f8f8;
+        font-family: "Gelion Regular", sans-serif;
+        font-weight: 700;
+        font-size: 1.8em;
+    }
+
     .subtext {
         color: #b4b4b4;
         font-family: "Gelion Light", sans-serif;
@@ -367,18 +374,18 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     margin-bottom: 200px;
     padding-top: 500px;
     .circle {
-        margin-bottom: -200px;
+        margin-bottom: -300px;
         /* width: 35rem; */
         max-width: 600px;
     }
     .fakepic {
-        width: 30%;
+        width: 33%;
     }
     .subtext {
         font-size: 1.3em;
     }
     h4 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 }
 
