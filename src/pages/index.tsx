@@ -72,6 +72,7 @@ export default function Home({ sections, authors }: any) {
         >
             <Head>
                 <PageHead />
+                <title>Polify</title>
             </Head>
 
             <Navbar />
