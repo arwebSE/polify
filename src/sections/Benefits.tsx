@@ -34,45 +34,56 @@ export default function Benefits({ data }: any) {
                     viewport={{ once: false, amount: 0.8 }}
                 >
                     <div className="row align-items-center g-lg-5 py-2">
-                        <div className="col-lg-12 text-center text-lg-start">
+                        <div className="col-lg-7 text-center text-lg-start">
                             <h3>{data.subtitle}</h3>
                             <h1 className="lh-1" dangerouslySetInnerHTML={{ __html: data.header }}></h1>
-                        </div>
-                    </div>
-                    <div className="row align-items-center g-lg-5 py-2">
-                        <div className="col-lg-7 text-center text-lg-start">
                             <p className="subtext" dangerouslySetInnerHTML={{ __html: data.description }} />
+                            {data.fields.map((field: any, index: number) => {
+                                if (index === null && index !== 0) return null;
+                                return (
+                                    <motion.div
+                                        variants={anim2}
+                                        initial="initial"
+                                        whileInView="animate"
+                                        viewport={{ once: true, amount: 0.95 }}
+                                        key={index}
+                                        transition={{
+                                            delay: (index + 1) * 0.5,
+                                            type: "spring",
+                                            bounce: 0.1,
+                                            duration: 1,
+                                        }}
+                                    >
+                                        <div
+                                            className="row align-items-center"
+                                            style={{ padding: 5, marginBottom: 15 }}
+                                        >
+                                            <Image
+                                                src={data.assets[0].url}
+                                                alt="small P"
+                                                height={20}
+                                                width={20}
+                                                className="col-1"
+                                            />
+                                            <li className="col-11 subtext">{field}</li>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                        <div className="col-lg-5 text-center">
+                            <div className="imgContainer" style={{ position: "relative" }}>
+                                <Image
+                                    src={data.assets[1].url}
+                                    alt="illustration of a tablet application"
+                                    fill={true}
+                                    className="image"
+                                    sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
+                                />
+                            </div>
                         </div>
                     </div>
                 </motion.div>
-                <div className="row align-items-center g-lg-5 py-2">
-                    <div className="col-lg-7 text-center text-lg-start">
-                        {data.fields.map((field: any, index: number) => {
-                            if (index === null && index !== 0) return null;
-                            return (
-                                <motion.div
-                                    variants={anim2}
-                                    initial="initial"
-                                    whileInView="animate"
-                                    viewport={{ once: true, amount: 0.95 }}
-                                    key={index}
-                                    transition={{ delay: (index + 1) * 0.5, type: "spring", bounce: 0.1, duration: 1 }}
-                                >
-                                    <div className="row align-items-center" style={{ padding: 5, marginBottom: 15 }}>
-                                        <Image
-                                            src={data.assets[0].url}
-                                            alt="small P"
-                                            height={20}
-                                            width={20}
-                                            className="col-1"
-                                        />
-                                        <li className="col-11 subtext">{field}</li>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-                </div>
             </div>
         </section>
     );

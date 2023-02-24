@@ -111,6 +111,16 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     z-index: 99999;
 }
 
+.imgContainer {
+    width: 100%;
+    .image {
+        object-fit: contain;
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
+    }
+}
+
 #navbar {
     transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;
     top: 0;
@@ -214,25 +224,24 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
             &.btn-primary {
                 background-color: $primary;
                 color: #ffffff;
-                border: none;
-                box-shadow: 0px 0px 20px 0px #ff556e9c;
+                border-color: transparent;
+                /* box-shadow: 0px 0px 20px 0px #ff556e9c; */
+                &:hover {
+                    box-shadow: 0px 0px 20px 0px #ff556e9c;
+                }
             }
-            /*
-            &:hover {
-                opacity: 0.6;
-                transform: translateY(-2px);
-            } 
-            transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out;
-            */
+            &.btn-outline {
+                &:hover {
+                    box-shadow: 0px 0px 20px 0px #9999999c;
+                }
+            }
+
+            transition: box-shadow 0.1s ease-in-out;
         }
     }
     .imgContainer {
-        width: 100%;
         .image {
-            object-fit: contain;
             width: 120% !important;
-            position: relative !important;
-            height: unset !important;
             /* margin-left: -200px; */
         }
     }
@@ -454,6 +463,11 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
             &:focus {
                 background-color: #fca3a3;
                 color: #fff;
+            }
+        }
+        .imgContainer {
+            .image {
+                width: 130% !important;
             }
         }
     }

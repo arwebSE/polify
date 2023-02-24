@@ -41,7 +41,7 @@ export default function Top({ partner, empower, logos }: any) {
             transition: {
                 type: "spring",
                 bounce: 0.1,
-                duration: 1,
+                duration: 1,    
             },
         },
     };
