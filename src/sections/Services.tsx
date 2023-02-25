@@ -31,14 +31,14 @@ export default function Concept({ data }: any) {
                     }}
                 >
                     <div className="row">
-                        <div className="h-100 pt-5">
+                        <div className="h-100 pt-5 pb-1">
                             <Image src={data.assets[index].url} alt="concept icon" height={80} width={80} />
                         </div>
                     </div>
-                    <div className="pt-3">
-                        <h2 className="lh-1">{field}</h2>
+                    <div className="pt-3 py-2" style={index === 1 ? { paddingTop: "10px !important" } : {}}>
+                        <h2>{field}</h2>
                     </div>
-                    <div className="flex-column p-5 pt-2">
+                    <div className="flex-column px-3 py-3" style={index === 1 ? { paddingTop: "0px !important" } : {}}>
                         <p className="lh-1">{data.values[index]}</p>
                     </div>
                 </motion.div>
@@ -47,12 +47,7 @@ export default function Concept({ data }: any) {
     });
 
     return (
-        <motion.div
-            variants={anim1}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: false, amount: 0.4 }}
-        >
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.4 }}>
             <section id="services">
                 <div className="pt-5 my-5 text-center">
                     <h3>{data.subtitle}</h3>

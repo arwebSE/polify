@@ -22,17 +22,13 @@ export default function Proof({ data }: any) {
         <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.5 }}>
             <section id="proof" className="pb-5">
                 <div className="container-xxl py-5">
-                    <div className="row align-items-center g-lg-5 py-2">
-                        <div className="col-lg-7 text-center text-lg-start">
-                            <h3>{data.subtitle}</h3>
-                            <h1
-                                className="display-5 fw-bold lh-1 mb-0"
-                                dangerouslySetInnerHTML={{ __html: data.header }}
-                            />
-                        </div>
-                    </div>
                     <div className="row align-items-center g-lg-5">
                         <div className="col-md-10 col-lg-6" style={{ paddingRight: 75 }}>
+                            <h3 className="mb-0">{data.subtitle}</h3>
+                            <h1
+                                className="display-5 fw-bold lh-1 mb-4"
+                                dangerouslySetInnerHTML={{ __html: data.header }}
+                            />
                             <p dangerouslySetInnerHTML={{ __html: data.description }} />
                         </div>
                         <div className="col-lg-6 text-center text-lg-start p-5 pb-3 ps-lg-0">
