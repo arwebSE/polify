@@ -36,7 +36,7 @@ export default function Benefits({ data }: any) {
                     <div className="row align-items-center g-lg-5 py-2">
                         <div className="col-lg-7 text-center text-lg-start">
                             <h3>{data.subtitle}</h3>
-                            <h1 className="lh-1" dangerouslySetInnerHTML={{ __html: data.header }}></h1>
+                            <h1 className="lh-1 mb-4" dangerouslySetInnerHTML={{ __html: data.header }}></h1>
                             <p className="subtext" dangerouslySetInnerHTML={{ __html: data.description }} />
                             {data.fields.map((field: any, index: number) => {
                                 if (index === null && index !== 0) return null;
