@@ -128,7 +128,7 @@ export default function Top({ partner, empower, logos }: any) {
             <div id="logos" className="container px-5 my-5">
                 <div className="row py-4 px-5 align-items-center">
                     {logos.assets.map((asset: any, index: number) => (
-                        <div className="col-lg-3 text-center" key={index}>
+                        <div className="col-lg-3 text-center py-3" key={index}>
                             {/* <Image src={asset.url} alt="partner logo" height={60} width={60} /> */}
                             {/* eslint-disable @next/next/no-img-element */}
                             <img src={asset.url} alt="partner logo" height={45} />

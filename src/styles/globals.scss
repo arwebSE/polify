@@ -298,6 +298,9 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
             margin-top: 10px;
         }
     }
+    .padrite {
+        padding-right: 75px;
+    }
 }
 
 .bgsvg {
@@ -426,7 +429,6 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         font-size: 1.2em;
     }
     .card {
-        cursor: pointer;
         background-color: #ffacac52;
         color: white;
         border: #ffdbdb 3px solid;
@@ -709,5 +711,21 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     }
     #partner .text-lg-start .aButton {
         margin: auto;
+    }
+    #proof {
+        .padrite {
+            padding-right: calc(var(--bs-gutter-x) * 0.5);
+        }
+    }
+    #darkWrapper {
+        padding-bottom: 500px;
+
+    }
+    #pinkWrapper {
+        margin-top: -220px;
+    }
+    #diag2 {
+        height: 260px;
+        margin-top: -645px;
     }
 }

@@ -23,7 +23,7 @@ export default function Proof({ data }: any) {
             <section id="proof" className="pb-5">
                 <div className="container-xxl py-5">
                     <div className="row align-items-center g-lg-5">
-                        <div className="col-md-10 col-lg-6" style={{ paddingRight: 75 }}>
+                        <div className="col-md-10 col-lg-6 padrite" >
                             <h3 className="mb-0">{data.subtitle}</h3>
                             <h1
                                 className="display-5 fw-bold lh-1 mb-4"
