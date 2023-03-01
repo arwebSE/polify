@@ -84,24 +84,18 @@ const Team: React.FC<TeamProps> = ({ data, authors }) => {
 
     return (
         <section id="team">
-            <div className="px-4 pb-5 mb-5 text-center">
+            <div className="px-4 pb-md-5 mb-md-5 text-center">
                 <motion.div
                     variants={anim2}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.4 }}
+                    viewport={{ once: false, amount: 0.3 }}
                 >
-                    <div className="pb-5">
+                    <div className="pb-md-5">
                         <h3>{data.subtitle}</h3>
-                        <h1 className="display-4 fw-bold mb-5">{data.header}</h1>
+                        <h1 className="display-4 fw-bold mb-md-5">{data.header}</h1>
                     </div>
-                </motion.div>
-                <motion.div
-                    variants={anim1}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.4 }}
-                >
+
                     <div className="container-xxl px-4 py-5 mt-5">
                         <div className="row">
                             {authors.map((author, i) => (

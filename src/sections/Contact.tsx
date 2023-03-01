@@ -144,8 +144,8 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
     };
 
     return (
-        <section id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-4 py-5 content">
-            <div className="row py-5 mb-5 justify-content-between">
+        <section id="contact" className="container-lg col-11 col-lg-10 col-xxxl-7 px-md-4 py-md-5 content">
+            <div className="row py-md-5 mb-5 justify-content-between">
                 <div className="col-lg-6 text-lg-start py-3 my-5 my-lg-1">
                     <motion.div
                         variants={anim1}
@@ -158,7 +158,7 @@ const Contact: React.FC<ContactProps> = ({ data }) => {
                     </motion.div>
                 </div>
 
-                <div className="col-lg-5 col-md-12">
+                <div className="col-lg-5 col-sm-12">
                     <motion.div
                         variants={anim2}
                         initial="offscreen"

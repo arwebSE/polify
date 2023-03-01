@@ -50,7 +50,7 @@ export default function Top({ partner, empower, logos }: any) {
         <section id="top">
             <div id="partner" className="container-xxl">
                 <div className="row align-items-center">
-                    <div className="col-lg-6 text-center text-lg-start pt-5">
+                    <div className="col-lg-6 text-lg-start pt-5">
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                             <h1
                                 className="display-1 fw-bold lh-1 mb-0"
@@ -62,7 +62,7 @@ export default function Top({ partner, empower, logos }: any) {
                             />
 
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
                                     <Button
                                         variant="primary"
                                         size="lg"
@@ -72,7 +72,7 @@ export default function Top({ partner, empower, logos }: any) {
                                         Try a week
                                     </Button>
                                 </motion.div>
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
                                     <Button variant="outline" size="lg" className="aButton px-4" href="#contact">
                                         Contact us
                                     </Button>

@@ -20,7 +20,7 @@ const Footer = ({ footer, contact }: any) => {
 
             <footer>
                 <div className="container content col-xl-10 col-xxl-7">
-                    <div className="pt-4 mt-4 mb-5">
+                    <div className="pt-md-4 mt-4 mb-5">
                         <div className="d-flex flex-row justify-content-between align-items-center">
                             <div className="d-flex align-items-center">
                                 <a href="#" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -32,7 +32,7 @@ const Footer = ({ footer, contact }: any) => {
                             </div>
 
                             <div className="text-center">
-                                <div className="row p-2">
+                                <div className="row p-md-2 pt-0">
                                     <h4>{footer.fields[0]}</h4>
                                 </div>
                                 <div className="row">
@@ -66,7 +66,7 @@ const Footer = ({ footer, contact }: any) => {
                             </div>
                         </div>
                         <div className="d-flex flex-row">
-                            <span className="mt-4 copyright">
+                            <span className="mt-md-4 copyright">
                                 <div dangerouslySetInnerHTML={{ __html: footer.description }} />
                             </span>
                         </div>

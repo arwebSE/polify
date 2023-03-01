@@ -21,8 +21,8 @@ export default function Try({ data }: any) {
     };
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.4 }}>
-            <section id="try" className="container px-4 py-5 my-5">
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.3 }}>
+            <section id="try" className="container px-4 py-md-5 my-md-5">
                 <div className="row align-items-center g-lg-5 py-5">
                     <div className="col-lg-7">
                         <h3>{data.subtitle}</h3>
@@ -41,7 +41,7 @@ export default function Try({ data }: any) {
                         </div>
                     </div>
                     <div className="col-lg-5 mx-auto col-lg-4">
-                        <div className="imgContainer" style={{ position: "relative", marginLeft: -200, zIndex: -1 }}>
+                        <div className="imgContainer resetMargin" style={{ position: "relative", marginLeft: -200, zIndex: -1 }}>
                             <Image
                                 src={data.assets[0].url}
                                 alt="illustration of a tablet application"

@@ -47,7 +47,7 @@ export default function Concept({ data }: any) {
     });
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.4 }}>
+        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: 0.3 }}>
             <section id="services">
                 <div className="pt-5 my-5 text-center">
                     <h3>{data.subtitle}</h3>
@@ -57,7 +57,7 @@ export default function Concept({ data }: any) {
                     </div>
                 </div>
 
-                <div className="container-xxl py-5">
+                <div className="container-xxl py-md-5">
                     <div className="row">{cards}</div>
                 </div>
             </section>

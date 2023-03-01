@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-
 export default function Benefits({ data }: any) {
     const anim1: Variants = {
         offscreen: {
@@ -31,22 +30,24 @@ export default function Benefits({ data }: any) {
                     variants={anim1}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: false, amount: 0.4 }}
+                    viewport={{ once: false, amount: 0.3 }}
                 >
                     <div className="row align-items-center g-lg-5 py-2">
-                        <div className="col-lg-7 text-center text-lg-start">
+                        <div className="col-lg-7">
                             <h3>{data.subtitle}</h3>
                             <h1 className="lh-1 mb-4" dangerouslySetInnerHTML={{ __html: data.header }}></h1>
                             <p className="subtext" dangerouslySetInnerHTML={{ __html: data.description }} />
                             {data.fields.map((field: any, index: number) => {
                                 if (index === null && index !== 0) return null;
+
                                 return (
                                     <motion.div
+                                        key={index}
+                                        className="removeAnim"
                                         variants={anim2}
                                         initial="initial"
                                         whileInView="animate"
                                         viewport={{ once: true, amount: 0.95 }}
-                                        key={index}
                                         transition={{
                                             delay: (index + 1) * 0.5,
                                             type: "spring",
@@ -63,9 +64,9 @@ export default function Benefits({ data }: any) {
                                                 alt="small P"
                                                 height={20}
                                                 width={20}
-                                                className="col-1"
+                                                className="col-2 col-md-1"
                                             />
-                                            <li className="col-11 subtext">{field}</li>
+                                            <li className="col-10 col-md-11 subtext">{field}</li>
                                         </div>
                                     </motion.div>
                                 );

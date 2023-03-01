@@ -712,6 +712,16 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     #partner .text-lg-start .aButton {
         margin: auto;
     }
+    #partner {
+        .imgContainer {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            .image {
+                width: 100% !important;
+            }
+        }
+    }
+   
     #proof {
         .padrite {
             padding-right: calc(var(--bs-gutter-x) * 0.5);
@@ -719,13 +729,46 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
     }
     #darkWrapper {
         padding-bottom: 500px;
-
     }
     #pinkWrapper {
         margin-top: -220px;
+        #try {
+            .imgContainer {
+                .image {
+                    width: 100% !important;
+                }
+            }
+        }
     }
     #diag2 {
         height: 260px;
-        margin-top: -645px;
+        margin-top: -585px;
+    }
+    .removeAnim {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .hideOnMobile {
+        display: none !important;
+    }
+    .resetMargin {
+        margin: auto !important;
+    }
+    .slogan {
+        font-size: 1em !important;
+        line-height: 1 !important;
+    }
+    .copyright {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 5px !important;
+    }
+    .borderWrapper {
+        div {
+            border-top: none !important;
+        }
+    }
+    .marge {
+        margin: auto !important;
     }
 }
