@@ -7,16 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 import imgLogo from "../../public/logo.svg";
 
-const navLinks = [
-    { href: "#benefits", text: "Benefits" },
-    { href: "#concept", text: "Concept" },
-    { href: "#services", text: "Services" },
-    { href: "#team", text: "Team" },
-    /* { href: "/blog", text: "Blog" }, */
-    { href: "#contact", text: "Contact", className: "tinted" },
-];
-
-const Navigation = () => {
+const Navigation = ({ data }: any) => {
     const [show, setShow] = useState(true);
     const [showBg, setShowBg] = useState(false);
     //const prevScrollY = useRef(0);
@@ -58,6 +49,17 @@ const Navigation = () => {
         }
     }, [show]);
 
+    const navLinks = data.fields.map((field: any, index: number) => {
+        //if last item, set className to "tinted"
+        let cName = "";
+        if (index === data.fields.length - 1) cName = "tinted";
+        return (
+            <Nav.Link key={index} href={data.values[index]} className={cName}>
+                {field}
+            </Nav.Link>
+        );
+    });
+
     return (
         <Navbar id="navbar" expand="lg" className={`${!show ? "hidden" : "show"} ${showBg ? "bg" : ""}`} fixed="top">
             <Container fluid>
@@ -66,11 +68,7 @@ const Navigation = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    {navLinks.map((link, index) => (
-                        <Nav.Link key={index} href={link.href} className={link.className}>
-                            {link.text}
-                        </Nav.Link>
-                    ))}
+                    {navLinks}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

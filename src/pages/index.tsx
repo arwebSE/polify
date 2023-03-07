@@ -75,7 +75,7 @@ export default function Home({ sections, authors }: any) {
                 <title>Polify</title>
             </Head>
 
-            <Navbar />
+            <Navbar data={getSection("navbar")} />
 
             <main>
                 <Top partner={getSection("partner")} empower={getSection("empower")} logos={getSection("logos")} />
