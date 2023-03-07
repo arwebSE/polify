@@ -73,7 +73,10 @@ export default function Blog({ sections, posts }: any) {
             <PageHead />
 
             <main>
-                <Navbar />
+                <Navbar data={getSection("navbar")} />
+
+                <br /><br /><br />
+                <br /><br /><br />
 
                 <Container>
                     <section style={{ minHeight: "100vh" }}>
