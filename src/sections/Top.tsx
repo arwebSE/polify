@@ -134,20 +134,9 @@ export default function Top({ partner, empower, logos }: any) {
                 </div>
             </div>
 
-            <div id="logos" className="container px-5 my-5">
-                <div className="row py-4 px-5 align-items-center">
-                    {logos.assets.map((asset: any, index: number) => (
-                        <div className="col-lg-3 text-center py-3" key={index}>
-                            {/* <Image src={asset.url} alt="partner logo" height={60} width={60} /> */}
-                            {/* eslint-disable @next/next/no-img-element */}
-                            <img src={asset.url} alt="partner logo" height={45} />
-                            {/* eslint-enable @next/next/no-img-element */}
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="container">
+            {/* <div id="logos" className="container px-5 my-5"> */}
+            {/* <div className="row py-4 px-5 align-items-center"> */}
+            <div id="logos" className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="lc-block">
@@ -206,12 +195,12 @@ export default function Top({ partner, empower, logos }: any) {
                                         href="#carouselLogos"
                                         data-bs-slide="prev"
                                     >
-                                        <Image
+                                        {/* <Image
                                             src={empower.assets[0].url}
                                             alt="illustration of people working together"
                                             height={32}
                                             width={32}
-                                        />
+                                        /> */}
                                         <span className="visually-hidden">Previous</span>
                                     </a>
                                     <a
@@ -219,12 +208,12 @@ export default function Top({ partner, empower, logos }: any) {
                                         href="#carouselLogos"
                                         data-bs-slide="next"
                                     >
-                                        <Image
+                                        {/* <Image
                                             src={empower.assets[1].url}
                                             alt="illustration of people working together"
                                             height={32}
                                             width={32}
-                                        />
+                                        /> */}
                                         <span className="visually-hidden">Next</span>
                                     </a>
                                 </div>
@@ -233,6 +222,7 @@ export default function Top({ partner, empower, logos }: any) {
                     </div>
                 </div>
             </div>
+
         </section>
     );
 }
