@@ -141,7 +141,6 @@ export default function Top({ partner, empower, logos }: any) {
             <div id="logos" className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        
                         <SeamlessScroller>
                             {logos.assets.map((asset: any, index: number) => (
                                 <Image
@@ -152,6 +151,7 @@ export default function Top({ partner, empower, logos }: any) {
                                     width={100}
                                     sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
                                     key={index}
+                                    priority={true}
                                 />
                             ))}
                         </SeamlessScroller>
