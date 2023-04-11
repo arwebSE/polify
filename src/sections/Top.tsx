@@ -51,11 +51,7 @@ export default function Top({ partner, empower, logos }: any) {
             <div id="partner" className="container-xxl">
                 <div className="row align-items-center">
                     <div className="col-lg-6 text-lg-start pt-5">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                        >
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                             <h1
                                 className="display-1 fw-bold lh-1 mb-0"
                                 dangerouslySetInnerHTML={{
@@ -70,11 +66,7 @@ export default function Top({ partner, empower, logos }: any) {
                             />
 
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="marge"
-                                >
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
                                     <Button
                                         variant="primary"
                                         size="lg"
@@ -84,17 +76,8 @@ export default function Top({ partner, empower, logos }: any) {
                                         Try a week
                                     </Button>
                                 </motion.div>
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="marge"
-                                >
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        className="aButton px-4"
-                                        href="#contact"
-                                    >
+                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
+                                    <Button variant="outline" size="lg" className="aButton px-4" href="#contact">
                                         Contact us
                                     </Button>
                                 </motion.div>
@@ -105,10 +88,7 @@ export default function Top({ partner, empower, logos }: any) {
                     <div className="col-lg-6">
                         <motion.div initial="offscreen" whileInView="onscreen">
                             <motion.div variants={animVars}>
-                                <div
-                                    className="imgContainer"
-                                    style={{ position: "relative" }}
-                                >
+                                <div className="imgContainer" style={{ position: "relative" }}>
                                     <Image
                                         src={partner.assets[0].url}
                                         alt="illustration of people working together"
@@ -137,28 +117,17 @@ export default function Top({ partner, empower, logos }: any) {
                         </div>
                         <div className="col-md-6 col-12">
                             <div className="row mt-5">
-                                {empower.values.map(
-                                    (value: string, index: number) => {
-                                        const val = Number(value);
-                                        return (
-                                            <div
-                                                className="col-md-4 col-6"
-                                                key={index}
-                                            >
-                                                <h1 className="fw-bold m-0">
-                                                    <Counter
-                                                        from={0}
-                                                        to={val}
-                                                    />
-                                                    +
-                                                </h1>
-                                                <p className="lead m-0">
-                                                    {empower.fields[index]}
-                                                </p>
-                                            </div>
-                                        );
-                                    }
-                                )}
+                                {empower.values.map((value: string, index: number) => {
+                                    const val = Number(value);
+                                    return (
+                                        <div className="col-md-4 col-6" key={index}>
+                                            <h1 className="fw-bold m-0">
+                                                <Counter from={0} to={val} />+
+                                            </h1>
+                                            <p className="lead m-0">{empower.fields[index]}</p>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -171,88 +140,53 @@ export default function Top({ partner, empower, logos }: any) {
                         <div className="col-lg-3 text-center py-3" key={index}>
                             {/* <Image src={asset.url} alt="partner logo" height={60} width={60} /> */}
                             {/* eslint-disable @next/next/no-img-element */}
-                            <img
-                                src={asset.url}
-                                alt="partner logo"
-                                height={45}
-                            />
+                            <img src={asset.url} alt="partner logo" height={45} />
                             {/* eslint-enable @next/next/no-img-element */}
                         </div>
                     ))}
                 </div>
             </div>
 
-
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="lc-block">
-                            <div
-                                id="carouselLogos"
-                                className="carousel slide pt-5 pb-4"
-                                data-bs-ride="carousel"
-                            >
+                            <div id="carouselLogos" className="carousel slide pt-5 pb-4" data-bs-ride="carousel">
                                 <div className="carousel-inner px-5">
                                     <div className="carousel-item active">
-                                        <div className="row">
-                                            {logos.assets.map(
-                                                (asset: any, index: number) => (
-                                                    <div
-                                                        className="col-6 col-lg-2 align-self-center"
-                                                        key={index}
-                                                    >
-                                                        {/* eslint-disable @next/next/no-img-element */}
-                                                        <img
-                                                            className="d-block w-100 px-3 mb-3"
+                                        <div className="row imgRow">
+                                            {logos.assets.slice(0, 6).map((asset: any, index: number) => (
+                                                <div className="col-6 col-lg-2 align-self-center" key={index}>
+                                                    <div className="imgWrapper">
+                                                        <Image
+                                                            className="d-block w-100 px-3 mb-3 logoImg"
                                                             src={asset.url}
                                                             alt="partner logo"
-                                                            height={60}
-                                                            width={60}
+                                                            height={45}
+                                                            width={45}
+                                                            sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
                                                         />
-                                                        {/* eslint-enable @next/next/no-img-element */}
                                                     </div>
-                                                )
-                                            )}
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                     <div className="carousel-item">
-                                        <div className="row">
-                                            {/* <div className="col-6 col-lg-2 align-self-center">
-                                                <img className="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
-                                            </div>
-                                            <div className="col-6 col-lg-2  align-self-center">
-                                                <img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
-                                            </div>
-                                            <div className="col-6 col-lg-2  align-self-center">
-                                                <img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
-                                            </div>
-                                            <div className="col-6 col-lg-2  align-self-center">
-                                                <img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
-                                            </div>
-                                            <div className="col-6 col-lg-2  align-self-center">
-                                                <img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
-                                            </div>
-                                            <div className="col-6 col-lg-2  align-self-center">
-                                                <img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
-                                            </div> */}
-                                            {logos.assets.map(
-                                                (asset: any, index: number) => (
-                                                    <div
-                                                        className="col-6 col-lg-2 align-self-center"
-                                                        key={index}
-                                                    >
-                                                        {/* eslint-disable @next/next/no-img-element */}
-                                                        <img
-                                                            className="d-block w-100 px-3 mb-3"
+                                        <div className="row imgRow">
+                                            {logos.assets.slice(6, 12).map((asset: any, index: number) => (
+                                                <div className="col-6 col-lg-2 align-self-center" key={index}>
+                                                    <div className="imgWrapper">
+                                                        <Image
+                                                            className="d-block w-100 px-3 mb-3 logoImg"
                                                             src={asset.url}
                                                             alt="partner logo"
-                                                            height={60}
-                                                            width={60}
+                                                            height={45}
+                                                            width={45}
+                                                            sizes="(max-width: 720px) 90vw, (max-width: 1140px) 50vw, 33vw"
                                                         />
-                                                        {/* eslint-enable @next/next/no-img-element */}
                                                     </div>
-                                                )
-                                            )}
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -263,11 +197,7 @@ export default function Top({ partner, empower, logos }: any) {
                                         data-bs-slide-to="0"
                                         className="active bg-dark carousel-control-prev-icon"
                                     ></li>
-                                    <li
-                                        data-bs-target="#carouselLogos"
-                                        data-bs-slide-to="1"
-                                        className="bg-dark"
-                                    ></li>
+                                    <li data-bs-target="#carouselLogos" data-bs-slide-to="1" className="bg-dark"></li>
                                 </ol>
 
                                 <div className="w-100 px-3 text-center mt-4">
@@ -276,44 +206,26 @@ export default function Top({ partner, empower, logos }: any) {
                                         href="#carouselLogos"
                                         data-bs-slide="prev"
                                     >
-                                        <svg
-                                            width="2em"
-                                            height="2em"
-                                            viewBox="0 0 16 16"
-                                            className="text-dark"
-                                            fill="currentColor"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-                                            ></path>
-                                        </svg>
-                                        <span className="visually-hidden">
-                                            Previous
-                                        </span>
+                                        <Image
+                                            src={empower.assets[0].url}
+                                            alt="illustration of people working together"
+                                            height={32}
+                                            width={32}
+                                        />
+                                        <span className="visually-hidden">Previous</span>
                                     </a>
                                     <a
                                         className="carousel-control-next position-relative d-inline"
                                         href="#carouselLogos"
                                         data-bs-slide="next"
                                     >
-                                        <svg
-                                            width="2em"
-                                            height="2em"
-                                            viewBox="0 0 16 16"
-                                            className="text-dark"
-                                            fill="currentColor"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                                            ></path>
-                                        </svg>
-                                        <span className="visually-hidden">
-                                            Next
-                                        </span>
+                                        <Image
+                                            src={empower.assets[1].url}
+                                            alt="illustration of people working together"
+                                            height={32}
+                                            width={32}
+                                        />
+                                        <span className="visually-hidden">Next</span>
                                     </a>
                                 </div>
                             </div>
