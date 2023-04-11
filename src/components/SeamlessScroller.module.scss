@@ -40,7 +40,7 @@
 
     .logosSlide {
         display: inline-block;
-        animation: 20s slide infinite linear;
+        animation: 120s slide infinite linear;
 
         &::before {
             content: attr(data-content);
@@ -50,8 +50,9 @@
         img {
             height: 60px;
             width: 120px;
-            margin: 0 20px;
+            margin: 0 35px;
             object-fit: contain;
+            filter: grayscale(30%) opacity(0.8);
         }
     }
 }
