@@ -122,7 +122,8 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
 }
 
 #navbar {
-    transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out, transform 0.5s ease-in-out;
+    transition: top 0.5s ease-in-out, backdrop-filter 0.3s ease-in-out,
+        transform 0.5s ease-in-out;
     top: 0;
     z-index: 1000;
 
@@ -198,12 +199,17 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         h1 {
             font-family: "Poppins", sans-serif;
             font-weight: 700 !important;
+            margin-top: 0.5em;
+            font-size: 3.5em;
+        }
+        h3 {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.45em;
         }
         p {
             color: $dark;
             font-family: "Gelion Light", sans-serif;
             font-weight: 400;
-            font-size: 19.5135px;
             line-height: 132.5%;
             span {
                 font-family: "Gelion Medium", sans-serif;
@@ -449,15 +455,16 @@ $gradient2: linear-gradient(90deg, #fda5b3 6.08%, #fc687e 99.66%);
         border: #ffdbdb 3px solid;
         box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
         height: 370px;
-        transition: background-color 0.2s ease-in-out, color 0.1s ease-in-out, box-shadow 0.2s ease-in-out,
-            filter 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out, color 0.1s ease-in-out,
+            box-shadow 0.2s ease-in-out, filter 0.2s ease-in-out;
         &:hover {
             background-color: #ffdbdb;
             color: #ff6464;
             box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.5);
             img {
-                filter: brightness(0) saturate(100%) invert(92%) sepia(15%) saturate(5664%) hue-rotate(297deg)
-                    brightness(92%) contrast(123%);
+                filter: brightness(0) saturate(100%) invert(92%) sepia(15%)
+                    saturate(5664%) hue-rotate(297deg) brightness(92%)
+                    contrast(123%);
             }
         }
     }
