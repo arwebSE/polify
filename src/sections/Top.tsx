@@ -53,22 +53,35 @@ export default function Top({ partner, empower, logos }: any) {
             <div id="partner" className="container-xxl">
                 <div className="row align-items-center">
                     <div className="col-lg-6 text-lg-start pt-5">
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
                             <h1
                                 className="display-1 fw-bold lh-1 mb-0"
-                                dangerouslySetInnerHTML={{
+                                /* dangerouslySetInnerHTML={{
                                     __html: partner.header,
-                                }}
-                            ></h1>
+                                }} */
+                            >
+                                Web3&apos;s First Organic Marketing Agency
+                            </h1>
+                            <h3 className="fw-bold lh-2 mt-2 tint">
+                                Where engagement matters more than numbers
+                            </h3>
                             <p
-                                className="col-lg-10 fs-4 pt-3"
+                                className="col-lg-10 fs-5 pt-2 mb-0"
                                 dangerouslySetInnerHTML={{
                                     __html: partner.description,
                                 }}
-                            />
+                            ></p>
 
                             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="marge"
+                                >
                                     <Button
                                         variant="primary"
                                         size="lg"
@@ -78,8 +91,17 @@ export default function Top({ partner, empower, logos }: any) {
                                         Try a week
                                     </Button>
                                 </motion.div>
-                                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="marge">
-                                    <Button variant="outline" size="lg" className="aButton px-4" href="#contact">
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="marge"
+                                >
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="aButton px-4"
+                                        href="#contact"
+                                    >
                                         Contact us
                                     </Button>
                                 </motion.div>
@@ -90,7 +112,10 @@ export default function Top({ partner, empower, logos }: any) {
                     <div className="col-lg-6">
                         <motion.div initial="offscreen" whileInView="onscreen">
                             <motion.div variants={animVars}>
-                                <div className="imgContainer" style={{ position: "relative" }}>
+                                <div
+                                    className="imgContainer"
+                                    style={{ position: "relative" }}
+                                >
                                     <Image
                                         src={partner.assets[0].url}
                                         alt="illustration of people working together"
@@ -119,17 +144,28 @@ export default function Top({ partner, empower, logos }: any) {
                         </div>
                         <div className="col-md-6 col-12">
                             <div className="row mt-5">
-                                {empower.values.map((value: string, index: number) => {
-                                    const val = Number(value);
-                                    return (
-                                        <div className="col-md-4 col-6" key={index}>
-                                            <h1 className="fw-bold m-0">
-                                                <Counter from={0} to={val} />+
-                                            </h1>
-                                            <p className="lead m-0">{empower.fields[index]}</p>
-                                        </div>
-                                    );
-                                })}
+                                {empower.values.map(
+                                    (value: string, index: number) => {
+                                        const val = Number(value);
+                                        return (
+                                            <div
+                                                className="col-md-4 col-6"
+                                                key={index}
+                                            >
+                                                <h1 className="fw-bold m-0">
+                                                    <Counter
+                                                        from={0}
+                                                        to={val}
+                                                    />
+                                                    +
+                                                </h1>
+                                                <p className="lead m-0">
+                                                    {empower.fields[index]}
+                                                </p>
+                                            </div>
+                                        );
+                                    }
+                                )}
                             </div>
                         </div>
                     </div>

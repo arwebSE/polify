@@ -20,21 +20,37 @@ export default function Concept({ data }: any) {
     };
 
     return (
-        <motion.div variants={anim1} initial="offscreen" whileInView="onscreen" viewport={{ once: false, amount: "some" }}>
-            <section id="concept" className="container-xxl py-5" style={{ position: "relative" }}>
+        <motion.div
+            variants={anim1}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: false, amount: "some" }}
+        >
+            <section
+                id="concept"
+                className="container-xxl py-5"
+                style={{ position: "relative" }}
+            >
                 <div className="row align-items-center py-md-5">
                     <div className="col-lg-8 text-center text-lg-start">
                         <h3>{data.subtitle}</h3>
                         <h1 className="lh-1">{data.header}</h1>
+                        <p className="col-lg-8 subtext">{data.description}</p>
                     </div>
                 </div>
 
                 <br />
                 <br />
 
-                <div className="row justify-content-md-center align-items-center py-2 px-2 px-md-0" style={{ position: "relative" }}>
+                <div
+                    className="row justify-content-md-center align-items-center py-2 px-2 px-md-0"
+                    style={{ position: "relative" }}
+                >
                     {/* EXECUTE */}
-                    <div className="col-lg-3 text-lg-end pe-lg-0 order-lg-1" style={{ paddingLeft: 0 }}>
+                    <div
+                        className="col-lg-3 text-lg-end pe-lg-0 order-lg-1"
+                        style={{ paddingLeft: 0 }}
+                    >
                         <h4>{data.fields[0]}</h4>
                         <p className="subtext">{data.values[0]}</p>
                     </div>
@@ -43,7 +59,10 @@ export default function Concept({ data }: any) {
                         className="text-center align-items-center col-md-auto order-sm-first order-lg-2 hideOnMobile"
                         style={{ padding: 0 }}
                     >
-                        <div className="imgContainer circle" style={{ position: "relative" }}>
+                        <div
+                            className="imgContainer circle"
+                            style={{ position: "relative" }}
+                        >
                             <Image
                                 src={data.assets[0].url}
                                 alt="circle that represents the process"
@@ -55,7 +74,10 @@ export default function Concept({ data }: any) {
                     </div>
 
                     {/* RESEARCH */}
-                    <div className="col-lg-3 text-lg-start ps-lg-0 order-lg-3" style={{ paddingLeft: 0 }}>
+                    <div
+                        className="col-lg-3 text-lg-start ps-lg-0 order-lg-3"
+                        style={{ paddingLeft: 0 }}
+                    >
                         <h4>{data.fields[1]}</h4>
                         <p className="subtext">{data.values[1]}</p>
                     </div>
