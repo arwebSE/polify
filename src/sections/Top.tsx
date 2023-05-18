@@ -66,9 +66,12 @@ export default function Top({ partner, empower, logos }: any) {
                             >
                                 Web3&apos;s First Organic Marketing Agency
                             </h1>
-                            <h3 className="fw-bold lh-2 mt-2 tint">
-                                Where engagement matters more than numbers
-                            </h3>
+                            <h3
+                                className="fw-bold lh-2 mt-2 tint"
+                                dangerouslySetInnerHTML={{
+                                    __html: partner.subtitle,
+                                }}
+                            ></h3>
                             <p
                                 className="col-lg-10 fs-5 pt-2 mb-0"
                                 dangerouslySetInnerHTML={{
