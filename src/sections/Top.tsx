@@ -60,12 +60,10 @@ export default function Top({ partner, empower, logos }: any) {
                         >
                             <h1
                                 className="display-1 fw-bold lh-1 mb-0"
-                                /* dangerouslySetInnerHTML={{
+                                dangerouslySetInnerHTML={{
                                     __html: partner.header,
-                                }} */
-                            >
-                                Web3&apos;s First Organic Marketing Agency
-                            </h1>
+                                }}
+                            ></h1>
                             <h3
                                 className="fw-bold lh-2 mt-2 tint"
                                 dangerouslySetInnerHTML={{
