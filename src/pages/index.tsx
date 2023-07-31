@@ -57,7 +57,9 @@ export default function Home({ sections, authors }: any) {
     /* console.log("Posts:", sections); */
 
     const getSection = (slug: string) => {
-        return sections.filter((section: { slug: string }) => section.slug === slug)[0];
+        return sections.filter(
+            (section: { slug: string }) => section.slug === slug
+        )[0];
     };
 
     return (
@@ -78,7 +80,11 @@ export default function Home({ sections, authors }: any) {
             <Navbar data={getSection("navbar")} />
 
             <main>
-                <Top partner={getSection("partner")} empower={getSection("empower")} logos={getSection("logos")} />
+                <Top
+                    partner={getSection("partner")}
+                    empower={getSection("empower")}
+                    logos={getSection("logos")}
+                />
 
                 <Proof data={getSection("proof")} />
 
@@ -108,7 +114,10 @@ export default function Home({ sections, authors }: any) {
                 <br />
                 <br />
 
-                <Footer footer={getSection("footer")} contact={getSection("contact")} />
+                <Footer
+                    footer={getSection("footer")}
+                    contact={getSection("contact")}
+                />
             </main>
         </GoogleReCaptchaProvider>
     );
