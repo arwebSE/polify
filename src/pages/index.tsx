@@ -64,7 +64,7 @@ export default function Home({ sections, authors }: any) {
 
     return (
         <GoogleReCaptchaProvider
-            reCaptchaKey={process.env.NEXT_PUBLIC_CAPTCHA || ""}
+            reCaptchaKey={process.env.CAPTCHA_KEY || ""}
             scriptProps={{
                 async: false, // optional, default to false,
                 defer: true, // optional, default to false
